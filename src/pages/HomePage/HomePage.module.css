@@ -1,0 +1,81 @@
+.video {
+    width: 100%;
+    height: 700px;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+  }
+
+.container{
+    width: 1160px;
+    margin: 0 auto;
+    font-family: 'Red Hat Display', sans-serif;
+}
+
+.texts{
+    text-align: center;
+}
+
+.welcome{
+    text-align: start;
+    margin-top: 150px;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+.extra{
+   font-size: 28px; 
+   font-weight: 300;
+   text-align: start;
+   margin-left: 720px;
+   margin-top: -115px;
+}
+
+.img1{
+    margin-top: 50px;
+    width: 1160px;
+    height: 520px;
+}
+
+
+.box{
+    width: 302px;
+    height: 145px;
+    border: none solid;
+    background-color: rgb(197, 185, 185);
+    opacity: 0.8;
+    margin-top: -80px;
+    margin-left: 639px;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.img2{
+    width: 219px;
+    height: 145px;
+    margin-top: -80px;
+    margin-left: 941px;
+}
+
+.underimg{
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 21px;
+    text-decoration: none;
+    text-align: start;
+}
+
+.btn{
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    background: inherit;
+    color: rgb(59, 59, 199);
+}
