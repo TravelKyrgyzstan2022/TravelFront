@@ -32,7 +32,7 @@ const HomePage = () => {
                   window.open("https://en.wikipedia.org/wiki/Issyk-Kul")
                 }
               >
-                Learn More
+                Изучи еще
               </button>
               <Link to="/redux">
                 <nav className={home.item}>Redux</nav>
