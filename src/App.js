@@ -10,6 +10,11 @@ import Eat from "./pages/Eat/Eat";
 import Enter from "./pages/Entertaiment/Enter";
 import See from "./pages/SeeNTry/See";
 import Stay from "./pages/Stay/Stay";
+import DataBase from "./pages/AdminPanel/DataBase"
+import Content from "./pages/AdminPanel/Content/";
+import Managers from "./pages/AdminPanel/Managers/";
+import ReviewsAndBlogs from "./pages/AdminPanel/ReviewsAndBlogs";
+import Dashboard from "./pages/AdminPanel/Dashboard/DashBoard";
 function App() {
   return (
     <div className="App">
@@ -24,7 +29,11 @@ function App() {
         <Route path="/enter" element={<Enter />} />
         <Route path="/see" element={<See />} />
         <Route path="/stay" element={<Stay />} />
-        <Route path="/blog" element={<Blogs />} />
+        <Route path="/" element={<Dashboard/>} />
+        <Route path="/database" element={<DataBase />} />
+        <Route path="/content" element={<Content />} />
+        <Route path='/managers' element={<Managers/>} />
+        <Route path='/reviewsandblogs' element={<ReviewsAndBlogs/>} />
       </Routes>
     </div>
   );

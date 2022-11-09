@@ -32,3 +32,12 @@ code {
 .redux-cont button:last-child{
   margin-left: 20px;
 }
+
+.side-bar{
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboard{
+  width: 100%;
+}
