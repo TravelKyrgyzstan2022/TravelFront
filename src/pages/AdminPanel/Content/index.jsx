@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Content_url from '../../../img/content_url.png'
 import Card_icon from '../../../img/card_icon.svg'
+import Icon_Delete from '../../../img/icon_delete.svg'
 
 const Content = () => {
     return (
@@ -69,9 +70,182 @@ const Content = () => {
         </Typography>
         </CardContent>
     </CardActionArea>
-    <CardActions>
+    <CardActions className={content.card_button}>
         <Button size="small" color="primary">
         Увидеть больше
+        </Button>
+        <Button size='small'>
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        </Button>
+    </CardActions>
+    </Card>
+    <Card className={content.card}
+    sx={{
+        borderRadius: '20px'
+    }}
+    >
+        <Typography className={content.card_title}>
+            <div className={content.card_title__img}>
+            <img src={Card_icon} alt="" />
+            </div>
+            Eat
+        </Typography>
+    <CardActionArea>
+        <CardMedia
+        component="img"
+        className={content.card_img}
+        image={Content_url}
+        alt="green iguana"
+        />
+        <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Money trees is a perfect place to shade and that’s just how I feel...
+(now now)
+        </Typography>
+        </CardContent>
+    </CardActionArea>
+    <CardActions className={content.card_button}>
+        <Button size="small" color="primary">
+        Увидеть больше
+        </Button>
+        <Button size='small'>
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        </Button>
+    </CardActions>
+    </Card>
+    <Card className={content.card}
+    sx={{
+        borderRadius: '20px'
+    }}
+    >
+        <Typography className={content.card_title}>
+            <div className={content.card_title__img}>
+            <img src={Card_icon} alt="" />
+            </div>
+            Eat
+        </Typography>
+    <CardActionArea>
+        <CardMedia
+        component="img"
+        className={content.card_img}
+        image={Content_url}
+        alt="green iguana"
+        />
+        <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Money trees is a perfect place to shade and that’s just how I feel...
+(now now)
+        </Typography>
+        </CardContent>
+    </CardActionArea>
+    <CardActions className={content.card_button}>
+        <Button size="small" color="primary">
+        Увидеть больше
+        </Button>
+        <Button size='small'>
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        </Button>
+    </CardActions>
+    </Card>
+    <Card className={content.card}
+    sx={{
+        borderRadius: '20px'
+    }}
+    >
+        <Typography className={content.card_title}>
+            <div className={content.card_title__img}>
+            <img src={Card_icon} alt="" />
+            </div>
+            Eat
+        </Typography>
+    <CardActionArea>
+        <CardMedia
+        component="img"
+        className={content.card_img}
+        image={Content_url}
+        alt="green iguana"
+        />
+        <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Money trees is a perfect place to shade and that’s just how I feel...
+(now now)
+        </Typography>
+        </CardContent>
+    </CardActionArea>
+    <CardActions className={content.card_button}>
+        <Button size="small" color="primary">
+        Увидеть больше
+        </Button>
+        <Button size='small'>
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        </Button>
+    </CardActions>
+    </Card>
+    <Card className={content.card}
+    sx={{
+        borderRadius: '20px'
+    }}
+    >
+        <Typography className={content.card_title}>
+            <div className={content.card_title__img}>
+            <img src={Card_icon} alt="" />
+            </div>
+            Eat
+        </Typography>
+    <CardActionArea>
+        <CardMedia
+        component="img"
+        className={content.card_img}
+        image={Content_url}
+        alt="green iguana"
+        />
+        <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Money trees is a perfect place to shade and that’s just how I feel...
+(now now)
+        </Typography>
+        </CardContent>
+    </CardActionArea>
+    <CardActions className={content.card_button}>
+        <Button size="small" color="primary">
+        Увидеть больше
+        </Button>
+        <Button size='small'>
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        </Button>
+    </CardActions>
+    </Card>
+    <Card className={content.card}
+    sx={{
+        borderRadius: '20px'
+    }}
+    >
+        <Typography className={content.card_title}>
+            <div className={content.card_title__img}>
+            <img src={Card_icon} alt="" />
+            </div>
+            Eat
+        </Typography>
+    <CardActionArea>
+        <CardMedia
+        component="img"
+        className={content.card_img}
+        image={Content_url}
+        alt="green iguana"
+        />
+        <CardContent>
+        <Typography variant="body2" color="text.secondary">
+        Money trees is a perfect place to shade and that’s just how I feel...
+(now now)
+        </Typography>
+        </CardContent>
+    </CardActionArea>
+    <CardActions className={content.card_button}>
+        <Button size="small" color="primary">
+        Увидеть больше
+        </Button>
+        <Button size='small'>
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
     </CardActions>
     </Card>

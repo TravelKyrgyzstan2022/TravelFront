@@ -25,7 +25,7 @@ function createData(name, email, data) {
 }
 
 const rows = [
-  createData(<img src=''>George Michael</img>, <a href='/login'>georgemichael@gmail.com</a>, '22 Окт, 2022'),
+  createData('George Michael', <a href='/login'>georgemichael@gmail.com</a>, '22 Окт, 2022'),
   createData('Michael Yoyooney', <a href='/login'>yoyohoney-1@outlook.com</a>, '22 Окт, 2022'),
   createData('George Michael', 'georgemichael@gmail.com', '25 Окт, 2022'),
   createData('George Michael', 'georgemichael@gmail.com','22 Окт, 2022'),
@@ -56,8 +56,6 @@ function getComparator(order, orderBy) {
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
-// This method is created for cross-browser compatibility, if you don't
-// need to support IE11, you can use Array.prototype.sort() directly
 function stableSort(array, comparator) {
   const stabilizedThis = array.map((el, index) => [el, index]);
   stabilizedThis.sort((a, b) => {

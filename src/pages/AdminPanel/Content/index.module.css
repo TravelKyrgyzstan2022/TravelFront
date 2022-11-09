@@ -164,6 +164,9 @@ h3{
 
 .full_card{
     padding-top: 46px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .card{
@@ -175,6 +178,7 @@ h3{
     border-radius: 20px;
     padding: 14px;
     box-sizing: border-box;
+    margin-top: 16px;
 }
 
 .card_title{
@@ -194,4 +198,15 @@ h3{
 .card_title__img{
     padding: 1px 13px;
 }
+
+.card_icon__delete{
+    background: #252525;
+    border-radius: 100px;
+}
+
+.card_button{
+    display: flex;
+    justify-content: space-between;
+}
+
 
