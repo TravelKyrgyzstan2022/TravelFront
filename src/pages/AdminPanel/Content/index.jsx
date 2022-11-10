@@ -11,8 +11,15 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import Content_url from '../../../img/content_url.png'
 import Card_icon from '../../../img/card_icon.svg'
 import Icon_Delete from '../../../img/icon_delete.svg'
+import Arrow from '../../../img/arrow.svg' 
+import Modal from './../../../components/Modal'
 
 const Content = () => {
+
+    const [open, setOpen] = React.useState(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+
     return (
         <div className={content.container}>
                     <form className={content.form}>
@@ -27,12 +34,8 @@ const Content = () => {
             Управление контентом
             </h3>
         </div>
-
-        <div className={content.add}>
-            <img className={content.add_icon} src={Add_Icon} alt="" />
-        <a href="/"><button className={content.button}>Создать новый контент</button></a>
-        </div>
         <div>
+        <div className={content.c_dropowns}>
         <label className={content.dropdown}>
         <div className={content.dd_button}>
         <h5 className={content.dd_button__text}>Категория</h5>
@@ -43,6 +46,17 @@ const Content = () => {
         <li>Stay</li>
         </ul>
         </label>
+        <label className={content.dropdown}>
+        <div className={content.dd_button2}>
+        <h5 className={content.dd_button__text}>Дата создания</h5>
+        </div>
+        <input type="checkbox" className={content.dd_input} id="test"/>
+        <ul className={content.dd_menu}>
+        <li>Monday</li>
+        <li>Tuesday</li>
+        </ul>
+        </label>
+        </div>
 
 <div className={content.full_card}>
     <Card className={content.card}
@@ -71,11 +85,13 @@ const Content = () => {
         </CardContent>
     </CardActionArea>
     <CardActions className={content.card_button}>
-        <Button size="small" color="primary">
-        Увидеть больше
+        <Button size="small" color="primary"
+        onClick={handleOpen}
+        >
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
-            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        <img src={Arrow} alt="" />
         </Button>
     </CardActions>
     </Card>
@@ -106,10 +122,10 @@ const Content = () => {
     </CardActionArea>
     <CardActions className={content.card_button}>
         <Button size="small" color="primary">
-        Увидеть больше
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
-            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        <img src={Arrow} alt="" />
         </Button>
     </CardActions>
     </Card>
@@ -140,10 +156,10 @@ const Content = () => {
     </CardActionArea>
     <CardActions className={content.card_button}>
         <Button size="small" color="primary">
-        Увидеть больше
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
-            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        <img src={Arrow} alt="" />
         </Button>
     </CardActions>
     </Card>
@@ -174,10 +190,10 @@ const Content = () => {
     </CardActionArea>
     <CardActions className={content.card_button}>
         <Button size="small" color="primary">
-        Увидеть больше
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
-            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        <img src={Arrow} alt="" />
         </Button>
     </CardActions>
     </Card>
@@ -208,10 +224,10 @@ const Content = () => {
     </CardActionArea>
     <CardActions className={content.card_button}>
         <Button size="small" color="primary">
-        Увидеть больше
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
-            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        <img src={Arrow} alt="" />
         </Button>
     </CardActions>
     </Card>
@@ -242,16 +258,17 @@ const Content = () => {
     </CardActionArea>
     <CardActions className={content.card_button}>
         <Button size="small" color="primary">
-        Увидеть больше
+            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
-            <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
+        <img src={Arrow} alt="" />
         </Button>
     </CardActions>
     </Card>
     </div>
         </div>
         </div>
+        <Modal handleOpen={handleOpen} open={open}/>
         </div>
     );
 }

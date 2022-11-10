@@ -119,10 +119,13 @@ h3{
 
 .empty{
     display: flex;
+    justify-content: space-evenly;
 }
 
 .right{
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .box{
@@ -136,20 +139,47 @@ h3{
     border-radius: 20px;
 }
 
+.right input[type=text] {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #BBBBBB;
+    padding: 6px 16px;
+}
+
+.right input[type=email] {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #BBBBBB;
+    padding: 6px 16px;
+}
+
+
 .border_box{
     background: #BBBBBB;
     width: 2px;
     height: 337px;
+    margin-right: 32px;
 }
 
 .t{
     display: flex;
+    text-align: start;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: -12px;
 }
 
 .text{
     /* display: flex; */
     width: 303px;
     height: 19px;
+    margin-top: 20px;
 }
 
 /*! Switch */
@@ -165,7 +195,40 @@ h3{
     transition: all .3s;
     overflow: hidden;
     box-shadow: 0px 0px 2px rgba(0,0,0, .3);
+    margin-top: 15px;
+    margin-left: 59px;
 }
+
+.text1{
+    width: 303px;
+    height: 19px;
+    margin-bottom: 35px;
+}
+
+.switch1{
+    position: relative;
+    display: inline-block;
+    width: 72px;
+    height: 32px;
+    border-radius: 37px;
+    background-color: #CDD1E2;;
+    cursor: pointer;
+    transition: all .3s;
+    overflow: hidden;
+    box-shadow: 0px 0px 2px rgba(0,0,0, .3);
+    margin-top: 25px;
+    margin-left: 59px;
+}
+
+.switch1 input{
+    display: none;
+}
+
+.switch1 input:checked + .slider{
+    left: calc(80px - 32px);
+    box-shadow: 0px 0px 0px white;
+}
+
 .switch input{
     display: none;
 }
@@ -201,14 +264,41 @@ h3{
     content: 'Нет';
     color: #FFFFFF;
     left: 100%;
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 .slider:after{
     content: 'Да';
     right: 100%;
     color: #FFFFFF;
     /* background-color: #3FBD89; */
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .switch::before{
     background-color: #3FBD89;
+}
+
+.btn{
+    width: 347px;
+    height: 54px;
+    background: #F1F3F4;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    margin-top: 34px;
+}
+
+.btn_a{
+    border:none;
+    font-weight: 400;
+    font-size: 16px;
+    color: #252525;
 }

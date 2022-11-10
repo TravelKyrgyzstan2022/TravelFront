@@ -7,6 +7,7 @@ import Navbar from "./components/Navbar/Navbar";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import SideBar from "./components/SideBar";
+import Modal from './components/Modal'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,10 +17,11 @@ root.render(
         {/* <Navbar /> */}
         <div className="side-bar">
         <SideBar/>
-          <div className="dashboard">
+        <div className="dashboard">
         <App />
-          </div>
         </div>
+        </div> 
+        {/* <Modal/> */}
       </Provider>
     </BrowserRouter>
   </React.StrictMode>
