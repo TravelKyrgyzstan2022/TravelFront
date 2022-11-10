@@ -30,12 +30,14 @@ const SideBar = ({children}) => {
         {
             path: '/reviewsandblogs',
             name: 'Отзывы и блоги',
-            icon: <img src={CheckList} alt="" />
+            icon: <img src={CheckList} alt="" />,
+            margin:true
         },
         {
             path: '/',
             name: 'Выход',
             icon: <img src={Exit} alt="" />
+
         }
 
     ]
@@ -43,13 +45,17 @@ const SideBar = ({children}) => {
 
     return (
         <div className={sbar.container}>
+            
             <div className={sbar.side_bar}>
                 <div className={sbar.top_section}>
                     <h1 className={sbar.logo}>Logo</h1>
                 </div>
                 {
                     menuItem.map((item,index) => (
-                        <NavLink to={item.path} key={index} className={sbar.link} activeclassName="active">
+                        <NavLink to={item.path} key={index} className={sbar.link} activeclassName="active"
+                        
+                        style={{marginBottom : item.margin ? '100%':null}}
+                        >
                             <div className={sbar.icon}>{item.icon}</div>
                             <div className={sbar.link_text}>{item.name}</div>
                         </NavLink>

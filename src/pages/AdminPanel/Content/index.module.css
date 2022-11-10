@@ -80,8 +80,13 @@ h3{
 
 /* ? dropdown */
 
-    .dropdown {
+.c_dropdowns{
+    display: flex;
+}
+
+.dropdown {
     display: inline-block;
+    margin-right: 16px;
     position: relative;
     top: 24px;
 }
@@ -99,6 +104,34 @@ h3{
     text-align: center;
     justify-content: center;
     align-items: center;
+    }
+
+    .dd_button2{
+    width: 193px;
+    height: 44px;
+    display: flex;
+    background: #F1F3F4;
+    border-radius: 20px;
+    font-size: 20px;
+    color: #252525;
+    cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .dd_button2:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 0; 
+        height: 0; 
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid black;
     }
 
     .dd_button:after {

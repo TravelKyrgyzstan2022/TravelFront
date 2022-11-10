@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    font-family: 'Roboto';
+}
+.container{
+    width: 100%;
+}
+
+.form{
+    padding: 24px 64px;
+}
+
+.search{
+    width: 758px;
+    height: 56px;
+    left: 405px;
+    top: 24px;
+    background: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 28px;
+    padding: 18px 64px;
+    font-size: 20px;
+}
+
+.img{
+    position:absolute;
+    padding: 18px 28px;
+}
+
+.border{
+    background-color: #BBBBBB;
+    height: 1px;
+}
+
+.content{
+    padding: 15px 45px;
+}
+
+/*! title */
+
+.title{
+    display: flex;
+}
+
+.title_image{
+    margin: 16px;
+}
+
+h3{
+    font-size: 24px;
+    line-height: 28px;
+    color: #252525;
+}
+
+/* ! card */
+
+.card{
+    width: 930px;
+    height: 588px;
+    border: 1px solid #BBBBBB;
+    border-radius: 28px;
+}
+
+.card_blog1{
+    display: flex !important;
+    justify-content: space-around !important;
+}
+
+
+.card_img{
+    width: 471px !important;
+    height: 188px !important;
+    margin: 24px;
+}
+
+.card_title{
+    font-weight: 500;
+    font-size: 36px;
+    line-height: 42px;
+    color: #252525;
+}
+
+.card_user__name{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: #BBBBBB;
+}

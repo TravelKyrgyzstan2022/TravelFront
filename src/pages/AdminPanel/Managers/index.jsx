@@ -7,8 +7,13 @@ import Add_Icon from '../../../img/add_managers.svg'
 // import { Switch } from 'react-switch';
 
 const Managers = () => {
-
-
+    // const handleChange = event => {
+    //     if (event.target.checked) {
+    //     return background = '#3FBD89'
+    //     } else {
+    //     return background = '#CDD1E2'
+    //     }
+    // }
 
 
     return (
@@ -65,8 +70,8 @@ const Managers = () => {
         <div className={mn.border_box}></div>
         <div className={mn.left}>
             <div className={mn.t}>
-            <p className={mn.text}>Добавлять/редактировать/удалять контент в разделы клиентского сайта и мобильного приложения</p>
-            <label className={mn.switch} >
+            <p className={mn.text1}>Добавлять/редактировать/удалять контент в разделы клиентского сайта и мобильного приложения</p>
+            <label className={mn.switch1} >
                 <input type="checkbox" />
                 <span className={mn.slider}></span>
                 </label>
@@ -110,7 +115,7 @@ const Managers = () => {
         </div>
         </div>
         <div className={mn.btn}>
-        <a href="/"><button>Добавить менеджера</button></a>
+        <a  href="/"><button className={mn.btn_a}>Добавить менеджера</button></a>
         </div>
         </div>
         </div>
