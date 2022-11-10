@@ -5,6 +5,9 @@
 .container{
     display: flex;
     flex-direction: row;
+    position: sticky;
+    top:0;
+    height: 100vh;
 }
 
 main{
@@ -15,9 +18,14 @@ main{
 .side_bar{
     background-color: #F1F3F4;
     color: #000;
-    height: 100%;
+    /* height: 100vh; */
     font-family: 'Roboto', sans-serif;
     padding: 32px;
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed; */
 }
 
 .top_section{

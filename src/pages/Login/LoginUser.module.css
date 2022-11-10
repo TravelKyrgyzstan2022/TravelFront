@@ -13,7 +13,7 @@
 .box{
     margin: 0 auto;
     width: 600px;
-    height: 440px;
+    height: 540px;
     flex-direction: column; 
     border: none solid;
     border-radius: 16px;
@@ -26,13 +26,11 @@
 
 
 .txt{
+    padding-top: 60px;
     margin: 16px 230px 5px;
-    margin-top: 40px;
     font-size: 32px;
     font-weight: 600;
     line-height: 37.5px;
-
-
 }
 
 .item{
@@ -50,10 +48,8 @@
 }
 
 .googlebtn{
-    width: 460px;
+    width: 200px;
     margin: 0 auto;
-    border: 1px solid;
-    border-radius: 5px;
 }
 
 .cont{
