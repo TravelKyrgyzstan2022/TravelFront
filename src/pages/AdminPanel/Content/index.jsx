@@ -121,7 +121,8 @@ const Content = () => {
         </CardContent>
     </CardActionArea>
     <CardActions className={content.card_button}>
-        <Button size="small" color="primary">
+        <Button size="small" color="primary"
+        >
             <img className={content.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
         <Button size='small'>
