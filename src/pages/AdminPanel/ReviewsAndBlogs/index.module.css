@@ -86,3 +86,15 @@ h3{
     line-height: 21px;
     color: #BBBBBB;
 }
+
+.card_text{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #252525;
+}
+
+.card_button{
+    display: flex;
+    flex-direction: row-reverse;
+}

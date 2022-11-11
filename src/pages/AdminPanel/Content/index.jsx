@@ -34,348 +34,347 @@ const Content = () => {
         <div className={content.title}>
           <img className={content.title_image} src={Ctitle} alt="img" />
           <h3>Управление контентом</h3>
-        </div>
-        <div>
-          <div className={content.c_dropowns}>
-            <label className={content.dropdown}>
-              <div className={content.dd_button}>
-                <h5 className={content.dd_button__text}>Категория</h5>
-              </div>
-              <input type="checkbox" className={content.dd_input} id="test" />
-              <ul className={content.dd_menu}>
-                <li>Eat</li>
-                <li>Stay</li>
-              </ul>
-            </label>
-            <label className={content.dropdown}>
-              <div className={content.dd_button2}>
-                <h5 className={content.dd_button__text}>Дата создания</h5>
-              </div>
-              <input type="checkbox" className={content.dd_input} id="test" />
-              <ul className={content.dd_menu}>
-                <li>Monday</li>
-                <li>Tuesday</li>
-              </ul>
-            </label>
+          <div>
+            <div className={content.c_dropowns}>
+              <label className={content.dropdown}>
+                <div className={content.dd_button}>
+                  <h5 className={content.dd_button__text}>Категория</h5>
+                </div>
+                <input type="checkbox" className={content.dd_input} id="test" />
+                <ul className={content.dd_menu}>
+                  <li>Eat</li>
+                  <li>Stay</li>
+                </ul>
+              </label>
+              <label className={content.dropdown}>
+                <div className={content.dd_button2}>
+                  <h5 className={content.dd_button__text}>Дата создания</h5>
+                </div>
+                <input type="checkbox" className={content.dd_input} id="test" />
+                <ul className={content.dd_menu}>
+                  <li>Monday</li>
+                  <li>Tuesday</li>
+                </ul>
+              </label>
+            </div>
+            <div className={content.full_card}>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+              <Card
+                className={content.card}
+                sx={{
+                  borderRadius: "20px",
+                }}
+              >
+                <Typography className={content.card_title}>
+                  <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                  </div>
+                  Eat
+                </Typography>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                      Money trees is a perfect place to shade and that’s just
+                      how I feel... (now now)
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                  <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                      className={content.card_icon__delete}
+                      src={Icon_Delete}
+                      alt=""
+                    />
+                  </Button>
+                  <Button size="small">
+                    <img src={Arrow} alt="" />
+                  </Button>
+                </CardActions>
+              </Card>
+            </div>
           </div>
-
-          <div className={content.full_card}>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-            <Card
-              className={content.card}
-              sx={{
-                borderRadius: "20px",
-              }}
-            >
-              <Typography className={content.card_title}>
-                <div className={content.card_title__img}>
-                  <img src={Card_icon} alt="" />
-                </div>
-                Eat
-              </Typography>
-              <CardActionArea>
-                <CardMedia
-                  component="img"
-                  className={content.card_img}
-                  image={Content_url}
-                  alt="green iguana"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary">
-                    Money trees is a perfect place to shade and that’s just how
-                    I feel... (now now)
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-              <CardActions className={content.card_button}>
-                <Button size="small" color="primary" onClick={handleOpen}>
-                  <img
-                    className={content.card_icon__delete}
-                    src={Icon_Delete}
-                    alt=""
-                  />
-                </Button>
-                <Button size="small">
-                  <img src={Arrow} alt="" />
-                </Button>
-              </CardActions>
-            </Card>
-          </div>
         </div>
+        <Modal handleOpen={handleOpen} open={open} />
       </div>
-      <Modal handleOpen={handleOpen} open={open} />
     </div>
   );
 };

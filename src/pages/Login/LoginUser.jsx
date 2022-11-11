@@ -49,7 +49,7 @@ const LoginUser = () => {
               placeholder="Password"
             />
             <div className={login.cont}>
-              <Link to="/admin">
+              <Link to="/database">
                 <button className={login.btn}> Log In</button>
               </Link>
               <Link to="/login2">

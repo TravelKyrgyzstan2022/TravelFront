@@ -12,6 +12,7 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Card_img from '../../../img/card_img.svg'
 import Ava from '../../../img/ava.svg'
+import Icon_Delete from "../../../img/icon_delete.svg";
 
 
 function LinkTab(props) {
@@ -42,13 +43,13 @@ const ReviewsAndBlogs = (props) => {
         <div className={rb.title}>
                 <img className={rb.title_image} src={Title} /> 
             <h3>
-            Управление контентом
+            Одобрение блогов и отзывов
             </h3>
         </div>
     <Box sx={{ width: '100%' }}>
     <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab label="Блоги" href="/drafts" />
-        <LinkTab label="Отзывы и рейтинг" href="/trash" />
+        <LinkTab label="Блоги" href="/blogs" />
+        <LinkTab label="Отзывы и рейтинг" href="/reviewsandraiting" />
     </Tabs>
     </Box>
     <Card className={rb.card}>
@@ -68,7 +69,7 @@ const ReviewsAndBlogs = (props) => {
         </Typography>
         </div>
         <CardContent>
-        <Typography variant="body2" color="text.secondary">
+        <Typography className={rb.card_text}>
             <p>Lörem ipsum nihypp lasoskapet rer måskap i jefarat, oligt eftersom ovis, prosk presess para, de ananat faren. 
 Kasal krofessa pifaberas om ter vuvuzela, makrosat trimodern Jonas Mohamed: ruvis respektive kiten och epigisk. 
 Vikroligt lätthelg plass biojigisk. 
@@ -83,13 +84,13 @@ Mikadyse sen sorad suledes pos, oliga även om preras bes förutom euroktig jitt
 Rer sygen, heterore, räse tredat för att teragt respektive Erik Berggren denas: jedissade om än sotyns pregisk kravallant. 
 </p>
         </Typography>
-        </CardContent>
-    </CardActionArea>
-    <CardActions>
+    <CardActions className={rb.card_button}>
         <Button size="small" color="primary">
-        Share
+        <img className={rb.card_icon__delete} src={Icon_Delete} alt="" />
         </Button>
     </CardActions>
+        </CardContent>
+    </CardActionArea>
     </Card>
 
     </div>
