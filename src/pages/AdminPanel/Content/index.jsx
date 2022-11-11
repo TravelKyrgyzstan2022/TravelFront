@@ -32,7 +32,7 @@ const Content = () => {
       <div className={content.border}></div>
       <div className={content.content}>
         <div className={content.title}>
-          <img className={content.title_image} src={Ctitle} />
+          <img className={content.title_image} src={Ctitle} alt="img" />
           <h3>Управление контентом</h3>
         </div>
         <div>

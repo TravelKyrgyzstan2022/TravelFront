@@ -1,5 +1,6 @@
 .container{
     width: 100%;
+    left: 240px;
 }
 
 .form{
@@ -40,7 +41,6 @@
 
 .dashboard{
     display: flex;
-    /* align-items: center; */
     flex-direction: column;
     background: #FFFFFF;
     border: 1px solid #BBBBBB;
