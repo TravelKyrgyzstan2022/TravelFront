@@ -13,10 +13,13 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import Card_img from '../../../img/card_img.svg'
 import Ava from '../../../img/ava.svg'
 import Icon_Delete from "../../../img/icon_delete.svg";
+import SideBar from '../../../components/SideBar';
 
 
 function LinkTab(props) {
 return (
+
+    
     <Tab
     component="a"
     onClick={(event) => {
@@ -33,6 +36,8 @@ const ReviewsAndBlogs = (props) => {
     setValue(newValue);
     };
     return (
+        <div className={rb.main_container}>
+            <SideBar/>
     <div className={rb.container}>
         <form className={rb.form}>
         <img className={rb.img} src={Search} alt="" />
@@ -92,8 +97,49 @@ Rer sygen, heterore, räse tredat för att teragt respektive Erik Berggren denas
         </CardContent>
     </CardActionArea>
     </Card>
+    <Card className={rb.card}>
+    <CardActionArea>
+        <div className={rb.card_blog1}>
+        <CardMedia
+        component="img"
+        image={Card_img}
+        className={rb.card_img}
+        />
+        <Typography>
+        <h2 className={rb.card_title}>How I travelled to amazing Kyrgyzstan...</h2>
+        <div className={rb.card_user}>
+            {/* <img src={Ava} alt="" /> */}
+            <span className={rb.card_user__name}>by George Michael</span>
+        </div>
+        </Typography>
+        </div>
+        <CardContent>
+        <Typography className={rb.card_text}>
+            <p>Lörem ipsum nihypp lasoskapet rer måskap i jefarat, oligt eftersom ovis, prosk presess para, de ananat faren. 
+Kasal krofessa pifaberas om ter vuvuzela, makrosat trimodern Jonas Mohamed: ruvis respektive kiten och epigisk. 
+Vikroligt lätthelg plass biojigisk. 
+Lafektig potire i tyskade prere, neliga i lyrusa vask. 
+Infradyligt olig belåsamma för teprev nälig de namägt plar tihysk nad: ett mangen. 
+Disk cynaktiv inte ilast i mikrod: och trollfilter. 
+Pakinar vinar. 
+Vurade megande: om dymavis isonat har behyre sunyren. 
+Resamma kul än maktig exokin innan nyryng. 
+Poning ben kal nyse selål sprängbälte i epigisk homolära dimände. 
+Mikadyse sen sorad suledes pos, oliga även om preras bes förutom euroktig jitt. 
+Rer sygen, heterore, räse tredat för att teragt respektive Erik Berggren denas: jedissade om än sotyns pregisk kravallant. 
+</p>
+        </Typography>
+    <CardActions className={rb.card_button}>
+        <Button size="small" color="primary">
+        <img className={rb.card_icon__delete} src={Icon_Delete} alt="" />
+        </Button>
+    </CardActions>
+        </CardContent>
+    </CardActionArea>
+    </Card>
 
     </div>
+        </div>
         </div>
     );
 }

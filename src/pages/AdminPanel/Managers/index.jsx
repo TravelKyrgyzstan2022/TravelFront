@@ -4,6 +4,7 @@ import Search  from '../../../img/search.svg';
 import Mtitle from '../../../img/mtitle.svg'
 import Icon_Card from '../../../img/icon_card.svg'
 import Add_Icon from '../../../img/add_managers.svg'
+import SideBar from '../../../components/SideBar';
 // import { Switch } from 'react-switch';
 
 const Managers = () => {
@@ -17,6 +18,8 @@ const Managers = () => {
 
 
     return (
+        <div className={mn.main_container}>
+            <SideBar/>
         <div className={mn.container}>
         <form className={mn.form}>
             <img className={mn.img} src={Search} alt="" />
@@ -116,6 +119,7 @@ const Managers = () => {
         </div>
         <div className={mn.btn}>
         <a  href="/"><button className={mn.btn_a}>Добавить менеджера</button></a>
+        </div>
         </div>
         </div>
         </div>
