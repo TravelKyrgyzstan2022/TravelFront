@@ -58,8 +58,8 @@ const Content = () => {
               </ul>
             </label>
           </div>
+          <div className={content.full_card}>
 
-<div className={content.full_card}>
             <Card
               className={content.card}
               sx={{

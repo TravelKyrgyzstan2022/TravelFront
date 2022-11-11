@@ -15,12 +15,26 @@ import Managers from "./pages/AdminPanel/Managers/";
 import ReviewsAndBlogs from "./pages/AdminPanel/ReviewsAndBlogs";
 import Dashboard from "./pages/AdminPanel/Dashboard/DashBoard";
 import Navbar from "./components/Navbar/Navbar";
+import SideBar from "./components/SideBar/"  
+
 
 function App() {
   let location = useLocation();
   return (
     <>
-      {location.pathname === "/admin" ? null : <Navbar />}
+      {location.pathname === "/admin" ? null : location.pathname ===
+        "/database" ? (
+        <SideBar />
+      ) : location.pathname === "/content" ? (
+        <SideBar />
+      ) : location.pathname === "/managers" ? (
+        <SideBar />
+      ) : location.pathname === "/reviewsandblogs" ? (
+        <SideBar />
+      ) : (
+        <Navbar />
+      )}
+    
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminPage />} />

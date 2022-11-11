@@ -48,13 +48,14 @@ const SideBar = ({children}) => {
             
             <div className={sbar.side_bar}>
                 <div className={sbar.top_section}>
-                    <h1 className={sbar.logo}>Logo</h1>
+                    <h1 className={sbar.logo}>Be
+                    <span className={sbar.span}>Nomad</span></h1>
                 </div>
                 {
                     menuItem.map((item,index) => (
                         <NavLink to={item.path} key={index} className={sbar.link} activeclassName="active"
                         
-                        style={{marginBottom : item.margin ? '100%':null}}
+                        style={{marginBottom : item.margin ? '80%':null}}
                         >
                             <div className={sbar.icon}>{item.icon}</div>
                             <div className={sbar.link_text}>{item.name}</div>
