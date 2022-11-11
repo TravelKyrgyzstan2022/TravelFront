@@ -48,8 +48,8 @@ const ReviewsAndBlogs = (props) => {
         </div>
     <Box sx={{ width: '100%' }}>
     <Tabs value={value} onChange={handleChange} aria-label="nav tabs example">
-        <LinkTab label="Блоги" href="/drafts" />
-        <LinkTab label="Отзывы и рейтинг" href="/trash" />
+        <LinkTab label="Блоги" href="/blogs" />
+        <LinkTab label="Отзывы и рейтинг" href="/reviewsandraiting" />
     </Tabs>
     </Box>
     <Card className={rb.card}>

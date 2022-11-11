@@ -2,12 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 
+
 .container{
     display: flex;
     flex-direction: row;
     position: sticky;
     top:0;
     height: 100vh;
+    float: left;
 }
 
 main{
@@ -16,8 +18,8 @@ main{
 }
 
 .side_bar{
-    background-color: #F1F3F4;
-    color: #000;
+    background-color: #252525;
+    color: #FFFFFF;
     /* height: 100vh; */
     font-family: 'Roboto', sans-serif;
     padding: 32px;
@@ -35,8 +37,12 @@ main{
 }
 
 .logo{
-    font-family: 'Bebas Neue', cursive;
+    font-family: 'Futura Hv BT';
     font-size: 36px;
+}
+
+.span{
+    color: #E65C4F;
 }
 
 .link{

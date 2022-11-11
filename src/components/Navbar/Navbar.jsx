@@ -13,7 +13,7 @@ const Navbar = () => {
             <Link to="/see">
               <nav className={nav.item}>See and Try</nav>
             </Link>
-            <Link to="/content">
+            <Link to="/eat">
               <nav className={nav.item}>Eat</nav>
             </Link>
             <Link to="/stay">
