@@ -32,7 +32,9 @@ const Content = () => {
       <div className={content.border}></div>
       <div className={content.content}>
         <div className={content.title}>
-          <img className={content.title_image} src={Ctitle} />
+            feature/add_reviewsandraiting
+          <img className={content.title_image} src={Ctitle} alt="img"
+
           <h3>Управление контентом</h3>
         </div>
         <div>
@@ -58,8 +60,8 @@ const Content = () => {
               </ul>
             </label>
           </div>
+          <div className={content.full_card}>
 
-<div className={content.full_card}>
             <Card
               className={content.card}
               sx={{
