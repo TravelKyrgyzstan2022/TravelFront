@@ -24,16 +24,17 @@ function App() {
     <>
       {location.pathname === "/admin" ? null : location.pathname ===
         "/database" ? (
-        <SideBar />
+        null
       ) : location.pathname === "/content" ? (
-        <SideBar />
+        null
       ) : location.pathname === "/managers" ? (
-        <SideBar />
+        null
       ) : location.pathname === "/reviewsandblogs" ? (
-        <SideBar />
+        null
       ) : (
         <Navbar />
-      )}
+      )
+      }
     
       <Routes>
         <Route path="/" element={<HomePage />} />

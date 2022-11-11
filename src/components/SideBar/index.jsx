@@ -7,6 +7,7 @@ import { NavLink} from 'react-router-dom';
 import sbar from './index.module.css'
 import Dashboard from '../../pages/AdminPanel/Dashboard/DashBoard';
 import Exit from '../../img/exit.svg'
+import LOGO from '../../img/LOGO.svg'
 
 const SideBar = ({children}) => {
 
@@ -48,14 +49,15 @@ const SideBar = ({children}) => {
             
             <div className={sbar.side_bar}>
                 <div className={sbar.top_section}>
-                    <h1 className={sbar.logo}>Be
-                    <span className={sbar.span}>Nomad</span></h1>
+                    {/* <h1 className={sbar.logo}>Be
+                    <span className={sbar.span}>Nomad</span></h1> */}
+                    <img className={sbar.logo} src={LOGO} alt="img" />
                 </div>
                 {
                     menuItem.map((item,index) => (
                         <NavLink to={item.path} key={index} className={sbar.link} activeclassName="active"
                         
-                        style={{marginBottom : item.margin ? '80%':null}}
+                        style={{marginBottom : item.margin ? '85%':null}}
                         >
                             <div className={sbar.icon}>{item.icon}</div>
                             <div className={sbar.link_text}>{item.name}</div>

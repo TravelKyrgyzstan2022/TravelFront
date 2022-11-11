@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*{
+    font-family: 'Roboto';
+}
+
+.main_container{
+    display: flex;
+}
+
 .container{
     width: 100%;
     left: 240px;
@@ -68,5 +78,15 @@
 
 
 .table{
-    width: 100%;
+    width: 900px;
+    height: 66px;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
 }
+
+.links{
+    color: #3AAAE9;
+}
+
+

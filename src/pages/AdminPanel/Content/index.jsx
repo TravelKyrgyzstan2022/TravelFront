@@ -13,6 +13,7 @@ import Card_icon from "../../../img/card_icon.svg";
 import Icon_Delete from "../../../img/icon_delete.svg";
 import Arrow from "../../../img/arrow.svg";
 import Modal from "./../../../components/Modal";
+import SideBar from "../../../components/SideBar";
 
 const Content = () => {
   const [open, setOpen] = React.useState(false);
@@ -20,6 +21,8 @@ const Content = () => {
   const handleClose = () => setOpen(false);
 
   return (
+    <div className={content.main_container}>
+        <SideBar/>
     <div className={content.container}>
       <form className={content.form}>
         <img className={content.img} src={Search} alt="" />
@@ -376,6 +379,7 @@ const Content = () => {
         </div>
       </div>
       <Modal handleOpen={handleOpen} open={open} />
+    </div>
     </div>
   );
 };
