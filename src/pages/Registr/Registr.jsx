@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import reg from "./Registr.module.css";
 import { useState } from "react";
 import axios from "axios";
@@ -10,7 +10,6 @@ const Registr = () => {
     last_name: "",
     email: "",
     password: "",
-    phone_number: "",
   });
 
   const signUp = async () => {
@@ -19,6 +18,12 @@ const Registr = () => {
       console.log(BASE_URL);
       console.log(newUser);
       await axios.post(BASE_URL + "auth/register", newUser);
+      setNewUser({
+        first_name: "",
+        last_name: "",
+        email: "",
+        password: "",
+      });
     } catch (err) {
       console.log(err);
     }
@@ -38,6 +43,7 @@ const Registr = () => {
               }
               type="text"
               placeholder="First Name"
+              value={newUser.first_name}
             />
             <input
               className={reg.item}
@@ -46,6 +52,7 @@ const Registr = () => {
               }
               type="text"
               placeholder="Last Name"
+              value={newUser.last_name}
             />
 
             <input
@@ -55,6 +62,7 @@ const Registr = () => {
               }
               type="email"
               placeholder="Email"
+              value={newUser.email}
             />
             <input
               className={reg.item}
@@ -63,14 +71,7 @@ const Registr = () => {
               }
               type="password"
               placeholder="Password"
-            />
-            <input
-              className={reg.item}
-              onChange={(e) =>
-                setNewUser({ ...newUser, phone_number: e.target.value })
-              }
-              type="text"
-              placeholder="phone_number"
+              value={newUser.password}
             />
             <div className={reg.cont}>
               <button onClick={signUp} className={reg.btn}>
