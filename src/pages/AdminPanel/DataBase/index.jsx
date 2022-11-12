@@ -14,6 +14,7 @@ import TableRow from '@mui/material/TableRow';
 import TableSortLabel from '@mui/material/TableSortLabel';
 import Paper from '@mui/material/Paper';
 import { visuallyHidden } from '@mui/utils';
+import AVA from "../../../img/ava.svg"
 
 
 function createData(name, gmail, data) {
@@ -25,19 +26,19 @@ function createData(name, gmail, data) {
 }
 
 const rows = [
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
-  createData("George Michael", <a href="/log" className={db.links}>georgemichael@gmail.com</a>, "22 Окт, 2022" ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
+  createData(<div className={db.user}><img src={AVA} alt="" /><h3 className={db.name}>George Michael</h3></div>, <a href="/log" className={db.links}>georgemichael@gmail.com</a>, <p className={db.data}>22 Окт, 2022</p> ),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -74,20 +75,24 @@ const headCells = [
     numeric: false,
     disablePadding: true,
     label: 'ФИО',
+    className: 'head'
   },
   {
     id: 'gmail',
     numeric: true,
     disablePadding: false,
     label: 'Электронная почта',
+    className: 'head'
   },
   {
     id: 'data',
     numeric: true,
     disablePadding: false,
     label: 'Дата регистрации',
+    className: 'head'
   }
 ];
+
 
 function EnhancedTableHead(props) {
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
@@ -101,6 +106,7 @@ function EnhancedTableHead(props) {
       <TableRow>
         {headCells.map((headCell) => (
           <TableCell
+          className={db.head}
             key={headCell.id}
             align={headCell.numeric ? 'right' : 'left'}
             padding={headCell.disablePadding ? 'none' : 'normal'}
