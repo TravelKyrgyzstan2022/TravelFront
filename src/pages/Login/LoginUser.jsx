@@ -6,14 +6,12 @@ import { Login, LoginByGoogle } from "../../port/auth";
 import { useRef } from "react";
 
 const LoginUser = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [form, setForm] = useState({
     email: "",
     password: "",
   });
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    Login(form);
-  };
 
   const googleBtn = useRef(null);
 
@@ -42,9 +40,15 @@ const LoginUser = () => {
           <h2 className={login.logo}>be nomad</h2>
           <div className={login.box}>
             <p className={login.txt}>Log In</p>
-            <input className={login.item} type="email" placeholder="Email" />
             <input
               className={login.item}
+              value={email}
+              type="email"
+              placeholder="Email"
+            />
+            <input
+              className={login.item}
+              value={password}
               type="password"
               placeholder="Password"
             />
