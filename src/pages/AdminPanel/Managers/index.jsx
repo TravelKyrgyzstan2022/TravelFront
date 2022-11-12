@@ -23,7 +23,7 @@ const Managers = () => {
         <div className={mn.container}>
         <form className={mn.form}>
             <img className={mn.img} src={Search} alt="" />
-            <input className={mn.search} type="search" placeholder="Поиск по ФИО, электронной почте, дате регистрации"/>
+            <input className={mn.search} type="search" placeholder="Поиск"/>
         </form>
         <div className={mn.border}></div>
         <div className={mn.about}>

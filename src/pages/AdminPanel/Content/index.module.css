@@ -43,10 +43,6 @@
 
 /*! title */
 
-.title{
-    display: flex;
-}
-
 .title_image{
     margin: 16px;
 }
@@ -245,6 +241,7 @@ h3{
 .card_button{
     display: flex;
     justify-content: space-between;
+    margin-top: -10px;
 }
 
 

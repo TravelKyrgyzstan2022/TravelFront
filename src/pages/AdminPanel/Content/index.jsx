@@ -16,26 +16,26 @@ import Modal from "./../../../components/Modal";
 import SideBar from "../../../components/SideBar";
 
 const Content = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+const [open, setOpen] = React.useState(false);
+const handleOpen = () => setOpen(true);
+const handleClose = () => setOpen(false);
 
-  return (
+return (
     <div className={content.main_container}>
         <SideBar/>
     <div className={content.container}>
-      <form className={content.form}>
+    <form className={content.form}>
         <img className={content.img} src={Search} alt="" />
         <input
           className={content.search}
           type="search"
-          placeholder="Поиск по ФИО, электронной почте, дате регистрации"
+          placeholder="Поиск"
         />
       </form>
       <div className={content.border}></div>
       <div className={content.content}>
         <div className={content.title}>
-          <img className={content.title_image} src={Ctitle} alt="img" />
+          {/* <img className={content.title_image} src={Ctitle} alt="img" /> */}
           <h3>Управление контентом</h3>
           <div>
             <div className={content.c_dropowns}>
@@ -196,11 +196,50 @@ const Content = () => {
                     className={content.card_img}
                     image={Content_url}
                     alt="green iguana"
-                  />
-                  <CardContent>
+                />
+                <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      Money trees is a perfect place to shade and that’s just
-                      how I feel... (now now)
+                    Money trees is a perfect place to shade and that’s just
+                    how I feel... (now now)
+                    </Typography>
+                </CardContent>
+                </CardActionArea>
+                <CardActions className={content.card_button}>
+                <Button size="small" color="primary" onClick={handleOpen}>
+                    <img
+                    className={content.card_icon__delete}
+                    src={Icon_Delete}
+                    alt=""
+                    />
+                </Button>
+                <Button size="small">
+                    <img src={Arrow} alt="" />
+                </Button>
+                </CardActions>
+            </Card>
+            <Card
+                className={content.card}
+                sx={{
+                borderRadius: "20px",
+                }}
+            >
+                <Typography className={content.card_title}>
+                <div className={content.card_title__img}>
+                    <img src={Card_icon} alt="" />
+                </div>
+                Eat
+                </Typography>
+                <CardActionArea>
+                <CardMedia
+                    component="img"
+                    className={content.card_img}
+                    image={Content_url}
+                    alt="green iguana"
+                />
+                <CardContent>
+                    <Typography variant="body2" color="text.secondary">
+                    Money trees is a perfect place to shade and that’s just
+                    how I feel... (now now)
                     </Typography>
                   </CardContent>
                 </CardActionArea>
@@ -376,7 +415,7 @@ const Content = () => {
             </div>
           </div>
         </div>
-        <Modal handleOpen={handleOpen} open={open} />
+        <Modal handleClose={handleClose} open={open} />
       </div>
     </div>
     </div>

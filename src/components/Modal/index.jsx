@@ -23,7 +23,7 @@ const style = {
 
 
 
-export default function BasicModal({open,handleClose  = () => open(false)}) {
+export default function BasicModal({open,handleClose}) {
     // const [open, setOpen] = React.useState(false);
     // const handleOpen = () => setOpen(true);
     // const handleClose = () => setOpen(false);
@@ -49,16 +49,15 @@ return (
         defaultValue="female"
         name="radio-buttons-group"
         >
-        <FormControlLabel className={modal.label} value="general" control={ <Radio color='default'/>} label="Общая" />
         <FormControlLabel className={modal.label} value="content" control={<Radio color='default' />} label="Вредоносное содержание" />
         <FormControlLabel className={modal.label} value="off_topic" control={<Radio color='default' />} label="Не по теме" />
         <FormControlLabel className={modal.label} value="rave" control={<Radio color='default' />} label="Бред какой-то" />
         <FormControlLabel className={modal.label} value="wrong_language" control={<Radio color='default' />} label="Неправильный язык" />
     </RadioGroup>
     <div className={modal.btn}>
-        <Link  to='/' >
+        {/* <Link  to='/' > */}
     <Button className={modal.btn_cancel} onClick={handleClose}>ОТМЕНА</Button>
-        </Link>
+        {/* </Link> */}
     <Button className={modal.btn_delete} onClick={handleClose}>
         <img src={Delete_Icon} alt="" />
         УДАЛИТЬ</Button>
