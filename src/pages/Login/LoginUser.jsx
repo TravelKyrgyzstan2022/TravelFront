@@ -6,9 +6,8 @@ import { Login, LoginByGoogle } from "../../port/auth";
 import { useRef } from "react";
 
 const LoginUser = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [form, setForm] = useState({
+  const [credential, setCredentinal] = useState("");
+  const [signUser, setSignUser] = useState({
     email: "",
     password: "",
   });
@@ -17,6 +16,7 @@ const LoginUser = () => {
 
   const handleCallbackResponse = (response) => {
     LoginByGoogle(response.credential);
+    setCredentinal(response.credential);
     console.log(response.credential);
   };
   console.log(process.env.REACT_APP_ID);
@@ -42,15 +42,19 @@ const LoginUser = () => {
             <p className={login.txt}>Log In</p>
             <input
               className={login.item}
-              value={email}
               type="email"
               placeholder="Email"
+              onChange={(e) =>
+                setSignUser({ ...signUser, email: e.target.value })
+              }
             />
             <input
               className={login.item}
-              value={password}
               type="password"
               placeholder="Password"
+              onChange={(e) =>
+                setSignUser({ ...signUser, password: e.target.value })
+              }
             />
             <div className={login.cont}>
               <Link to="/database">
@@ -62,6 +66,7 @@ const LoginUser = () => {
               <div className={login.googlebtn} ref={googleBtn}></div>
             </div>
           </div>
+          <div>${credential}</div>
         </div>
       </section>
     </>

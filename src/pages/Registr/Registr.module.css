@@ -65,6 +65,11 @@
     background-color: #BBBBBB;
 }
 
+.btn:hover{
+    color: #BBBBBB;
+    background-color: #252525;
+}
+
 .forgot{
     margin: 0px auto 20px;
     width: 160px;
