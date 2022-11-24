@@ -1,9 +1,16 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import login from "./LoginUser.module.css";
+import log from "./LoginUser.module.css";
 import { Login, LoginByGoogle } from "../../port/auth";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { login }  from "../../redux/reducers/generalSlice"
+import { useFormik } from "formik";
+import { basicSchema } from "../../schemas";
+import LOGO from '../../img/LOGO_night.svg'
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const LoginUser = () => {
   const [credential, setCredentinal] = useState("");
@@ -11,9 +18,9 @@ const LoginUser = () => {
     email: "",
     password: "",
   });
-
   const googleBtn = useRef(null);
 
+  const dispatch = useDispatch()
   const handleCallbackResponse = (response) => {
     LoginByGoogle(response.credential);
     setCredentinal(response.credential);
@@ -33,40 +40,62 @@ const LoginUser = () => {
     });
   }, []);
 
+  // ! FORMIK
+    const {values, errors, touched,isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
+      initialValues:{
+        email: "",
+        password: ""
+      },
+      onSubmit: (data, { resetForm }) => {
+        console.log(data)
+        dispatch(login(data))
+        resetForm({data: ''})
+      },
+      validationSchema: basicSchema,
+    })
+    console.log(errors)
+
+    // ! Toastify
+
+    const tt = () => {
+      toast.success("You have successfully log in!")
+        }
+
   return (
     <>
       <section>
-        <div className={login.container}>
-          <h2 className={login.logo}>be nomad</h2>
-          <div className={login.box}>
-            <p className={login.txt}>Log In</p>
+        <div className={log.container}>
+          <img className={log.logo} src={LOGO} alt="img" />
+          <form onSubmit={handleSubmit} autoComplete="off" className={log.box}>
+            <p className={log.txt}>Log In</p>
             <input
-              className={login.item}
+              value={values.email}
+              className={log.item}
+              name = "email"
               type="email"
-              placeholder="Email"
-              onChange={(e) =>
-                setSignUser({ ...signUser, email: e.target.value })
-              }
+              placeholder="Email*"
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
+            {errors.email && touched.email && <p className={log.error}>{errors.email}</p>}
             <input
-              className={login.item}
+              value={values.password}
+              className={log.item}
+              name="password"
               type="password"
               placeholder="Password"
-              onChange={(e) =>
-                setSignUser({ ...signUser, password: e.target.value })
-              }
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
-            <div className={login.cont}>
-              <Link to="/database">
-                <button className={login.btn}> Log In</button>
-              </Link>
-              <Link to="/login2">
-                <button className={login.forgot}>Forgot password</button>
-              </Link>
-              <div className={login.googlebtn} ref={googleBtn}></div>
+            {errors.password && touched.password && <p className={log.error}>{errors.password}</p>}
+            <div className={log.cont}>
+                <button onClick={tt} disabled={isSubmitting} type="submit" className={log.btn}> Log In</button>
+                <ToastContainer/>
+                <button className={log.forgot}>Forgot password</button>
+              <div className={log.googlebtn} ref={googleBtn}></div>
             </div>
-          </div>
-          <div>${credential}</div>
+          </form>
+          <div>{credential}</div>
         </div>
       </section>
     </>

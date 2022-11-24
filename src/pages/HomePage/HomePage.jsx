@@ -8,7 +8,7 @@ const HomePage = () => {
   return (
     <>
       <video className={home.video} autoPlay loop muted>
-        <source src={intro} type="video/mp4" />
+        <source src={intro} type="video/mp4" />x
       </video>
       <div className={home.container}>
         <div className={home.texts}>

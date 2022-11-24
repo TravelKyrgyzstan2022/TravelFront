@@ -2,6 +2,8 @@ import nav from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
+
+
   return (
     <>
       <div className={nav.section}>
@@ -10,8 +12,8 @@ const Navbar = () => {
             <nav className={nav.logo}>be Nomad</nav>
           </Link>
           <nav className={nav.list}>
-            <Link to="/see">
-              <nav className={nav.item}>See and Try</nav>
+            <Link to="/sightseeing">
+              <nav className={nav.item}>Sighseeing</nav>
             </Link>
             <Link to="/eat">
               <nav className={nav.item}>Eat</nav>
@@ -19,8 +21,8 @@ const Navbar = () => {
             <Link to="/stay">
               <nav className={nav.item}>Stay</nav>
             </Link>
-            <Link to="/enter">
-              <nav className={nav.item}>Entertainment</nav>
+            <Link to="/events">
+              <nav className={nav.item}>Events</nav>
             </Link>
             <Link to="/blog">
               <nav className={nav.item}>Blogs</nav>
