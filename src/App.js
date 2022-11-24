@@ -15,36 +15,29 @@ import Managers from "./pages/AdminPanel/Managers/";
 import ReviewsAndBlogs from "./pages/AdminPanel/ReviewsAndBlogs";
 import Dashboard from "./pages/AdminPanel/Dashboard/DashBoard";
 import Navbar from "./components/Navbar/Navbar";
-import SideBar from "./components/SideBar/"  
-
+import MainPage from "./pages/MainPage/MainPage";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   let location = useLocation();
   return (
     <>
       {location.pathname === "/admin" ? null : location.pathname ===
-        "/database" ? (
-        null
-      ) : location.pathname === "/content" ? (
-        null
-      ) : location.pathname === "/managers" ? (
-        null
-      ) : location.pathname === "/reviewsandblogs" ? (
-        null
-      ) : (
+        "/database" ? null : location.pathname ===
+        "/content" ? null : location.pathname ===
+        "/managers" ? null : location.pathname === "/reviewsandblogs" ? null : (
         <Navbar />
-      )
-      }
-    
+      )}
+
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<MainPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/login" element={<LoginUser />} />
         <Route path="/login2" element={<Login2 />} />
         <Route path="/sign" element={<SignIn />} />
         <Route path="/reg" element={<Registr />} />
         <Route path="/eat" element={<Eat />} />
-        <Route path="/enter" element={<Enter />} />
+        <Route path="/event" element={<Enter />} />
         <Route path="/see" element={<See />} />
         <Route path="/stay" element={<Stay />} />
         <Route path="/" element={<Dashboard />} />
