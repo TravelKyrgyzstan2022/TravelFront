@@ -57,7 +57,7 @@ const SideBar = ({children}) => {
                     menuItem.map((item,index) => (
                         <NavLink to={item.path} key={index} className={sbar.link} activeclassName="active"
                         
-                        style={{marginBottom : item.margin ? '85%':null}}
+                        style={{marginBottom : item.margin ? '80%':null}}
                         >
                             <div className={sbar.icon}>{item.icon}</div>
                             <div className={sbar.link_text}>{item.name}</div>
