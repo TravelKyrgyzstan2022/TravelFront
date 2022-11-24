@@ -5,39 +5,42 @@ import LoginUser from "./pages/Login/LoginUser";
 import Login2 from "./pages/Login/Login2";
 import SignIn from "./pages/Login/SignIn";
 import Registr from "./pages/Registr/Registr";
-import Eat from "./pages/Eat/Eat";
-import Enter from "./pages/Entertaiment/Enter";
-import See from "./pages/SeeNTry/See";
-import Stay from "./pages/Stay/Stay";
 import DataBase from "./pages/AdminPanel/DataBase";
 import Content from "./pages/AdminPanel/Content/";
 import Managers from "./pages/AdminPanel/Managers/";
 import ReviewsAndBlogs from "./pages/AdminPanel/ReviewsAndBlogs";
 import Dashboard from "./pages/AdminPanel/Dashboard/DashBoard";
 import Navbar from "./components/Navbar/Navbar";
+import SideBar from "./components/SideBar/"  
+import MainPage from "./pages/MainPage"
+import Sightseeing from "./pages/Sightseeing";
+import Stay from "./pages/Stay";
+import Events from "./pages/Events";
+import Eat from "./pages/Eat";
 import MainPage from "./pages/MainPage/MainPage";
 import Footer from "./components/Footer/Footer";
 
 function App() {
-  let location = useLocation();
-  return (
-    <>
-      {location.pathname === "/admin" ? null : location.pathname ===
+let location = useLocation();
+return (
+<>
+{location.pathname === "/admin" ? null : location.pathname ===
         "/database" ? null : location.pathname ===
         "/content" ? null : location.pathname ===
         "/managers" ? null : location.pathname === "/reviewsandblogs" ? null : (
         <Navbar />
-      )}
+)}
 
-      <Routes>
+<Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/main" element={<MainPage/>} />
         <Route path="/" element={<MainPage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/login" element={<LoginUser />} />
         <Route path="/login2" element={<Login2 />} />
         <Route path="/sign" element={<SignIn />} />
         <Route path="/reg" element={<Registr />} />
-        <Route path="/eat" element={<Eat />} />
-        <Route path="/event" element={<Enter />} />
+        <Route path="/events" element={<Events />} />
         <Route path="/see" element={<See />} />
         <Route path="/stay" element={<Stay />} />
         <Route path="/" element={<Dashboard />} />
@@ -45,9 +48,11 @@ function App() {
         <Route path="/content" element={<Content />} />
         <Route path="/managers" element={<Managers />} />
         <Route path="/reviewsandblogs" element={<ReviewsAndBlogs />} />
-      </Routes>
-    </>
-  );
+        <Route path="/sightseeing" element={<Sightseeing/>} />
+        <Route path="/eat" element={<Eat />} />
+</Routes>
+</>
+);
 }
 
 export default App;

@@ -49,8 +49,6 @@ const SideBar = ({children}) => {
             
             <div className={sbar.side_bar}>
                 <div className={sbar.top_section}>
-                    {/* <h1 className={sbar.logo}>Be
-                    <span className={sbar.span}>Nomad</span></h1> */}
                     <img className={sbar.logo} src={LOGO} alt="img" />
                 </div>
                 {

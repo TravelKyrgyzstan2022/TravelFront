@@ -1,7 +1,7 @@
-import { login, register } from "../api/login";
+import { register } from "../api/login";
 import { store } from "../redux/store";
 import jwt_decode from "jwt-decode";
-import { setLoginByGoogle } from "../redux/reducers/generalSlice";
+import { login, setLoginByGoogle } from "../redux/reducers/generalSlice";
 
 export const LoginByGoogle = (token) => {
   const data = jwt_decode(token);

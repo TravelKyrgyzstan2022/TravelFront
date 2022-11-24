@@ -5,6 +5,8 @@ import searchIcon from "../../img/searchIcon.svg";
 import Language from "../language/Language";
 
 const Navbar = () => {
+
+
   return (
     <>
       <div className={nav.section}>
@@ -18,19 +20,18 @@ const Navbar = () => {
             <Link to="/">
               <nav className={nav.item}>Home</nav>
             </Link>
-            <Link to="/sight">
-              <nav className={nav.item}>Sigtseeng</nav>
-            </Link>
+            <Link to="/sightseeing">
+              <nav className={nav.item}>Sighseeing</nav>
+              </Link>
             <Link to="/stay">
               <nav className={nav.item}>Stay</nav>
             </Link>
-            <Link to="/event">
-              <nav className={nav.item}>Event</nav>
-            </Link>
+            <Link to="/events">
+              <nav className={nav.item}>Events</nav>
+              </Link>
             <Link to="/eat">
               <nav className={nav.item}>Eat</nav>
             </Link>
-          </nav>
           <nav className={nav.search}>
             <input
               className={nav.searchInp}
@@ -48,6 +49,7 @@ const Navbar = () => {
               <nav className={nav.login}>Log In</nav>
             </Link>
             <Language />
+          </nav>
           </nav>
         </div>
       </div>
