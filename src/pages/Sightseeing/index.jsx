@@ -7,11 +7,16 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Rating from '@mui/material/Rating';
 import BURANA from "../../img/Buranaa.png"
 import Tashrabat from "../../img/tash-rabat.png"
+import SIGHT from "../../img/sight_page.png"
+import { NavLink } from 'react-router-dom';
 
 const Sightseeing = () => {
     return (
     <>
-        <div className={ss.container}>
+    <div>
+    <div className={ss.header}>
+    <img src={SIGHT} alt="" />
+    <h2 className={ss.title}>Are You Ready to See the Most Incredible Sights You Have Ever Seen ?</h2>
             <div className={ss.cards}>
                 <div className={ss.card}>
                     <div className={ss.full_card}>
@@ -35,7 +40,9 @@ const Sightseeing = () => {
                             <button className={ss.card_tag} href="">#mountains</button> 
                             <button className={ss.card_tag2} href="">#ancientsights</button> 
                     </div>
+                    <NavLink to='/details_sulaiman__too'>
                     <button className={ss.arrow_next}><ArrowForwardIcon /></button>
+                    </NavLink>
                     </div>
                         <div className={ss.card_button}>
                         <button className={ss.btn}><img className={ss.btn_img} src={Plan} alt="img" />Add to my trip plan</button>
@@ -115,6 +122,7 @@ const Sightseeing = () => {
 
 
             </div>
+        </div>
         </div>
         </>
     );

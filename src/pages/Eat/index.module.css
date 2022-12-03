@@ -1,5 +1,25 @@
-.container{
-    margin: 80px;
+.header {
+	position: relative;
+	width: 100%;
+}
+
+h2 {
+	position : absolute;
+    top: 115px;
+    left: 80px;
+	width : 100%;
+    width: 1061px;
+    height: 150px;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 75px;
+    color: #FFFFFF;
+}
+
+.cards{
+    margin: 0px 80px 0 80px;
+    position: relative;
+    margin-top: -125px;
 }
 
 .card{

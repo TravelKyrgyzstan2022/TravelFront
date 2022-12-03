@@ -7,11 +7,14 @@ import NomadGames from "../../img/nomad-games.png"
 import KurmanjanDatka from "../../img/kurmanjan-datka.png"
 import Calendar from "../../img/calendar.svg" 
 import AdamPerformance from "../../img/adam-performance.png"
+import EVENT from "../../img/events_page.png"
 
 const Events = () => {
 return (
-    <>
-    <div className={event.container}>
+    <div>
+        <div className={event.header}>
+    <img src={EVENT} alt="" />
+    <h2 className={event.title}>Go Explore National Events</h2>
     <div className={event.cards}>
                 <div className={event.card}>
                     <div className={event.full_card}>
@@ -104,9 +107,9 @@ return (
 
 
 
-                </div>
+        </div>
     </div>
-    </>
+    </div>
 );
 };
 

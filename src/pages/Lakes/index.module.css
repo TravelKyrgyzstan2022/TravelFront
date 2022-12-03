@@ -1,0 +1,76 @@
+.header {
+	position: relative;
+	width: 100%;
+}
+
+.icons{
+    margin-right: 40px;
+}
+
+.title{
+	position : absolute;
+    top: 100px;
+    left: 80px;
+    font-weight: 600;
+    font-size: 64px;
+    line-height: 75px;
+    color: #FFFFFF;
+}
+
+.subtitle{
+    position : absolute;
+    top: 230px;
+    left: 80px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    color: #FFFFFF;
+}
+
+.list{
+    position: absolute;
+    top: 350px;
+    left: 80px;
+    display: flex;
+}
+
+.slider{
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 80px;
+    top: 480px;
+}
+
+.card_title{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px; 
+    color: #FFFFFF;    
+}
+
+.slider_buttons{
+    display: flex;
+    margin-left: 850px;
+    margin-top: 35px;
+}
+
+.arrow_back{
+    width: 32px !important;
+    height: 32px !important;
+    color: #BBBBBB;
+}
+
+.arrow_next{
+    width: 32px !important;
+    height: 32px !important;
+    color: #E65C4F;
+}
+
+/* ! CARDS1 */
+
+.cards1{
+    position: absolute;
+    left: 80px;
+    top: 594px;
+}

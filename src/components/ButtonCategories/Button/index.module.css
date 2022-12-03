@@ -1,0 +1,19 @@
+.btn{
+    width: 354px;
+    height: 54px;
+    border: 2px solid #E65C4F;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0);
+    font-weight: 600;
+    font-size: 20px;
+    color: #E65C4F;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    /* margin-top: 60px; */
+}
+
+.btn_img{
+    margin-right: 16px;
+}

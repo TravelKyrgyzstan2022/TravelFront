@@ -6,11 +6,15 @@ import Navat from "../../img/navat.png"
 import Button from "../../components/Button"
 import Supara from "../../img/suparaat.png"
 import Sonunduk from "../../img/sonunduk.png"
+import EAT from "../../img/eat_page.png"
 
 const Eat = () => {
   return (
     <>
-    <div className={eat.container }>
+    <div>
+    <div className={Eat.header}>
+      <img src={EAT} alt="" />
+      <h2 className={Eat.title}>National Cuisine</h2>
           <div className={eat.cards}>
       <div className={eat.card}>
           <div className={eat.full_card}>
@@ -97,8 +101,8 @@ to mix novelty and spirits of nomads.
       </div>
 
 
-
-      </div>
+          </div>
+          </div>
           </div>
     </>
   );

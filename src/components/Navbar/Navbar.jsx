@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../img/bnlogo.svg";
 import logoNight from "../../img/LOGO_night.svg";
 import searchIcon from "../../img/searchIcon.svg";
-import Language from "../language/Language";
+// import Language from "../language/Language";
 import { useState } from "react";
 
 const Navbar = () => {
@@ -87,7 +87,7 @@ const Navbar = () => {
               <Link to="/login">
                 <nav className={nav.login}>Log In</nav>
               </Link>
-              <Language />
+            {/* <Language */}
             </nav>
           </nav>
         </div>
@@ -97,3 +97,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+

@@ -15,6 +15,14 @@ import Sightseeing from "./pages/Sightseeing";
 import Stay from "./pages/Stay";
 import Events from "./pages/Events";
 import Eat from "./pages/Eat";
+import Blogs from "./pages/Blogs";
+import Detail from "./pages/DetailPage";
+import Gorges from "./pages/Gorges";
+import Hiking from "./pages/Hiking";
+import Waterfall from "./pages/WaterFall";
+import Mountains from "./pages/Mountains";
+import Alpinism from "./pages/Alpinism";
+import Lakes from "./pages/Lakes";
 
 const PATHES = {
   "/admin": 1,
@@ -45,6 +53,14 @@ function App() {
         <Route path="/reviewsandblogs" element={<ReviewsAndBlogs />} />
         <Route path="/sightseeing" element={<Sightseeing />} />
         <Route path="/eat" element={<Eat />} />
+        <Route path="/details_sulaiman__too" element={<Detail/>} />
+        <Route path="/gorges" element={<Gorges/>} />
+        <Route path="/hiking" element={<Hiking/>} />
+        <Route path='/waterfall' element={<Waterfall/>}/>
+        <Route path='/mountains' element={<Mountains/>} />
+        <Route path='/alpinism' element={<Alpinism/>} />
+        <Route path='lakes' element={<Lakes/>} />
+        <Route path="/blogs" element={<Blogs/>} />
       </Routes>
     </>
   );

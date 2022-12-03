@@ -1,6 +1,6 @@
 import React from "react";
 import main from "./HomePage.module.css";
-import forest from "../../img/forest.svg";
+import gorges from "../../img/gorges.svg";
 import hiking from "../../img/hiking.svg";
 import sights from "../../img/sights.svg";
 import waterfall from "../../img/waterfall.svg";
@@ -30,10 +30,14 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MobileStepper from "@mui/material/MobileStepper";
 import Button from "@mui/material/Button";
 import { useTheme } from "styled-components";
+<<<<<<< HEAD
+import { NavLink } from "react-router-dom";
+=======
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCommit, getPlace } from "../../api/place";
+>>>>>>> 54127bc5fcff4323cbab17cb950743698f8508a4
 
 const HomePage = () => {
   const theme = useTheme();
@@ -76,7 +80,9 @@ const HomePage = () => {
               <h5>Top categories</h5>
               <div className={main.list}>
                 <div>
-                  <img src={forest} alt="forest img" />
+                  <NavLink to='/gorges'>
+                  <img src={gorges} alt="gorges img" />
+                  </NavLink>
                 </div>
                 <div>
                   <img src={hiking} alt="hiking img" />
