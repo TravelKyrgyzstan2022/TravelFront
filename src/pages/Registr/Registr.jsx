@@ -1,67 +1,51 @@
 import React, { useEffect } from "react";
 import reg from "./Registr.module.css";
-import { useState } from "react";
-import axios from "axios";
-import { BASE_URL } from "../../utils/const";
-import LOGO from '../../img/LOGO_night.svg'
+import LOGO from "../../img/LOGO_night.svg";
 import { basicSchema } from "../../schemas";
 import { useDispatch } from "react-redux";
 import { useFormik } from "formik";
-import { register } from "../../api/login";
+import { register } from "../../api/auth";
 import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Registr = () => {
+  const dispatch = useDispatch();
 
-  // const signUp = async () => {
-  //   try {
-  //     console.log("запрос идет");
-  //     console.log(BASE_URL);
-  //     await axios.post(BASE_URL + "auth/register", values);
-  //     ({
-  //       first_name: "",
-  //       last_name: "",
-  //       email: "",
-  //       password: "",
-  //     });
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-   // ! FORMIK
-
-
-  const dispatch = useDispatch() 
-
-  const {values, errors, touched,isSubmitting, handleBlur, handleChange, handleSubmit} = useFormik({
-    initialValues:{
+  const {
+    values,
+    errors,
+    touched,
+    isSubmitting,
+    handleBlur,
+    handleChange,
+    handleSubmit,
+  } = useFormik({
+    initialValues: {
       first_name: "",
       last_name: "",
       email: "",
-      password: ""
+      password: "",
     },
     onSubmit: (data, { resetForm }) => {
-      console.log(data)
-      dispatch(register(data))
-      resetForm({data: ''})
+      console.log(data);
+      dispatch(register(data));
+      resetForm({ data: "" });
     },
     validationSchema: basicSchema,
-  })
-  console.log(errors)
+  });
+  console.log(errors);
 
+  // ! Toastify
 
-   // ! Toastify
-
-   const tt = () => {
-    toast.success("You have successfully sign in!")
-      }
+  const tt = () => {
+    toast.success("You have successfully sign in!");
+  };
 
   return (
     <>
       <section>
         <div className={reg.container}>
-        <img className={reg.logo} src={LOGO} alt="img" />
+          <img className={reg.logo} src={LOGO} alt="img" />
           <form onSubmit={handleSubmit} autoComplete="off" className={reg.box}>
             <p className={reg.txt}>Sign Up</p>
             <input
@@ -73,16 +57,20 @@ const Registr = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.first_name && touched.first_name && <p className={reg.error}>{errors.first_name}</p>}
+            {errors.first_name && touched.first_name && (
+              <p className={reg.error}>{errors.first_name}</p>
+            )}
             <input
               className={reg.item}
               name="last_name"
               type="text"
               placeholder="Last Name"
               value={values.last_name}
-              onChange={handleChange}    
+              onChange={handleChange}
             />
-            {errors.last_name && touched.last_name && <p className={reg.error}>{errors.last_name}</p>}
+            {errors.last_name && touched.last_name && (
+              <p className={reg.error}>{errors.last_name}</p>
+            )}
             <input
               className={reg.item}
               name="email"
@@ -92,25 +80,34 @@ const Registr = () => {
               onChange={handleChange}
               onBlur={handleBlur}
             />
-            {errors.email && touched.email && <p className={reg.error}>{errors.email}</p>}
+            {errors.email && touched.email && (
+              <p className={reg.error}>{errors.email}</p>
+            )}
             <input
-            value={values.password}
-            className={reg.item}
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={handleChange}
-            onBlur={handleBlur}
+              value={values.password}
+              className={reg.item}
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
-            {errors.password && touched.password && <p className={reg.error}>{errors.password}</p>}
+            {errors.password && touched.password && (
+              <p className={reg.error}>{errors.password}</p>
+            )}
             <div className={reg.cont}>
-              <button onClick={tt} disabled={isSubmitting} type="submit" className={reg.btn}>
+              <button
+                onClick={tt}
+                disabled={isSubmitting}
+                type="submit"
+                className={reg.btn}
+              >
                 Sign Up
               </button>
-              <ToastContainer/>
+              <ToastContainer />
             </div>
-            </form>
-          </div>
+          </form>
+        </div>
       </section>
     </>
   );

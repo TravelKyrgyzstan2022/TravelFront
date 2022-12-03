@@ -10,7 +10,7 @@
 .box{
     margin: 0 auto;
     width: 600px;
-    height: 540px;
+    height: 400px;
     flex-direction: column; 
     border: none solid;
     border-radius: 16px;
@@ -23,8 +23,8 @@
 
 
 .txt{
-    padding-top: 60px;
-    margin: 16px 230px 5px;
+    padding-top: 45px;
+    margin: 10px 240px 5px;
     font-size: 32px;
     font-weight: 600;
     line-height: 37.5px;

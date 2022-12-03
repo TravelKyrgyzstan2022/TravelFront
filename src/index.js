@@ -3,20 +3,17 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { store } from "./redux/store";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-
-import './components/Location/18n'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-    <Suspense fallback={<div>Loading...</div>}>
       <Provider store={store}>
         <App />
       </Provider>
-      </Suspense>
     </BrowserRouter>
   </React.StrictMode>
 );

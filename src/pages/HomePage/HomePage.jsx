@@ -30,11 +30,32 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MobileStepper from "@mui/material/MobileStepper";
 import Button from "@mui/material/Button";
 import { useTheme } from "styled-components";
+<<<<<<< HEAD
 import { NavLink } from "react-router-dom";
+=======
+import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getCommit, getPlace } from "../../api/place";
+>>>>>>> 54127bc5fcff4323cbab17cb950743698f8508a4
 
 const HomePage = () => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
+  const dispatch = useDispatch();
+  const place = useSelector((state) => state.place.data);
+  const commit = useSelector((state) => state.commit);
+
+  console.log(place);
+  useEffect(() => {
+    dispatch(getPlace());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getCommit());
+  }, []);
+
+  console.log(commit);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -125,6 +146,9 @@ const HomePage = () => {
               <img className={main.card_img} src={AlaArcha} alt="" />
               <img className={main.card_like} src={Like} alt="" />
             </div>
+            {place.map((item, i) => (
+              <h4>{item.name}</h4>
+            ))}
             <h4 className={main.card_title}>Ala-Medin Gorge</h4>
             <div className={main.pin}>
               <div className={main.location}>
@@ -518,6 +542,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

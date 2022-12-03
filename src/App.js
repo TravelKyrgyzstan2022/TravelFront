@@ -24,18 +24,20 @@ import Mountains from "./pages/Mountains";
 import Alpinism from "./pages/Alpinism";
 import Lakes from "./pages/Lakes";
 
-function App() {
-let location = useLocation();
-return (
-<>
-{location.pathname === "/admin" ? null : location.pathname ===
-        "/database" ? null : location.pathname ===
-        "/content" ? null : location.pathname ===
-        "/managers" ? null : location.pathname === "/reviewsandblogs" ? null : (
-        <Navbar />
-)}
+const PATHES = {
+  "/admin": 1,
+  "/database": 1,
+  "/content": 1,
+  "/managers": 1,
+};
 
-<Routes>
+function App() {
+  let location = useLocation();
+  return (
+    <>
+      {!PATHES[location.pathname] && <Navbar />}
+
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/login" element={<LoginUser />} />
@@ -49,9 +51,8 @@ return (
         <Route path="/content" element={<Content />} />
         <Route path="/managers" element={<Managers />} />
         <Route path="/reviewsandblogs" element={<ReviewsAndBlogs />} />
-        <Route path="/sightseeing" element={<Sightseeing/>} />
+        <Route path="/sightseeing" element={<Sightseeing />} />
         <Route path="/eat" element={<Eat />} />
-        <Route path="/blogs" element={<Blogs/>} />
         <Route path="/details_sulaiman__too" element={<Detail/>} />
         <Route path="/gorges" element={<Gorges/>} />
         <Route path="/hiking" element={<Hiking/>} />
@@ -59,9 +60,10 @@ return (
         <Route path='/mountains' element={<Mountains/>} />
         <Route path='/alpinism' element={<Alpinism/>} />
         <Route path='lakes' element={<Lakes/>} />
-</Routes>
-</>
-)
+        <Route path="/blogs" element={<Blogs/>} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;

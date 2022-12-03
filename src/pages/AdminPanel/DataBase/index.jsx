@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import db from "./index.module.css";
 import Search from "../../../img/search.svg";
 import SideBar from "./../../../components/SideBar";
@@ -14,7 +14,8 @@ import TableRow from "@mui/material/TableRow";
 import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
-import AVA from "../../../img/ava.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../redux/globalSlice/userSlice";
 
 function createData(name, gmail, data) {
   return {
@@ -56,24 +57,38 @@ function stableSort(array, comparator) {
 
 const headCells = [
   {
-    id: "name",
+    id: "id",
     numeric: false,
     disablePadding: true,
-    label: "ФИО",
+    label: "id",
     className: "head",
   },
   {
-    id: "gmail",
+    id: "first_name",
     numeric: true,
     disablePadding: false,
-    label: "Электронная почта",
+    label: "Имя",
     className: "head",
   },
   {
-    id: "data",
+    id: "last_name",
     numeric: true,
     disablePadding: false,
-    label: "Дата регистрации",
+    label: "Фамилия",
+    className: "head",
+  },
+  {
+    id: "email",
+    numeric: true,
+    disablePadding: false,
+    label: "email",
+    className: "head",
+  },
+  {
+    id: "phone_number",
+    numeric: true,
+    disablePadding: false,
+    label: "Телефон",
     className: "head",
   },
 ];
@@ -138,13 +153,29 @@ export default function DataBase() {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(getUser());
+  }, []);
+
+  rows.push(user.data);
+
+  <ul>
+    {rows.map((item) => (
+      <li>{item.first_name}</li>
+    ))}
+  </ul>;
   const handleRequestSort = (event, property) => {
+    event.preventDefault();
     const isAsc = orderBy === property && order === "asc";
     setOrder(isAsc ? "desc" : "asc");
     setOrderBy(property);
   };
 
   const handleClick = (event, name) => {
+    event.preventDefault();
     const selectedIndex = selected.indexOf(name);
     let newSelected = [];
 
@@ -206,8 +237,6 @@ export default function DataBase() {
                   rowCount={rows.length}
                 />
                 <TableBody>
-                  {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-                 rows.sort(getComparator(order, orderBy)).slice() */}
                   {stableSort(rows, getComparator(order, orderBy))
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                     .map((row, index) => {
@@ -221,7 +250,7 @@ export default function DataBase() {
                           onClick={(event) => handleClick(event, row.name)}
                           aria-checked={isItemSelected}
                           tabIndex={-1}
-                          key={row.name}
+                          key={row.first_name}
                           selected={isItemSelected}
                         >
                           <TableCell
@@ -230,10 +259,10 @@ export default function DataBase() {
                             scope="row"
                             padding="none"
                           >
-                            {row.name}
+                            {row.first_name}
                           </TableCell>
-                          <TableCell align="right">{row.gmail}</TableCell>
-                          <TableCell align="right">{row.data}</TableCell>
+                          <TableCell align="right">{row.email}</TableCell>
+                          <TableCell align="right">{rows.email}</TableCell>
                         </TableRow>
                       );
                     })}
