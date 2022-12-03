@@ -1,6 +1,6 @@
 import React from "react";
 import main from "./HomePage.module.css";
-import forest from "../../img/forest.svg";
+import gorges from "../../img/gorges.svg";
 import hiking from "../../img/hiking.svg";
 import sights from "../../img/sights.svg";
 import waterfall from "../../img/waterfall.svg";
@@ -30,6 +30,7 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MobileStepper from "@mui/material/MobileStepper";
 import Button from "@mui/material/Button";
 import { useTheme } from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const HomePage = () => {
   const theme = useTheme();
@@ -58,7 +59,9 @@ const HomePage = () => {
               <h5>Top categories</h5>
               <div className={main.list}>
                 <div>
-                  <img src={forest} alt="forest img" />
+                  <NavLink to='/gorges'>
+                  <img src={gorges} alt="gorges img" />
+                  </NavLink>
                 </div>
                 <div>
                   <img src={hiking} alt="hiking img" />

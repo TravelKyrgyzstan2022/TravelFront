@@ -1,21 +1,22 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import Navbar from "./components/Navbar/Navbar";
-import DetailModal from "./components/DetailModal"
+
+import './components/Location/18n'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <Suspense fallback={<div>Loading...</div>}>
       <Provider store={store}>
         <App />
-        {/* <DetailModal /> */}
       </Provider>
+      </Suspense>
     </BrowserRouter>
   </React.StrictMode>
 );

@@ -7,11 +7,16 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Plan from "../../img/plan_light.svg"
 import Supara from "../../img/supara.png"
 import PeopleHostel from "../../img/people-hostel.png"
+import STAY from "../../img/stay_page.png"
 
 const Stay = () => {
-  return (
+return (
     <>
-    <div className={stay.container}>
+    <div>
+<div className={stay.header}>
+    <img src={STAY} alt="" />
+    <h2 className={stay.title}>Kyrgyz People Were Always Famous for Their
+Hospitality</h2>
     <div className={stay.cards}>
 
                 <div className={stay.card}>
@@ -106,6 +111,7 @@ const Stay = () => {
                 </div>
 
       </div>
+    </div>
     </div>
     </>
   );

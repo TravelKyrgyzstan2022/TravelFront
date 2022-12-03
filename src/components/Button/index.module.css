@@ -3,7 +3,7 @@
     height: 54px;
     border: 2px solid #E65C4F;
     border-radius: 16px;
-    background-color: #FFFFFF;
+    background: rgba(0, 0, 0, 0);
     font-weight: 600;
     font-size: 20px;
     color: #E65C4F;

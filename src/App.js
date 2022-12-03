@@ -11,25 +11,31 @@ import Managers from "./pages/AdminPanel/Managers/";
 import ReviewsAndBlogs from "./pages/AdminPanel/ReviewsAndBlogs";
 import Dashboard from "./pages/AdminPanel/Dashboard/DashBoard";
 import Navbar from "./components/Navbar/Navbar";
-import SideBar from "./components/SideBar/";
 import Sightseeing from "./pages/Sightseeing";
 import Stay from "./pages/Stay";
 import Events from "./pages/Events";
 import Eat from "./pages/Eat";
-import Footer from "./components/Footer/Footer";
+import Blogs from "./pages/Blogs";
+import Detail from "./pages/DetailPage";
+import Gorges from "./pages/Gorges";
+import Hiking from "./pages/Hiking";
+import Waterfall from "./pages/WaterFall";
+import Mountains from "./pages/Mountains";
+import Alpinism from "./pages/Alpinism";
+import Lakes from "./pages/Lakes";
 
 function App() {
-  let location = useLocation();
-  return (
-    <>
-      {location.pathname === "/admin" ? null : location.pathname ===
+let location = useLocation();
+return (
+<>
+{location.pathname === "/admin" ? null : location.pathname ===
         "/database" ? null : location.pathname ===
         "/content" ? null : location.pathname ===
         "/managers" ? null : location.pathname === "/reviewsandblogs" ? null : (
         <Navbar />
-      )}
+)}
 
-      <Routes>
+<Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/admin" element={<AdminPage />} />
         <Route path="/login" element={<LoginUser />} />
@@ -43,11 +49,19 @@ function App() {
         <Route path="/content" element={<Content />} />
         <Route path="/managers" element={<Managers />} />
         <Route path="/reviewsandblogs" element={<ReviewsAndBlogs />} />
-        <Route path="/sightseeing" element={<Sightseeing />} />
+        <Route path="/sightseeing" element={<Sightseeing/>} />
         <Route path="/eat" element={<Eat />} />
-      </Routes>
-    </>
-  );
+        <Route path="/blogs" element={<Blogs/>} />
+        <Route path="/details_sulaiman__too" element={<Detail/>} />
+        <Route path="/gorges" element={<Gorges/>} />
+        <Route path="/hiking" element={<Hiking/>} />
+        <Route path='/waterfall' element={<Waterfall/>}/>
+        <Route path='/mountains' element={<Mountains/>} />
+        <Route path='/alpinism' element={<Alpinism/>} />
+        <Route path='lakes' element={<Lakes/>} />
+</Routes>
+</>
+)
 }
 
 export default App;

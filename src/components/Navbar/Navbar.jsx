@@ -1,8 +1,8 @@
 import nav from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import logo from "../../img/bnlogo.svg";
-import searchIcon from "../../img/searchIcon.svg";
-import Language from "../language/Language";
+import searchIcon from "../../img/searchIcon.svg"
+import Language from "../language";
 
 const Navbar = () => {
 
@@ -21,7 +21,7 @@ const Navbar = () => {
               <nav className={nav.item}>Home</nav>
             </Link>
             <Link to="/sightseeing">
-              <nav className={nav.item}>Sighseeing</nav>
+              <nav className={nav.item}>Sightseeing</nav>
               </Link>
             <Link to="/stay">
               <nav className={nav.item}>Stay</nav>
@@ -48,8 +48,8 @@ const Navbar = () => {
             <Link to="/login">
               <nav className={nav.login}>Log In</nav>
             </Link>
-            <Language />
           </nav>
+            <Language/>
           </nav>
         </div>
       </div>

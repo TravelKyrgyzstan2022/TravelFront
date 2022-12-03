@@ -40,7 +40,7 @@ const Footer = () => {
           <div className={footer.list2}>
             <div className={footer.txt}>Top categories</div>
             <div className={footer.item3}>
-              <div>Forest</div>
+              <div>Gorges</div>
               <div>Hiking</div>
               <div>Ancient sitght</div>
               <div>Waterfalls</div>
