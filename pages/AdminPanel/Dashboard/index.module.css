@@ -1,0 +1,21 @@
+.form{
+    padding: 24px;
+}
+
+.search{
+    width: 758px;
+    height: 56px;
+    left: 405px;
+    top: 24px;
+    background: #FFFFFF;
+    border: 1px solid #BBBBBB;
+    border-radius: 28px;
+    padding: 18px 64px;
+    font-family: 'Roboto';
+    font-size: 20px;
+}
+
+.img{
+    position:absolute;
+    padding: 18px 28px;
+}
