@@ -1,0 +1,150 @@
+.stay_header{
+    display: flex;
+}
+
+.stay_title{
+    font-weight: 600;
+    font-size: 36px;
+    /* line-height: 42px; */
+    color: #252525;
+}
+
+
+.slider{
+    display: flex;
+    justify-content: space-between;
+}
+
+.title{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    color: #E65C4F;
+}
+
+.slider_buttons{
+    display: flex;
+}
+
+.arrow_back{
+    width: 32px !important;
+    height: 32px !important;
+    color: #BBBBBB;
+}
+
+.arrow_next{
+    width: 32px !important;
+    height: 32px !important;
+    color: #E65C4F;
+}
+
+/* Cards */
+.cards{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 80px;
+}
+
+.card{
+    width: 400px;
+    height: 475px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 28px;
+    cursor: pointer;
+    padding: 18px;
+    margin-right: 24px;
+}
+
+.img_like{
+    display: flex;
+    justify-content: right;
+}
+
+.card_img{
+    width: 100%;
+    position: relative;
+}
+
+.card_like{
+    position: absolute;
+    margin-left: -23px;
+    margin-top: 20px;
+}
+
+
+.card_title{
+    font-weight: 600;
+    font-size: 24px;
+    color: #252525;
+    margin-top: 20px;
+}
+
+.pin{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -30px;
+}
+
+
+.locatioon{
+    display: flex;
+}
+
+.raiting{
+    margin-top: -27px;
+}
+
+.raiting_txt{
+    margin-top: 0px;
+    align-items: center;
+    text-align: center;
+    font-size: 20px;
+    color: #252525;
+}
+
+.distribute{
+    margin-bottom: 16px;
+}
+
+
+.distribute_btn{
+    width: 56px;
+    height: 33px;
+    background: #3FBD89;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.distribute_btn2{
+    width: 77px;
+    height: 33px;
+    background: #FFCD29;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.distribute_btn3{
+    width: 57px;
+    height: 33px;
+    background: #E65C4F;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+}
+
+.slider{
+    display: flex;
+    justify-content: space-between;
+}

@@ -1,0 +1,120 @@
+.articles_title{
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    background: linear-gradient(90deg, #252525 0%, #E65C4F 253.47%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.acrticles_cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;        
+}
+
+.art_card{
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.articles_card1{
+    width: 772px;
+    height: 460px;
+    border-radius: 20px;
+    gap: 10px;
+}
+
+.articles_txt1{
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;  
+    color: #FFFFFF;
+    margin-top: 183px;
+    width: 291px;
+    margin-left: 240px;
+}
+
+.articles_card2{
+    width: 492px;
+    height: 460px;
+    gap: 10px;
+}
+
+.articles_txt2{
+    width: 291px;
+    color: #FFFFFF;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;  
+    margin-top: 113px;
+    margin-left: 101px;
+    font-weight: 600;
+}
+.art_txt{
+    position: absolute;
+}
+
+.articles_card3{
+    position: relative;
+    width: 488px;
+    height: 460px;
+}
+
+.articles_txt3{
+    width: 291px;
+    color: #FFFFFF;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;  
+    margin-top: 160px;
+    margin-left: 99px;
+    font-weight: 600;
+}
+
+.articles_card4{
+    position: relative;
+    width: 776px;
+    height: 460px;
+    border-radius: 20px;
+}
+
+.articles_txt4{
+    width: 291px;
+    color: #FFFFFF;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;  
+    margin-top: 113px;
+    margin-left: 242px;
+    font-weight: 600;
+}
+
+.art_txt{
+    position: absolute;
+}
+
+.slider{
+    display: flex;
+    justify-content: space-between;
+}
+
+.slider_buttons{
+    display: flex;
+}
+
+.arrow_back{
+    width: 32px !important;
+    height: 32px !important;
+    color: #BBBBBB;
+}
+
+.arrow_next{
+    width: 32px !important;
+    height: 32px !important;
+    color: #E65C4F;
+}

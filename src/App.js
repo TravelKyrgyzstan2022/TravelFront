@@ -23,6 +23,9 @@ import Waterfall from "./pages/WaterFall";
 import Mountains from "./pages/Mountains";
 import Alpinism from "./pages/Alpinism";
 import Lakes from "./pages/Lakes";
+import { Calendar} from './pages/Calendar';
+import { today, getLocalTimeZone } from "@internationalized/date";
+
 
 const PATHES = {
   "/admin": 1,
@@ -61,6 +64,7 @@ function App() {
         <Route path='/alpinism' element={<Alpinism/>} />
         <Route path='lakes' element={<Lakes/>} />
         <Route path="/blogs" element={<Blogs/>} />
+        <Route path='/calendar' element={<Calendar defaultValue={today(getLocalTimeZone())}/>} />
       </Routes>
     </>
   );
