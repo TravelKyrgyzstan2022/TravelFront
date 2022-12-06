@@ -9,33 +9,29 @@ import lakes from "../../img/lakes.svg";
 import mainbg from "../../img/mainbg.svg";
 import Banner from "../../img/banner.png";
 import { useTheme } from "styled-components";
-import { NavLink } from "react-router-dom";
-import Footer from "../../components/Footer/Footer";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getCommit, getPlace } from "../../api/place";
+
+
+import { Link, NavLink } from "react-router-dom";
+
 import TopDestinations from "./TopDestinations";
 import PopularArticles from "./PopularArticles";
 import StayHotel from "./StayHotel";
 import ExtremeTour from "./ExtremeTour";
+
+import { getBlog } from "../../api/blogs";
+
 
 const HomePage = () => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const dispatch = useDispatch();
   const place = useSelector((state) => state.place.data);
-  const commit = useSelector((state) => state.commit);
 
-  console.log(place);
   useEffect(() => {
     dispatch(getPlace());
-  }, []);
-
-  useEffect(() => {
     dispatch(getCommit());
+    dispatch(getBlog());
   }, []);
-
-  console.log(commit);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -60,8 +56,8 @@ const HomePage = () => {
               <h5>Top categories</h5>
               <div className={main.list}>
                 <div>
-                  <NavLink to='/gorges'>
-                  <img src={gorges} alt="gorges img" />
+                  <NavLink to="/gorges">
+                    <img src={gorges} alt="gorges img" />
                   </NavLink>
                 </div>
                 <div>
@@ -86,6 +82,7 @@ const HomePage = () => {
       </div>
       <div className={main.container}>
         {/*! TOP DESTINATIONS */}
+
         <TopDestinations/>
 
         {/*! POPULAR ARTICLES */}

@@ -10,7 +10,7 @@
 .box{
     margin: 0 auto;
     width: 600px;
-    height: 400px;
+    height: 450px;
     flex-direction: column; 
     border: none solid;
     border-radius: 16px;
@@ -95,4 +95,12 @@
     font-weight: 600;
     margin: 0 35px;
     margin-top: 5px;
+}
+
+.helpers{
+    width: 499px;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    margin-top: 20px;
 }

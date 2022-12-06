@@ -3,15 +3,26 @@ import { Link } from "react-router-dom";
 import logo from "../../img/bnlogo.svg";
 import logoNight from "../../img/LOGO_night.svg";
 import searchIcon from "../../img/searchIcon.svg";
-// import Language from "../language/Language";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  logOut,
+  selectCurrentUser,
+} from "../../redux/globalSlice/authSlice/authSlice";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
   const [style, setStyle] = useState(false);
+  const dispatch = useDispatch();
   const [logoChange, setLogoChange] = useState(
     <img src={logo} alt="project logo" />
   );
+
+  const user = useSelector(selectCurrentUser);
+
+  const handleLogOut = () => {
+    dispatch(logOut());
+  };
 
   const setBg = () => {
     if (window.scrollY >= 80) {
@@ -66,11 +77,7 @@ const Navbar = () => {
                 Eat
               </nav>
             </Link>
-            <Link to="/admin">
-              <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Admin
-              </nav>
-            </Link>
+
             <nav className={nav.search}>
               <input
                 className={nav.searchInp}
@@ -84,10 +91,15 @@ const Navbar = () => {
               />
             </nav>
             <nav className={nav.auth}>
-              <Link to="/login">
-                <nav className={nav.login}>Log In</nav>
-              </Link>
-            {/* <Language */}
+              {user ? (
+                <nav className={nav.login} onClick={handleLogOut}>
+                  Log Out
+                </nav>
+              ) : (
+                <Link to="/login">
+                  <nav className={nav.login}>Login</nav>
+                </Link>
+              )}
             </nav>
           </nav>
         </div>
@@ -97,4 +109,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

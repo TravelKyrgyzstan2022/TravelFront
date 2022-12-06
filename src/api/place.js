@@ -17,9 +17,22 @@ export const getCommit = createAsyncThunk(
   "getCommit/data",
   async (arg, { rejectWithValue }) => {
     try {
-      const res = await API.get("api/v1/places/:id/comments", arg);
+      const res = await API.get("api/v1/places/2/comments", arg);
+      return res;
     } catch (error) {
       return rejectWithValue(error.response.data.message);
+    }
+  }
+);
+
+export const getStay = createAsyncThunk(
+  "getStay/place",
+  async (arg, { rejectWithValue }) => {
+    try {
+      const res = await API.get("api/v1/places/filter?categories=STAY", arg);
+      return res;
+    } catch (error) {
+      rejectWithValue(error.response.data.message);
     }
   }
 );
