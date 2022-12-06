@@ -36,3 +36,18 @@ export const getStay = createAsyncThunk(
     }
   }
 );
+
+export const getSights = createAsyncThunk(
+  "getSights/place",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await API.get(
+        "api/v1/places/filter?categories=SEE_AND_TRY",
+        data
+      );
+      return response;
+    } catch (error) {
+      rejectWithValue(error.response.data.message);
+    }
+  }
+);

@@ -7,6 +7,7 @@ import blogSlice from "./globalSlice/blogSlice/blogSlice";
 import forgotSlice from "./globalSlice/authSlice/forgotSlice";
 import activeEmailSlice from "./globalSlice/authSlice/activeEmailSlice";
 import placeStaySlice from "./globalSlice/placeSlice/placeStaySlice";
+import placeSightsSlice from "./globalSlice/placeSlice/placeSightsSlice";
 
 export const store = configureStore({
   reducer: {
@@ -18,6 +19,7 @@ export const store = configureStore({
     commit: commitSlice.reducer,
     blog: blogSlice.reducer,
     stayPlace: placeStaySlice.reducer,
+    sights: placeSightsSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
