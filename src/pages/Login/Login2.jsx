@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import log from "./Login2.module.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getForgotPass } from "../../api/auth";
 
 const Login2 = () => {
+  const [email, setEmail] = useState("");
+  const navigate = useNavigate();
+  const handleInp = (e) => setEmail(e.target.value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getForgotPass(email);
+    setEmail("");
+    navigate("/login");
+  };
+
   return (
     <div>
       <section>
@@ -14,14 +26,19 @@ const Login2 = () => {
               Can't get in ? Enter your email below and we'll send you an email
               to get this sorted out.
             </div>
-            <input className={log.item} type="email" placeholder="Email" />
+            <input
+              onChange={handleInp}
+              className={log.item}
+              type="email"
+              placeholder="Email"
+            />
             <div className={log.cont}>
               <Link to="/login">
                 <button className={log.btn}>Cancel</button>
               </Link>
-              <Link to="/sign">
-                <button className={log.btn}>Send reset email</button>
-              </Link>
+              <button onClick={handleSubmit} className={log.btn}>
+                Send reset email
+              </button>
             </div>
           </div>
         </div>

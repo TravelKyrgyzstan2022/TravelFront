@@ -30,32 +30,24 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import MobileStepper from "@mui/material/MobileStepper";
 import Button from "@mui/material/Button";
 import { useTheme } from "styled-components";
-<<<<<<< HEAD
-import { NavLink } from "react-router-dom";
-=======
+import { Link, NavLink } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getCommit, getPlace } from "../../api/place";
->>>>>>> 54127bc5fcff4323cbab17cb950743698f8508a4
+import { getBlog } from "../../api/blogs";
 
 const HomePage = () => {
   const theme = useTheme();
   const [activeStep, setActiveStep] = React.useState(0);
   const dispatch = useDispatch();
   const place = useSelector((state) => state.place.data);
-  const commit = useSelector((state) => state.commit);
 
-  console.log(place);
   useEffect(() => {
     dispatch(getPlace());
-  }, []);
-
-  useEffect(() => {
     dispatch(getCommit());
+    dispatch(getBlog());
   }, []);
-
-  console.log(commit);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -80,8 +72,8 @@ const HomePage = () => {
               <h5>Top categories</h5>
               <div className={main.list}>
                 <div>
-                  <NavLink to='/gorges'>
-                  <img src={gorges} alt="gorges img" />
+                  <NavLink to="/gorges">
+                    <img src={gorges} alt="gorges img" />
                   </NavLink>
                 </div>
                 <div>
@@ -141,98 +133,39 @@ const HomePage = () => {
           </div>
         </div>
         <div className={main.cards}>
-          <div className={main.card}>
-            <div className={main.img_like}>
-              <img className={main.card_img} src={AlaArcha} alt="" />
-              <img className={main.card_like} src={Like} alt="" />
-            </div>
-            {place.map((item, i) => (
-              <h4>{item.name}</h4>
-            ))}
-            <h4 className={main.card_title}>Ala-Medin Gorge</h4>
-            <div className={main.pin}>
-              <div className={main.location}>
-                <a className={main.locatioon}>
-                  <img src={Location} alt="" /> <p>Chuy Region</p>
-                </a>
+          {place.map((item, i) => (
+            <div className={main.card}>
+              <div className={main.img_like}>
+                <img className={main.card_img} src={item.image_urls} alt="" />
+                <img className={main.card_like} src={Like} alt="" />
               </div>
-              <div className={main.raiting}>
-                <img src={Star} alt="" />
-                <p className={main.raiting_txt}>4.5</p>
+              <h4 className={main.card_title}>{item.name}</h4>
+              <div className={main.pin}>
+                <div className={main.location}>
+                  <Link to="/region">
+                    <div className={main.locatioon}>
+                      <img src={Location} alt="" /> <p>{item.region}</p>
+                    </div>
+                  </Link>
+                </div>
+                <div className={main.raiting}>
+                  <img src={Star} alt="" />
+                  <p className={main.raiting_txt}>{item.raiting_count}</p>
+                </div>
               </div>
-            </div>
-            <div className={main.distribute}>
-              <button className={main.distribute_btn} href="">
-                Easy
-              </button>
-            </div>
-            <div className={main.card_button}>
-              <button className={main.btn}>
-                <img className={main.btn_img} src={Plan} alt="img" />
-                Add to my trip plan
-              </button>
-            </div>
-          </div>
-
-          <div className={main.card}>
-            <div className={main.img_like}>
-              <img className={main.card_img} src={Konorchek} alt="" />
-              <img className={main.card_like} src={Like} alt="" />
-            </div>
-            <h4 className={main.card_title}>Konorchek Canyons</h4>
-            <div className={main.pin}>
-              <div className={main.location}>
-                <a className={main.locatioon}>
-                  <img src={Location} alt="" /> <p>Chuy Region</p>
-                </a>
+              <div className={main.distribute}>
+                <button className={main.distribute_btn} href="">
+                  {item.raiting_count}
+                </button>
               </div>
-              <div className={main.raiting}>
-                <img src={Star} alt="" />
-                <p className={main.raiting_txt}>4.5</p>
+              <div className={main.card_button}>
+                <button className={main.btn}>
+                  <img className={main.btn_img} src={Plan} alt="img" />
+                  Add to my trip plan
+                </button>
               </div>
             </div>
-            <div className={main.distribute}>
-              <button className={main.distribute_btn2} href="">
-                Normal
-              </button>
-            </div>
-            <div className={main.card_button}>
-              <button className={main.btn}>
-                <img className={main.btn_img} src={Plan} alt="img" />
-                Add to my trip plan
-              </button>
-            </div>
-          </div>
-
-          <div className={main.card}>
-            <div className={main.img_like}>
-              <img className={main.card_img} src={Comsomolec} alt="" />
-              <img className={main.card_like} src={Like} alt="" />
-            </div>
-            <h4 className={main.card_title}>Peak “Comsomolec”</h4>
-            <div className={main.pin}>
-              <div className={main.location}>
-                <a className={main.locatioon}>
-                  <img src={Location} alt="" /> <p>Chuy Region</p>
-                </a>
-              </div>
-              <div className={main.raiting}>
-                <img src={Star} alt="" />
-                <p className={main.raiting_txt}>4.5</p>
-              </div>
-            </div>
-            <div className={main.distribute}>
-              <button className={main.distribute_btn3} href="">
-                Hard
-              </button>
-            </div>
-            <div className={main.card_button}>
-              <button className={main.btn}>
-                <img className={main.btn_img} src={Plan} alt="img" />
-                Add to my trip plan
-              </button>
-            </div>
-          </div>
+          ))}
         </div>
 
         {/*! POPULAR ARTICLES */}

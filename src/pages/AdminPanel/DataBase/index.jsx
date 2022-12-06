@@ -15,7 +15,7 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../redux/globalSlice/userSlice";
+import { getUser } from "../../../redux/globalSlice/userSlice/userSlice";
 
 function createData(name, gmail, data) {
   return {
@@ -154,19 +154,13 @@ export default function DataBase() {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
   const dispatch = useDispatch();
-  const user = useSelector((state) => state.user);
+  const users = useSelector((state) => state.user.data);
+  console.log(users);
 
   useEffect(() => {
     dispatch(getUser());
   }, []);
 
-  rows.push(user.data);
-
-  <ul>
-    {rows.map((item) => (
-      <li>{item.first_name}</li>
-    ))}
-  </ul>;
   const handleRequestSort = (event, property) => {
     event.preventDefault();
     const isAsc = orderBy === property && order === "asc";
@@ -237,20 +231,20 @@ export default function DataBase() {
                   rowCount={rows.length}
                 />
                 <TableBody>
-                  {stableSort(rows, getComparator(order, orderBy))
+                  {stableSort(users, getComparator(order, orderBy))
                     .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row, index) => {
-                      const isItemSelected = isSelected(row.name);
+                    .map((user, index) => {
+                      const isItemSelected = isSelected(user.first_name);
                       const labelId = `enhanced-table-checkbox-${index}`;
 
                       return (
                         <TableRow
                           className={db.input}
                           hover
-                          onClick={(event) => handleClick(event, row.name)}
+                          // onClick={(event) => handleClick(event, user.first_name)}
                           aria-checked={isItemSelected}
                           tabIndex={-1}
-                          key={row.first_name}
+                          key={user.id}
                           selected={isItemSelected}
                         >
                           <TableCell
@@ -259,10 +253,14 @@ export default function DataBase() {
                             scope="row"
                             padding="none"
                           >
-                            {row.first_name}
+                            {user.id}
                           </TableCell>
-                          <TableCell align="right">{row.email}</TableCell>
-                          <TableCell align="right">{rows.email}</TableCell>
+                          <TableCell align="right">{user.first_name}</TableCell>
+                          <TableCell align="right">{user.last_name}</TableCell>
+                          <TableCell align="right">{user.email}</TableCell>
+                          <TableCell align="right">
+                            {user.phone_number}
+                          </TableCell>
                         </TableRow>
                       );
                     })}
@@ -281,7 +279,7 @@ export default function DataBase() {
             <TablePagination
               rowsPerPageOptions={[5, 10, 25]}
               component="div"
-              count={rows.length}
+              count={users.length}
               rowsPerPage={rowsPerPage}
               page={page}
               onPageChange={handleChangePage}

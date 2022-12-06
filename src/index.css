@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700;900&display=swap');
 
 *{
-  font-family: 'Red Hat Display', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -19,26 +19,3 @@ code {
 }
 
 
-.redux-cont{
-  width: 216px;
-  margin: 0 auto;
-  margin-top: 200px;
-  padding-left: 20px;
-}
-
-.redux-cont button{
-  padding-left: 10px;
-}
-
-.redux-cont button:last-child{
-  margin-left: 20px;
-}
-
-/* .side-bar{
-  display: flex;
-  flex-direction: row;
-}
-
-.dashboard{
-  width: 100%;
-} */

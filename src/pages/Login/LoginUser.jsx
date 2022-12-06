@@ -2,8 +2,8 @@ import { useState } from "react";
 import log from "./LoginUser.module.css";
 import LOGO from "../../img/LOGO_night.svg";
 import { useDispatch } from "react-redux";
-import { SignIn } from "../../api/auth";
-import { useNavigate } from "react-router-dom";
+import { getActiveEmail, SignIn } from "../../api/auth";
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginUser = () => {
   const [email, setEmail] = useState("");
@@ -18,6 +18,7 @@ const LoginUser = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(SignIn({ email, password }));
+    dispatch(getActiveEmail(email));
     setEmail("");
     setPassword("");
     navigate("/");
@@ -55,6 +56,14 @@ const LoginUser = () => {
               <button type="submit" className={log.btn}>
                 Sign In
               </button>
+              <div className={log.helpers}>
+                <Link to="/login2">
+                  <div>Forgot Password?</div>
+                </Link>
+                <Link to="/reg">
+                  <div>Need an Account?</div>
+                </Link>
+              </div>
             </div>
           </form>
         </div>
