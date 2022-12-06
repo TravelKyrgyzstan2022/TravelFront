@@ -22,7 +22,7 @@
     font-size: 64px;
     line-height: 75px;
     color: #FFFFFF;
-    margin-top: 170px;
+    margin-top: 90px;
 }
 
 .date{
@@ -42,7 +42,8 @@
     line-height: 23px;
     color: #FFFFFF;
     cursor: pointer;
-    margin-top: 50px;
+    margin-top: 200px;
+    margin-left: 80px;
 }
 
 .planer{
@@ -66,6 +67,7 @@
     line-height: 42px;
     color: #FFFFFF;
     margin-top: 40px;
+    margin-left: 80px;
 }
 
 .list{

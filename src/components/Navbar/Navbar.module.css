@@ -4,7 +4,7 @@
 }
 
 .navbar{
-    width: 100%;
+    width: 100vw;
     height: 100px;
     display: flex;
     position: fixed;
@@ -31,11 +31,8 @@
     cursor: pointer;
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    font-size: 40px;
-    color: #252525;
+.logo img{
+    width: 130px;
 }
 
 .list{

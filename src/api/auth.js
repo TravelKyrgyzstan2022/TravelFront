@@ -24,3 +24,27 @@ export const register = createAsyncThunk(
     }
   }
 );
+
+export const getActiveEmail = createAsyncThunk(
+  "auth/active",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await API.post("api/account/active", data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(err.res.data.message);
+    }
+  }
+);
+
+export const getForgotPass = createAsyncThunk(
+  "auth/forgotPass",
+  async (data, { rejectWithValue }) => {
+    try {
+      const response = await API.post("api/account/reset-password", data);
+      return response;
+    } catch (err) {
+      return rejectWithValue(err.response.data.message);
+    }
+  }
+);
