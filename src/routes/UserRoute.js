@@ -30,7 +30,7 @@ const UserRoute = () => (
     <Route path="/stay" element={<Stay />} />
     <Route path="/sightseeing" element={<Sightseeing />} />
     <Route path="/eat" element={<Eat />} />
-    <Route path="/details_sulaiman__too" element={<Detail />} />
+    <Route path="/details:id" element={<Detail />} />
     <Route path="/gorges" element={<Gorges />} />
     <Route path="/hiking" element={<Hiking />} />
     <Route path="/waterfall" element={<Waterfall />} />

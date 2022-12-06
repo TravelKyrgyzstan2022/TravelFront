@@ -11,13 +11,15 @@ import {
 } from "../../redux/globalSlice/authSlice/authSlice";
 
 const Navbar = () => {
+  // const [section, setSection] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [style, setStyle] = useState(false);
-  const dispatch = useDispatch();
+  const [search, setSearch] = useState(false);
   const [logoChange, setLogoChange] = useState(
     <img src={logo} alt="project logo" />
   );
 
+  const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
 
   const handleLogOut = () => {
@@ -27,23 +29,19 @@ const Navbar = () => {
   const setBg = () => {
     if (window.scrollY >= 80) {
       setNavbar(true);
+      setStyle(true);
+      setSearch(true);
       setLogoChange(<img src={logoNight} alt="project logo" />);
     } else {
       setNavbar(false);
+      setStyle(false);
+      setSearch(false);
       setLogoChange(<img src={logo} alt="project logo" />);
     }
   };
 
-  const setStyles = () => {
-    if (window.scrollY >= 80) {
-      setStyle(true);
-    } else {
-      setStyle(false);
-    }
-  };
-
   window.addEventListener("scroll", setBg);
-  window.addEventListener("scroll", setStyles);
+
   return (
     <>
       <div className={`${nav.navbar} ${navbar ? nav.active : navbar}`}>
@@ -59,7 +57,7 @@ const Navbar = () => {
             </Link>
             <Link to="/sightseeing">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Sighseeing
+                Sightseeing
               </nav>
             </Link>
             <Link to="/stay">
@@ -77,10 +75,15 @@ const Navbar = () => {
                 Eat
               </nav>
             </Link>
+            <Link to="/blogs">
+              <nav className={`${nav.item} ${style ? nav.active : style}`}>
+                Blogs
+              </nav>
+            </Link>
 
             <nav className={nav.search}>
               <input
-                className={nav.searchInp}
+                className={`${nav.searchInp} ${search ? nav.active : search}`}
                 type="text"
                 placeholder="Search destination"
               />
