@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import main from "./HomePage.module.css";
 import gorges from "../../img/gorges.svg";
 import hiking from "../../img/hiking.svg";
@@ -9,17 +9,16 @@ import lakes from "../../img/lakes.svg";
 import mainbg from "../../img/mainbg.svg";
 import Banner from "../../img/banner.png";
 import { useTheme } from "styled-components";
-
-
 import { Link, NavLink } from "react-router-dom";
-
 import TopDestinations from "./TopDestinations";
 import PopularArticles from "./PopularArticles";
 import StayHotel from "./StayHotel";
 import ExtremeTour from "./ExtremeTour";
+import Footer from "../../components/Footer/Footer";
 
 import { getBlog } from "../../api/blogs";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getCommit, getPlace } from "../../api/place";
 
 const HomePage = () => {
   const theme = useTheme();
@@ -83,14 +82,14 @@ const HomePage = () => {
       <div className={main.container}>
         {/*! TOP DESTINATIONS */}
 
-        <TopDestinations/>
+        <TopDestinations />
 
         {/*! POPULAR ARTICLES */}
 
-        <PopularArticles/>
+        <PopularArticles />
 
         {/* !  STAY */}
-        <StayHotel/>
+        <StayHotel />
 
         {/* ! TRIP */}
         <div className={main.plan_trip}>
@@ -104,7 +103,7 @@ const HomePage = () => {
         </div>
 
         {/* ! EXTRIME TOUR */}
-        <ExtremeTour/>
+        <ExtremeTour />
       </div>
       <Footer />
     </>
