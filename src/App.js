@@ -1,8 +1,11 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
+
+
 import { useSelector } from "react-redux";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
+
 
 const PATHES = {
   "/admin": 1,
