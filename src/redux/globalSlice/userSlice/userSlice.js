@@ -1,24 +1,14 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { API } from "../../../utils/axiosConfig";
-
-export const getUser = createAsyncThunk(
-  "user/getData",
-  async (arg, { rejectWithValue }) => {
-    try {
-      const { data } = await API.get("api/v1/admin/users");
-      return data;
-    } catch (error) {
-      rejectWithValue(error.response.data);
-    }
-  }
-);
+import { createSlice } from "@reduxjs/toolkit";
+import { getUser } from "../../../api/admin";
 
 const userSlice = createSlice({
   name: "user",
   initialState: {
     data: [],
+    role: "ROLE_USER",
     isLoading: false,
     isSuccess: false,
+    id: null,
     message: "",
   },
   reducers: {},
@@ -29,6 +19,7 @@ const userSlice = createSlice({
     [getUser.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isSuccess = true;
+      state.role = "ROLE_ADMIN";
       state.data = payload;
     },
     [getUser.rejected]: (state, { payload }) => {

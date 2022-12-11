@@ -10,6 +10,8 @@ import {
   selectCurrentUser,
 } from "../../redux/globalSlice/authSlice/authSlice";
 
+import Language from "../language";
+
 const Navbar = () => {
   // const [section, setSection] = useState(false);
   const [navbar, setNavbar] = useState(false);
