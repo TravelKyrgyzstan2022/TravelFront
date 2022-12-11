@@ -34,7 +34,7 @@ const Sightseeing = () => {
               <div id={place.id} className={ss.card}>
                 <div className={ss.full_card}>
                   <div className={ss.card_left}>
-                    <img src={place.image_urls} alt="" />
+                    <img className={ss.img_card} src={place.image_urls} alt="" />
                   </div>
                   <div className={ss.card_right}>
                     <div className={ss.title_and__rating}>

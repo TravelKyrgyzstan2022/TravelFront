@@ -28,7 +28,7 @@ const LoginUser = () => {
     <>
       <section>
         <div className={log.container}>
-          <img className={log.logo} src={LOGO} alt="img" />
+          {/* <img className={log.logo} alt="img" /> */}
           <form autoComplete="off" onSubmit={handleSubmit} className={log.box}>
             <p className={log.txt}>Log In</p>
             <input

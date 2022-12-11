@@ -1,6 +1,6 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import lang from './index.module.css'
+// import lang from './index.module.css'
 
 const Language = () => {
 
@@ -13,13 +13,13 @@ const Language = () => {
 
   return (
     <>
-    <div className={lang.form_group}>
+    {/* <div className="form_group"> */}
           {/* <select onClick={() => changeLanguage()} id="languageSelection" className={lang.form_control}> */}
-            <option onClick={() => changeLanguage("en")}>En</option>
-            <option onClick={() => changeLanguage("ru")}>Ru</option>
+            <button onClick={() => changeLanguage("en")}>En</button>
+            <button onClick={() => changeLanguage("ru")}>Ru</button>
           {/* </select> */}
-        </div>
-          {/* <div>{t("text")}</div> */}
+        {/* </div> */}
+          <div>{t("text")}</div>
           {/* <div>{t("hello")}</div> */}
     </>
   )

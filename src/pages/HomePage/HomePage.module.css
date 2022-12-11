@@ -23,6 +23,7 @@
     line-height: 75px;
     color: #FFFFFF;
     margin-top: 90px;
+    left: 0;
 }
 
 .date{
@@ -42,8 +43,7 @@
     line-height: 23px;
     color: #FFFFFF;
     cursor: pointer;
-    margin-top: 200px;
-    margin-left: 80px;
+    margin-top: 40px;
 }
 
 .planer{
@@ -67,7 +67,6 @@
     line-height: 42px;
     color: #FFFFFF;
     margin-top: 40px;
-    margin-left: 80px;
 }
 
 .list{
@@ -179,46 +178,6 @@
     color: #252525;
 }
 
-.distribute{
-    margin-bottom: 16px;
-}
-
-
-.distribute_btn{
-    width: 56px;
-    height: 33px;
-    background: #3FBD89;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-
-.distribute_btn2{
-    width: 77px;
-    height: 33px;
-    background: #FFCD29;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-
-.distribute_btn3{
-    width: 57px;
-    height: 33px;
-    background: #E65C4F;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
 
 .btn{
     width: 394px;

@@ -38,11 +38,7 @@ const ExtremeTour  = () => {
                     <p className={tour.raiting_txt}>5.0</p>
                 </div>
                 </div>
-                <div className={tour.distribute}>
-                <button className={tour.distribute_btn3} href="">
-                    Hard
-                </button>
-                </div>
+        
                 <div className={tour.card_button}>
                     <Button/>
                 </div>
@@ -65,11 +61,6 @@ const ExtremeTour  = () => {
                     <p className={tour.raiting_txt}>4.3</p>
                 </div>
                 </div>
-                <div className={tour.distribute}>
-                <button className={tour.distribute_btn3} href="">
-                    Hard
-                </button>
-                </div>
                 <div className={tour.card_button}>
                     <Button/>
                 </div>
@@ -91,11 +82,6 @@ const ExtremeTour  = () => {
                     <img src={Star} alt="" />
                     <p className={tour.raiting_txt}>4.5</p>
                 </div>
-                </div>
-                <div className={tour.distribute}>
-                <button className={tour.distribute_btn3} href="">
-                    Hard
-                </button>
                 </div>
                 <div className={tour.card_button}>
                     <Button/>

@@ -8,7 +8,7 @@ const SignIn = () => {
     <>
       <section>
         <div className={sign.container}>
-          <h2 className={sign.logo}>be nomad</h2>
+          {/* <h2 className={sign.logo}>be nomad</h2> */}
           <div className={sign.box}>
             <img className={sign.success} src={success} alt="" />
             <div className={sign.content}>Email sent ! Check your inbox.</div>

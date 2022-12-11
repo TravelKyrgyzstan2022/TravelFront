@@ -14,10 +14,14 @@ import Login2 from "../pages/Login/Login2";
 import LoginUser from "../pages/Login/LoginUser";
 import Mountains from "../pages/Mountains";
 import NotFound from "../pages/NotFound/NotFound";
+import { PrivateOffice } from "../pages/PrivateOffice";
 import Registr from "../pages/Registr/Registr";
 import Sightseeing from "../pages/Sightseeing";
 import Stay from "../pages/Stay";
 import Waterfall from "../pages/WaterFall";
+import { today, getLocalTimeZone } from "@internationalized/date";
+import Verification from "../pages/Verification";
+import MapYandex from "../pages/Map";
 
 const UserRoute = () => (
   <Routes>
@@ -26,6 +30,7 @@ const UserRoute = () => (
     <Route path="/login2" element={<Login2 />} />
     <Route path="/sign" element={<SignIn />} />
     <Route path="/reg" element={<Registr />} />
+    <Route path='/verification' element={<Verification />} />
     <Route path="/events" element={<Events />} />
     <Route path="/stay" element={<Stay />} />
     <Route path="/sightseeing" element={<Sightseeing />} />
@@ -38,7 +43,9 @@ const UserRoute = () => (
     <Route path="/alpinism" element={<Alpinism />} />
     <Route path="lakes" element={<Lakes />} />
     <Route path="/blogs" element={<Blogs />} />
-    <Route path="/*" element={<NotFound />} />
+    <Route path="/private_office" element={<PrivateOffice defaultValue={today(getLocalTimeZone())}/>} />
+    <Route path='/map' element={<MapYandex />} />
+    {/* <Route path="/*" element={<NotFound />} /> */}
   </Routes>
 );
 

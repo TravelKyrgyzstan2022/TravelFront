@@ -82,35 +82,6 @@
     color: #E65C4F;
 }
 
-
-.distribute{
-    margin-bottom: 16px;
-}
-
-.distribute_btn{
-    width: 57px;
-    height: 33px;
-    background: #3FBD89;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-
-.distribute_btn3{
-    width: 56px;
-    height: 33px;
-    background: #E65C4F;
-    border-radius: 20px;
-    color: #FFFFFF;
-    font-weight: 600;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
-}
-
 .raiting_txt{
     margin-top: 0px;
     text-align: center;

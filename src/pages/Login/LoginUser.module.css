@@ -3,12 +3,9 @@
     margin: 0 auto;
 }
 
-.logo{
-    margin: 160px 490px 80px;
-}
 
 .box{
-    margin: 0 auto;
+    margin: 0;
     width: 600px;
     height: 450px;
     flex-direction: column; 

@@ -39,6 +39,7 @@ const HomePage = () => {
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
+
   return (
     <>
       <div className={main.section}>
@@ -82,7 +83,7 @@ const HomePage = () => {
       <div className={main.container}>
         {/*! TOP DESTINATIONS */}
 
-        <TopDestinations />
+        <TopDestinations place={place} />
 
         {/*! POPULAR ARTICLES */}
 

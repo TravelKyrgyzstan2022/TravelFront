@@ -1,96 +1,75 @@
-import React from 'react';
-import st from './index.module.css';
+import React, { useEffect } from 'react';
+import './index.css';
 import Location from "../../../img/location.svg";
 import Star from "../../../img/star.svg";
-import Button from '../../../components/Button'
-import Slider from "react-slick";
-import Place_small from "../../../img/place_small.png";
-import Compass from "../../../img/compass.png";
-import Inter from "../../../img/inter.png";
-import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import Button from '../../../components/Button';
 import Like from "../../../img/like.svg";
+import { useDispatch, useSelector } from 'react-redux';
+import { getStay } from '../../../api/place';
+import LeftArrow from '../../../img/left-arrow.svg';
+import RightArrow from '../../../img/right-arrow.svg';
+import Slideer  from "react-slick";
 
 const StayHotel = () => {
+
+    const dispatch = useDispatch();
+    const stayPlace = useSelector((state) => state.stayPlace.data);
+    console.log(stayPlace)
+    useEffect(() => {
+    dispatch(getStay());
+    },[]);
+
+    const  SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+        <img  src={LeftArrow} className="left-arrow" alt="prevArrow" {...props} />
+        );
+        
+    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+            <img className='right-arrow' src={RightArrow} alt="nextArrow" {...props} />
+    );
+
+
+    const settings = {
+        // className: "center",
+        infinite: true,
+        dots: false,
+        slidesToShow: 3,
+        swipeToSlide: true,
+        prevArrow: <SlickArrowLeft />,
+        nextArrow: <SlickArrowRight />,
+        initialSlide: 0,
+    };
+
     return (
-        <>
-                <div className={st.stay}>
-            <div className={st.slider}>
-                <h3 className={st.stay_title}>Stay</h3>
-                <div className={st.slider_buttons}>
-                    <ArrowBackIcon className={st.arrow_back} />
-                    <ArrowForwardIcon className={st.arrow_next} />
+                <div className="stay">
+                <h3 className="stay_title">Stay</h3>
+<div>
+            <Slideer {...settings}>
+            {stayPlace.map((place) => (
+                <div className="card">
+                <div className="img_like">
+                    <img className="card_img" src={place.image_urls} alt="" />
+                    <img className="card_like" src={Like} alt="" />
                 </div>
-            </div>
-            <div className={st.cards}>
-                <div className={st.card}>
-                <div className={st.img_like}>
-                    <img className={st.card_img} src={Place_small} alt="" />
-                    <img className={st.card_like} src={Like} alt="" />
-                </div>
-                <h4 className={st.card_title}>Hotel “Greenwich”</h4>
-                <div className={st.pin}>
-                    <div className={st.location}>
-                    <a className={st.locatioon}>
-                        <img src={Location} alt="" /> <p>Bishkek</p>
+                <h4 className="card_title">{place.name}</h4>
+                <div className="pin">
+                    <div className="location">
+                    <a className="locatioon">
+                        <img src={Location} alt="" /> <p>{place.region}</p>
                     </a>
                     </div>
-                    <div className={st.raiting}>
+                    <div className="raiting">
                     <img src={Star} alt="" />
-                    <p className={st.raiting_txt}>4.5</p>
+                    <p className="raiting_txt">4.5</p>
                     </div>
                 </div>
-                <div className={st.card_button}>
+                <div className="card_button">
                         <Button/>
                 </div>
                 </div>
-
-                <div className={st.card}>
-                <div className={st.img_like}>
-                    <img className={st.card_img} src={Compass} alt="" />
-                    <img className={st.card_like} src={Like} alt="" />
-                </div>
-                <h4 className={st.card_title}>Hotel “Compass”</h4>
-                <div className={st.pin}>
-                    <div className={st.location}>
-                    <a className={st.locatioon}>
-                        <img src={Location} alt="" /> <p>Bishkek</p>
-                    </a>
-                    </div>
-                    <div className={st.raiting}>
-                    <img src={Star} alt="" />
-                    <p className={st.raiting_txt}>3.9</p>
-                    </div>
-                </div>
-                <div className={st.card_button}>
-                    <Button/>
-                </div>
-                </div>
-
-                <div className={st.card}>
-                <div className={st.img_like}>
-                    <img className={st.card_img} src={Inter} alt="" />
-                    <img className={st.card_like} src={Like} alt="" />
-                </div>
-                <h4 className={st.card_title}>Hotel “Inter”</h4>
-                <div className={st.pin}>
-                    <div className={st.location}>
-                    <a className={st.locatioon}>
-                        <img src={Location} alt="" /> <p>Bishkek</p>
-                    </a>
-                    </div>
-                    <div className={st.raiting}>
-                    <img src={Star} alt="" />
-                    <p className={st.raiting_txt}>4.9</p>
-                    </div>
-                </div>
-                <div className={st.card_button}>
-                    <Button/>
-                </div>
-                </div>
+            ))}
+            </Slideer>
             </div>
             </div>
-        </>
     );
 }
 

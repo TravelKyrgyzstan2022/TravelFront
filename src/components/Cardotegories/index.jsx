@@ -29,9 +29,6 @@ const CardCategories = () => {
                             <p className={ctc.raiting_txt}>4.5</p>
                         </div>
                         </div>
-                        <div className={ctc.distribute}>
-                        <button className={ctc.distribute_btn} href="">Easy</button>
-                    </div>
                     <div className={ctc.card_tags}>
                             <button className={ctc.card_tag} href="">#gorges</button> 
                             <button className={ctc.card_tag2} href="">#lakes</button> 
@@ -61,9 +58,6 @@ const CardCategories = () => {
                             <p className={ctc.raiting_txt}>4.5</p>
                         </div>
                         </div>
-                        <div className={ctc.distribute}>
-                            <button className={ctc.distribute_btn} href="">Easy</button>
-                    </div>
                     <div className={ctc.card_tags}>
                             <button className={ctc.card_tag} href="">#gorges</button> 
                             </div>
@@ -90,9 +84,6 @@ const CardCategories = () => {
                             <p className={ctc.raiting_txt}>4.3</p>
                         </div>
                         </div>
-                        <div className={ctc.distribute}>
-                        <button className={ctc.distribute_btn3} href="">Hard</button>
-                    </div>
                     <div className={ctc.card_tags}>
                             <button className={ctc.card_tag} href="">#gorges</button> 
                             </div>
