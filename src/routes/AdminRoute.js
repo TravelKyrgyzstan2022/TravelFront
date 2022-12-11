@@ -2,6 +2,7 @@ import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import AdminPage from "../pages/AdminPage/AdminPage";
 import Content from "../pages/AdminPanel/Content";
+import Post from "../pages/AdminPanel/Content/Post";
 import Dashboard from "../pages/AdminPanel/Dashboard/DashBoard";
 import DataBase from "../pages/AdminPanel/DataBase";
 import Managers from "../pages/AdminPanel/Managers";
@@ -16,6 +17,7 @@ const AdminRoute = () => {
       <Route path="/content" element={<Content />} />
       <Route path="/managers" element={<Managers />} />
       <Route path="/reviewsandblogs" element={<ReviewsAndBlogs />} />
+      <Route path="/posts" element={<Post />} />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

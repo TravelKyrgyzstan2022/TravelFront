@@ -3,14 +3,6 @@
     text-decoration: none;
 }
 
-.section{
-    width: 100%;
-    height: 100px;
-}
-.section.active{
-    filter: blur(10px);
-}
-
 .navbar{
     width: 100%;
     height: 100px;

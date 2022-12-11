@@ -1,8 +1,8 @@
 import React from "react";
 import content from "./index.module.css";
 import Search from "../../../img/search.svg";
-import Ctitle from "../../../img/content_search.svg";
-import Add_Icon from "../../../img/content_add.svg";
+// import Ctitle from "../../../img/content_search.svg";
+// import Add_Icon from "../../../img/content_add.svg";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -14,6 +14,7 @@ import Icon_Delete from "../../../img/icon_delete.svg";
 import Arrow from "../../../img/arrow.svg";
 import Modal from "./../../../components/Modal";
 import SideBar from "../../../components/SideBar";
+import { Link } from "react-router-dom";
 
 const Content = () => {
   const [open, setOpen] = React.useState(false);
@@ -31,7 +32,6 @@ const Content = () => {
         <div className={content.border}></div>
         <div className={content.content}>
           <div className={content.title}>
-            {/* <img className={content.title_image} src={Ctitle} alt="img" /> */}
             <h3>Управление контентом</h3>
             <div>
               <div className={content.c_dropowns}>
@@ -138,9 +138,11 @@ const Content = () => {
                         alt=""
                       />
                     </Button>
-                    <Button size="small">
-                      <img src={Arrow} alt="" />
-                    </Button>
+                    <Link to="/posts">
+                      <Button size="small">
+                        <img src={Arrow} alt="" />
+                      </Button>
+                    </Link>
                   </CardActions>
                 </Card>
                 <Card

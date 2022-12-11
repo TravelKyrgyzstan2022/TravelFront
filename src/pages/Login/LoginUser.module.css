@@ -3,17 +3,24 @@
     margin: 0 auto;
 }
 
+.loginBckgr{
+    width: 100%;
+    position: absolute;   
+}
+
 .logo{
-    margin: 160px 490px 80px;
+    margin: 80px 490px 100px;
 }
 
 .box{
+    position: relative;
     margin: 0 auto;
     width: 600px;
     height: 450px;
     flex-direction: column; 
     border: none solid;
     border-radius: 16px;
+    background-color: #fff;
     box-shadow: 0px 10px 32px 7px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0px 10px 32px 7px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 10px 32px 7px rgba(0,0,0,0.6); 

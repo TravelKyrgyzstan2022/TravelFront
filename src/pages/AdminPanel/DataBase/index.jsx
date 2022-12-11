@@ -15,7 +15,7 @@ import TableSortLabel from "@mui/material/TableSortLabel";
 import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
 import { useDispatch, useSelector } from "react-redux";
-import { getUser } from "../../../redux/globalSlice/userSlice/userSlice";
+import { getAdmin, getUser, getUserFromAdmin } from "../../../api/admin";
 
 function createData(name, gmail, data) {
   return {
@@ -85,10 +85,17 @@ const headCells = [
     className: "head",
   },
   {
-    id: "phone_number",
+    id: "last_visit_date",
     numeric: true,
     disablePadding: false,
-    label: "Телефон",
+    label: "Последний визит",
+    className: "head",
+  },
+  {
+    id: "",
+    numeric: true,
+    disablePadding: false,
+    label: "",
     className: "head",
   },
 ];
@@ -145,7 +152,7 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
-export default function DataBase() {
+export default function DataBase({ id }) {
   const [order, setOrder] = React.useState("asc");
   const [orderBy, setOrderBy] = React.useState("gmail");
   const [selected, setSelected] = React.useState([]);
@@ -160,6 +167,11 @@ export default function DataBase() {
   useEffect(() => {
     dispatch(getUser());
   }, []);
+
+  // const handleAdminClick = (e) => {
+  //   e.preventDefault();
+  //   dispatch(getAdmin(id));
+  // };
 
   const handleRequestSort = (event, property) => {
     event.preventDefault();
@@ -241,7 +253,6 @@ export default function DataBase() {
                         <TableRow
                           className={db.input}
                           hover
-                          // onClick={(event) => handleClick(event, user.first_name)}
                           aria-checked={isItemSelected}
                           tabIndex={-1}
                           key={user.id}
@@ -259,7 +270,26 @@ export default function DataBase() {
                           <TableCell align="right">{user.last_name}</TableCell>
                           <TableCell align="right">{user.email}</TableCell>
                           <TableCell align="right">
-                            {user.phone_number}
+                            {user.last_visit_date}
+                          </TableCell>
+                          <TableCell align="right">
+                            {user.role === "ROLE_USER" ? (
+                              <button
+                                className={db.getAdminBtn}
+                                onClick={(e) => dispatch(getAdmin(user.id))}
+                              >
+                                Get Admin
+                              </button>
+                            ) : (
+                              <button
+                                className={db.getAdminBtn}
+                                onClick={(e) =>
+                                  dispatch(getUserFromAdmin(user.id))
+                                }
+                              >
+                                Get User
+                              </button>
+                            )}
                           </TableCell>
                         </TableRow>
                       );

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import log from "./Login2.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { getForgotPass } from "../../api/auth";
+import loginBckgr from "../../img/loginBcg.png";
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
@@ -16,10 +17,14 @@ const Login2 = () => {
   };
 
   return (
-    <div>
-      <section>
+    <>
+      <section className={log.section}>
+        <img
+          className={log.loginBckgr}
+          src={loginBckgr}
+          alt="login background img"
+        />
         <div className={log.container}>
-          <h2 className={log.logo}>be nomad</h2>
           <div className={log.box}>
             <h4 className={log.txt}>Forgot Password</h4>
             <div className={log.content}>
@@ -43,7 +48,7 @@ const Login2 = () => {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 };
 

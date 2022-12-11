@@ -40,7 +40,6 @@ const SideBar = ({ children }) => {
       path: "/",
       name: "Выход",
       icon: <img src={Exit} alt="" />,
-      function: dispatch(logOut()),
     },
   ];
 
