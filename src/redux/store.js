@@ -27,7 +27,4 @@ export const store = configureStore({
     getDefaultMiddleware({
       serializableCheck: false,
     }),
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware(
-  //   serializableCheck: false,
-  // ),
 });

@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { SignIn } from "../api/auth";
 import Alpinism from "../pages/Alpinism";
 import Blogs from "../pages/Blogs";
