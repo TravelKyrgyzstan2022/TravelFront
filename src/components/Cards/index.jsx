@@ -46,9 +46,6 @@ const Card = () => {
                             <p className={card.raiting_txt}>5.0</p>
                         </div>
                         </div>
-                        <div className={card.distribute}>
-                        <button className={card.distribute_btn} href="">Hard</button>
-                    </div>
                     <div className={card.card_button}>
                         <Button/>
                     </div>
@@ -72,9 +69,6 @@ const Card = () => {
                             <p className={card.raiting_txt}>4.5</p>
                         </div>
                         </div>
-                        <div className={card.distribute}>
-                            <button className={card.distribute_btn} href="">Hard</button>
-                    </div>
                     <div className={card.card_button}>
                         <Button/>
                     </div>
@@ -96,9 +90,6 @@ const Card = () => {
                             <p className={card.raiting_txt}>4.3</p>
                         </div>
                         </div>
-                        <div className={card.distribute}>
-                        <button className={card.distribute_btn3} href="">Easy</button>
-                    </div>
                     <div className={card.card_button}>
                         <Button/>
                     </div>

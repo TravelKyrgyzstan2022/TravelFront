@@ -42,7 +42,7 @@ export const getSights = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const response = await API.get(
-        "api/v1/places/filter?categories=SEE_AND_TRY",
+        "api/v1/places/filter?categories=SIGHTSEEING",
         data
       );
       return response;
@@ -51,3 +51,35 @@ export const getSights = createAsyncThunk(
     }
   }
 );
+
+
+export const getEats = createAsyncThunk(
+  'getEats/place',
+  async (data, {rejectWithValue} ) => {
+    try{
+      const res = await API.get(
+        'api/v1/places/filter?categories=EAT',
+        data
+      );
+      return res;
+    }catch(err){
+      rejectWithValue(err.res.data.message)
+    }
+  }
+)
+
+export const getGorges = createAsyncThunk(
+  'getGorges/place',
+  async(data, {rejectWithValue}) => {
+    try{
+      const res = await API.get(
+        'api/v1/places/filter?types=GORGE',
+        data
+        );
+        return res;
+      }catch(err){
+        rejectWithValue(err.res.data.message)
+      }
+      console.log(data)
+  }
+)

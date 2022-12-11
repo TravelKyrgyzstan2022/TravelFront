@@ -8,7 +8,8 @@ import forgotSlice from "./globalSlice/authSlice/forgotSlice";
 import activeEmailSlice from "./globalSlice/authSlice/activeEmailSlice";
 import placeStaySlice from "./globalSlice/placeSlice/placeStaySlice";
 import placeSightsSlice from "./globalSlice/placeSlice/placeSightsSlice";
-import adminSlice from "./globalSlice/adminSlice/adminSlice";
+import placeEatsSlice from "./globalSlice/placeSlice/placeEatsSlice";
+import placeGorgesSlice from "./globalSlice/placeSlice/placeGorgesSlice";
 
 export const store = configureStore({
   reducer: {
@@ -21,13 +22,11 @@ export const store = configureStore({
     blog: blogSlice.reducer,
     stayPlace: placeStaySlice.reducer,
     sights: placeSightsSlice.reducer,
-    admin: adminSlice.reducer,
+    eats: placeEatsSlice.reducer,
+    gorges: placeGorgesSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: false,
     }),
-  // middleware: (getDefaultMiddleware) => getDefaultMiddleware(
-  //   serializableCheck: false,
-  // ),
 });

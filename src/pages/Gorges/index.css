@@ -7,7 +7,7 @@
     margin-right: 40px;
 }
 
-.title{
+/* .title{
 	position : absolute;
     top: 100px;
     left: 80px;
@@ -15,7 +15,7 @@
     font-size: 64px;
     line-height: 75px;
     color: #FFFFFF;
-}
+} */
 
 .subtitle{
     position : absolute;
@@ -26,7 +26,6 @@
     line-height: 42px;
     color: #FFFFFF;
 }
-
 .list{
     position: absolute;
     top: 350px;
@@ -34,13 +33,14 @@
     display: flex;
 }
 
-.slider{
+.slideer{
     display: flex;
     justify-content: space-between;
     position: absolute;
     left: 80px;
     top: 480px;
 }
+
 
 .card_title{
     font-weight: 600;
@@ -65,7 +65,7 @@
     width: 32px !important;
     height: 32px !important;
     color: #E65C4F;
-}
+} 
 
 /* ! CARDS1 */
 
@@ -94,7 +94,9 @@
     display: flex;
     margin-left: 940px;
     margin-top: 35px;
-}
+} 
+
+
 
 /* !CARD2  */
 
@@ -102,3 +104,13 @@
     position: absolute;
     left: 80px;
 }
+
+.slick-track{
+    /* transform: translate3d(0, 0 , 0) !important; */
+}
+
+.slick-slide,
+.slick-cloned{
+    /* width: 100% !important; */
+}
+

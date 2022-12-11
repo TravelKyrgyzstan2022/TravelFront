@@ -9,6 +9,7 @@ import {
   logOut,
   selectCurrentUser,
 } from "../../redux/globalSlice/authSlice/authSlice";
+import Language from "../language";
 
 import Language from "../language";
 
@@ -105,7 +106,9 @@ const Navbar = () => {
                   <nav className={nav.login}>Login</nav>
                 </Link>
               )}
+
             </nav>
+            <Language/>
           </nav>
         </div>
       </div>

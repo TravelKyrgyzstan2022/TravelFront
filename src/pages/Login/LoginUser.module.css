@@ -13,8 +13,8 @@
 }
 
 .box{
-    position: relative;
     margin: 0 auto;
+    position: relative;
     width: 600px;
     height: 450px;
     flex-direction: column; 

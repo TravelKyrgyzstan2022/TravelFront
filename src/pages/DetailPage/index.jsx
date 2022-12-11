@@ -1,5 +1,5 @@
 import React from "react";
-import detail from "./index.module.css";
+import "./index.css";
 import Header from "../../img/header_sulaiman.png";
 import Button from "../../components/Button";
 import Like from "../../img/like.svg";
@@ -16,6 +16,8 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getSights } from "../../api/place";
+import { CommentSection } from "react-comments-section";
+import 'react-comments-section/dist/index.css';
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -104,24 +106,26 @@ const Detail = () => {
     }
   }, [open]);
 
+
+
   return (
     <>
-      <div className={detail.container}>
-        <img className={detail.header} src={Header} alt="" />
-        <h2 className={detail.title}>Sulaiman Too</h2>
-        <div className={detail.tags}>
-          <button className={detail.tag}>#mountains</button>
-          <button className={detail.tag2}>#ancientsights</button>
+      <div className="container">
+        <img className="header" src={Header} alt="" />
+        <h2 className="title">Sulaiman Too</h2>
+        <div className="tags">
+          <button className="tag">#mountains</button>
+          <button className="tag2">#ancientsights</button>
         </div>
-        <div className={detail.buttons}>
+        <div className="buttons">
           <Button />
-          <button className={detail.like_btn}>
-            <img className={detail.like_btn__img} src={Like} alt="" />
+          <button className="like_btn">
+            <img className="like_btn__img" src={Like} alt="" />
             Add to Favourite
           </button>
         </div>
 
-        <div className={detail.buttons_category}>
+        <div className="buttons_category">
           <Box sx={{ width: 700 }}>
             <BottomNavigation
               showLabels
@@ -148,8 +152,8 @@ const Detail = () => {
             </BottomNavigation>
           </Box>
 
-          <BottomPanel className={detail.panel} value={value} index={0}>
-            <div className={detail.text}>
+          <BottomPanel className="panel" value={value} index={0}>
+            <div className="text">
               <p>
                 Sulaiman-Too Mountain legend retells the story of the UNESCO
                 World Heritage List site. Young and handsome was Sulaiman. And
@@ -186,45 +190,62 @@ const Detail = () => {
                 person the Sulaiman-Too Mountain legend. Most of our tours go
                 through the favored Osh town join them.
               </p>
-              <button className={detail.read_more}>Read more</button>
+              <button className="read_more">Read more</button>
             </div>
-            <div className={detail.you_make__like}>
+            <div className="you_make__like">
               <Card />
             </div>
           </BottomPanel>
 
           <BottomPanel value={value} index={1}>
-            <div className={detail.reviews_container}>
-              <div className={detail.reviews_header}>
+            <div className="reviews_container">
+              <div className="comment">
+
+              <CommentSection
+      currentUser={{
+        // currentUserId: "01a",
+        currentUserImg:
+          "https://ui-avatars.com/api/name=Riya&background=random",
+        currentUserProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
+        currentUserFullName: "Riya Negi"
+      }}
+      // logIn={{
+      //   loginLink: "http://localhost:3001/",
+      //   signupLink: "http://localhost:3001/"
+      // }}
+      // commentData={data}
+    />
+              </div>
+              <div className="reviews_header">
                 <img src={AVA} alt="" />
-                <h4 className={detail.name_user}>George Michael</h4>
-                <div className={detail.data_rating}>
+                <h4 className="name_user">George Michael</h4>
+                <div className="data_rating">
                   <Rating
-                    className={detail.rating}
+                    className="rating"
                     name="customized-10"
                     max={5}
                   />
-                  <div className={detail.data}>9/05/22</div>
+                  <div className="data">9/05/22</div>
                 </div>
               </div>
-              <div className={detail.reviews_txt}>
+              <div className="reviews_txt">
                 That was such a nice place. The most beautiful place I’ve ever
                 seen. My advice to everyone not to forget to take warm coat.
               </div>
 
-              <div className={detail.reviews_header}>
+              <div className="reviews_header">
                 <img src={AVA} alt="" />
-                <h4 className={detail.name_user}>Harry Styles</h4>
-                <div className={detail.data_rating}>
+                <h4 className="name_user">Harry Styles</h4>
+                <div className="data_rating">
                   <Rating
-                    className={detail.rating}
+                    className="rating"
                     name="customized-10"
                     max={5}
                   />
-                  <div className={detail.data}>9/05/22</div>
+                  <div className="data">9/05/22</div>
                 </div>
               </div>
-              <div className={detail.reviews_txt}>
+              <div className="reviews_txt">
                 Holdin’ me back. Gravity’s holdin’ me back. I wnat you to hold
                 out the palm of your hand. Why don’t we leave it all that ?
                 Nothin’ to say. When everything gets in the way.
@@ -234,19 +255,19 @@ const Detail = () => {
                 was. In this world, it’s just us.
               </div>
 
-              <div className={detail.reviews_header}>
+              <div className="reviews_header">
                 <img src={AVA} alt="" />
-                <h4 className={detail.name_user}>George Kusunoki Miller</h4>
-                <div className={detail.data_rating}>
+                <h4 className="name_user">George Kusunoki Miller</h4>
+                <div className="data_rating">
                   <Rating
-                    className={detail.rating}
+                    className="rating"
                     name="customized-10"
                     max={5}
                   />
-                  <div className={detail.data}>9/05/22</div>
+                  <div className="data">9/05/22</div>
                 </div>
               </div>
-              <div className={detail.reviews_txt}>
+              <div className="reviews_txt">
                 Yeah, all my friends no fun. My friends, they’re gone. They all
                 left one by one. And now that summer’s done. They don’t need no
                 more fun. Yeah, I drive there on my own. I’m rich, but my a/c
@@ -254,47 +275,47 @@ const Detail = () => {
               </div>
             </div>
 
-            <div className={detail.you_make__like}>
+            <div className="you_make__like">
               <Card />
             </div>
           </BottomPanel>
 
           {/* LOCATION */}
 
-          <BottomPanel className={detail.panel} value={value} index={2}>
+          <BottomPanel className="panel" value={value} index={2}>
             <Card />
           </BottomPanel>
 
           {/* PHOTOS */}
-          <BottomPanel className={detail.panel} value={value} index={3}>
+          <BottomPanel className="panel" value={value} index={3}>
             <Card />
           </BottomPanel>
 
           {/* HOW TO GET THERE */}
 
-          <BottomPanel className={detail.panel} value={value} index={4}>
-            <div className={detail.cont_howtoget_there}>
+          <BottomPanel className="panel" value={value} index={4}>
+            <div className="cont_howtoget_there">
               <div>
-                <h5 className={detail.cont_title}>
+                <h5 className="cont_title">
                   Our Partners That Provide Tours There:
                 </h5>
               </div>
-              <div className={detail.links}>
-                <a className={detail.link} href="/kettik.kg">
+              <div className="links">
+                <a className="link" href="/kettik.kg">
                   @kettik.kg
                 </a>
-                <a className={detail.link} href="/kg.country">
+                <a className="link" href="/kg.country">
                   @kg.country
                 </a>
-                <a className={detail.link} href="/sunrise.trip">
+                <a className="link" href="/sunrise.trip">
                   @sunrise.trip
                 </a>
               </div>
-              <h6 className={detail.cont_subtitle}>FAQ</h6>
-              <div className={detail.questions}>
+              <h6 className="cont_subtitle">FAQ</h6>
+              <div className="questions">
                 <Autocomplete
                   id="asynchronous-demo"
-                  className={detail.question}
+                  className="question"
                   open={open}
                   onOpen={() => {
                     setOpen(true);
@@ -329,7 +350,7 @@ const Detail = () => {
 
                 <Autocomplete
                   id="asynchronous-demo"
-                  className={detail.question}
+                  className="question"
                   open={open}
                   onOpen={() => {
                     setOpen(true);
@@ -364,7 +385,7 @@ const Detail = () => {
 
                 <Autocomplete
                   id="asynchronous-demo"
-                  className={detail.question}
+                  className="question"
                   open={open}
                   onOpen={() => {
                     setOpen(true);
@@ -398,7 +419,7 @@ const Detail = () => {
                 />
               </div>
             </div>
-            <div className={detail.you_make__like}>
+            <div className="you_make__like">
               <Card />
             </div>
           </BottomPanel>

@@ -15,7 +15,8 @@ const placeStaySlice = createSlice({
     },
     [getStay.fulfilled]: (state, action) => {
       state.loading = "active";
-      state.data = action.payload;
+      state.data = action.payload.data;
+      state.message = null;
     },
     [getStay.rejected]: (state, action) => {
       state.loading = "active";
