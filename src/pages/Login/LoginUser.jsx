@@ -3,12 +3,13 @@ import log from "./LoginUser.module.css";
 import LOGO from "../../img/LOGO_night.svg";
 import { useDispatch } from "react-redux";
 import { getActiveEmail, SignIn } from "../../api/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import loginBckgr from "../../img/loginBcg.png";
 
 const LoginUser = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -21,12 +22,18 @@ const LoginUser = () => {
     dispatch(getActiveEmail(email));
     setEmail("");
     setPassword("");
-    navigate("/");
+    navigate("/admin");
+    // location.reload(true);
   };
 
   return (
     <>
       <section>
+        <img
+          className={log.loginBckgr}
+          src={loginBckgr}
+          alt="login background img"
+        />
         <div className={log.container}>
           {/* <img className={log.logo} alt="img" /> */}
           <form autoComplete="off" onSubmit={handleSubmit} className={log.box}>

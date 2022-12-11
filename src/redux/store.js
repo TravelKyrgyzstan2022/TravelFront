@@ -25,5 +25,8 @@ export const store = configureStore({
     eats: placeEatsSlice.reducer,
     gorges: placeGorgesSlice.reducer,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

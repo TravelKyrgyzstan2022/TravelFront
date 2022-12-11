@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 import { register } from "../../api/auth";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import loginBckgr from "../../img/loginBcg.png";
 
 const Registr = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,11 @@ const Registr = () => {
   return (
     <>
       <section>
+        <img
+          className={reg.loginBckgr}
+          src={loginBckgr}
+          alt="login background img"
+        />
         <div className={reg.container}>
           {/* <img className={reg.logo} src={LOGO} alt="img" /> */}
           <form onSubmit={handleSubmit} autoComplete="off" className={reg.box}>

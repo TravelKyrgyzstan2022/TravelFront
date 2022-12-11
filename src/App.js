@@ -1,17 +1,16 @@
 import { useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 
-
 import { useSelector } from "react-redux";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
-
 
 const PATHES = {
   "/admin": 1,
   "/database": 1,
   "/content": 1,
   "/managers": 1,
+  "/posts": 1,
 };
 
 const ROLES = {
@@ -29,6 +28,11 @@ function App() {
     <>
       {ROLES[role]}
       {!PATHES[location.pathname] && role !== "ROLE_ADMIN" ? <Navbar /> : false}
+      {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
+        <Navbar />
+      ) : (
+        false
+      )}
     </>
   );
 }

@@ -18,6 +18,7 @@ import { PrivateOffice } from "../pages/PrivateOffice";
 import Registr from "../pages/Registr/Registr";
 import Sightseeing from "../pages/Sightseeing";
 import Stay from "../pages/Stay";
+import UserProfile from "../pages/UserProfile/UserProfile";
 import Waterfall from "../pages/WaterFall";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import Verification from "../pages/Verification";
@@ -35,7 +36,7 @@ const UserRoute = () => (
     <Route path="/stay" element={<Stay />} />
     <Route path="/sightseeing" element={<Sightseeing />} />
     <Route path="/eat" element={<Eat />} />
-    <Route path="/details:id" element={<Detail />} />
+    <Route path="/details/:id" element={<Detail />} />
     <Route path="/gorges" element={<Gorges />} />
     <Route path="/hiking" element={<Hiking />} />
     <Route path="/waterfall" element={<Waterfall />} />
