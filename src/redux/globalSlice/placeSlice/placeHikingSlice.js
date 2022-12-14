@@ -1,9 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getGorges } from "../../../api/place";
+import { getHiking } from "../../../api/place";
 
-const placeGorgesSlice = createSlice({
 
-    name: 'gorges',
+const placeHikingSlice = createSlice({
+
+    name: 'hiking',
     initialState: {
         data:[],
         status: 'active',
@@ -11,19 +12,19 @@ const placeGorgesSlice = createSlice({
     },
     reducers: {},
     extraReducers: {
-        [getGorges.pending] : (state) => {
+        [getHiking.pending] : (state) => {
             state.status = 'loading';
         },
-        [getGorges.fulfilled] : (state, action) => {
+        [getHiking.fulfilled] : (state, action) => {
             state.status = 'active';
             state.data = action.payload.data;
             state.message = null
         },
-        [getGorges.rejected] : (state, action) => {
+        [getHiking.rejected] : (state, action) => {
             state.message = action.payload;
         }
     }
 }
 )
 
-export default placeGorgesSlice;
+export default placeHikingSlice;

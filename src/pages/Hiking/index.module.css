@@ -7,7 +7,7 @@
     margin-right: 40px;
 }
 
-.title{
+.hiking_title{
 	position : absolute;
     top: 100px;
     left: 80px;
@@ -34,38 +34,18 @@
     display: flex;
 }
 
-.slider{
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    left: 80px;
-    top: 480px;
+.card_hiking{
+    padding: 80px;
+    margin-top: -340px;
 }
 
-.card_title{
+.card_titlee{
     font-weight: 600;
     font-size: 36px;
     line-height: 42px; 
     color: #FFFFFF;    
 }
 
-.slider_buttons{
-    display: flex;
-    margin-left: 850px;
-    margin-top: 35px;
-}
-
-.arrow_back{
-    width: 32px !important;
-    height: 32px !important;
-    color: #BBBBBB;
-}
-
-.arrow_next{
-    width: 32px !important;
-    height: 32px !important;
-    color: #E65C4F;
-}
 
 /* ! CARDS1 */
 

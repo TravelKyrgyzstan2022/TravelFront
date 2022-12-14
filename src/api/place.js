@@ -13,6 +13,18 @@ export const getPlace = createAsyncThunk(
   }
 );
 
+export const getPlaceById = createAsyncThunk(
+  "getPlaceById/data",
+  async (id,{ rejectWithValue }) => {
+    try {
+      const res = await API.get(`api/v1/places/${id}`);
+      return res.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data.message);
+    }
+  }
+);
+
 export const getCommit = createAsyncThunk(
   "getCommit/data",
   async (arg, { rejectWithValue }) => {
@@ -80,6 +92,70 @@ export const getGorges = createAsyncThunk(
       }catch(err){
         rejectWithValue(err.res.data.message)
       }
-      console.log(data)
+  }
+)
+
+
+export const getHiking = createAsyncThunk(
+  'getHiking/place',
+  async(data, {rejectWithValue}) => {
+    try{
+      const res = await API.get(
+        'api/v1/places/filter?types=HIKING',
+        data
+        );
+        return res;
+      }catch(err){
+        rejectWithValue(err.res.data.message)
+      }
+  }
+)
+
+
+export const getWaterFall = createAsyncThunk(
+  'getWaterFall/place',
+  async(data, {rejectWithValue}) => {
+    try{
+      const res = await API.get(
+        'api/v1/places/filter?types=WATERFALL',
+        data
+        );
+        return res;
+      }catch(err){
+        rejectWithValue(err.res.data.message)
+      }
+  }
+)
+
+
+export const getAlpinism = createAsyncThunk(
+  'getAlpinism/place',
+  async(data, {rejectWithValue}) => {
+    try{
+      const res = await API.get(
+        'api/v1/places/filter?types=ALPINISM',
+        data
+        );
+        return res;
+      }catch(err){
+        rejectWithValue(err.res.data.message)
+      }
+  }
+)
+
+
+
+export const getLake = createAsyncThunk(
+  'getLake/place',
+  async(data, {rejectWithValue}) => {
+    try{
+      const res = await API.get(
+        'api/v1/places/filter?types=LAKE',
+        data
+        );
+        return res;
+      }catch(err){
+        rejectWithValue(err.res.data.message)
+      }
   }
 )

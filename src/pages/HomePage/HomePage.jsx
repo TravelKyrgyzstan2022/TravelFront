@@ -2,14 +2,14 @@ import React, { useEffect } from "react";
 import main from "./HomePage.module.css";
 import gorges from "../../img/gorges.svg";
 import hiking from "../../img/hiking.svg";
-import sights from "../../img/sights.svg";
+import sights from "../../img/alpinism.svg";
 import waterfall from "../../img/waterfall.svg";
 import mountains from "../../img/mountains.svg";
 import lakes from "../../img/lakes.svg";
 import mainbg from "../../img/mainbg.svg";
 import Banner from "../../img/banner.png";
 import { useTheme } from "styled-components";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import TopDestinations from "./TopDestinations";
 import PopularArticles from "./PopularArticles";
 import StayHotel from "./StayHotel";
@@ -19,10 +19,10 @@ import Footer from "../../components/Footer/Footer";
 import { getBlog } from "../../api/blogs";
 import { useDispatch, useSelector } from "react-redux";
 import { getCommit, getPlace } from "../../api/place";
+import BlogsAndReviews from "./BlogsAndReviews";
 
 const HomePage = () => {
   const theme = useTheme();
-  const [activeStep, setActiveStep] = React.useState(0);
   const dispatch = useDispatch();
   const place = useSelector((state) => state.place.data);
 
@@ -32,13 +32,6 @@ const HomePage = () => {
     dispatch(getBlog());
   }, []);
 
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   return (
     <>
@@ -48,9 +41,7 @@ const HomePage = () => {
           <div className={main.intro}>
             <h2 className={main.maintxt}>Welcome to Kyrgyzstan!</h2>
             <div className={main.date}>
-              <div>Start date</div>
-              <div>Due date</div>
-              <div className={main.planer}>Plan your trip</div>
+              <div>Start your journey with us</div>
             </div>
             <div className={main.cotegory}>
               <h5>Top categories</h5>
@@ -61,19 +52,27 @@ const HomePage = () => {
                   </NavLink>
                 </div>
                 <div>
+                <NavLink to="/hiking">
                   <img src={hiking} alt="hiking img" />
+                  </NavLink>
                 </div>
                 <div>
-                  <img src={sights} alt="sight img" />
-                </div>
-                <div>
+                  <NavLink to="/waterfall">
                   <img src={waterfall} alt="waterfalls img" />
+                  </NavLink>
                 </div>
                 <div>
                   <img src={mountains} alt="mountains img" />
                 </div>
+                <NavLink to="/lake">
                 <div>
                   <img src={lakes} alt="lakes img" />
+                </div>
+                </NavLink>
+                <div>
+                  <NavLink to="/alpinism">
+                  <img src={sights} alt="sight img" />
+                  </NavLink>
                 </div>
               </div>
             </div>
@@ -81,8 +80,13 @@ const HomePage = () => {
         </div>
       </div>
       <div className={main.container}>
-        {/*! TOP DESTINATIONS */}
 
+        {/* BLOG AND REVIEWS */}
+        <BlogsAndReviews/>
+
+
+        {/*! TOP DESTINATIONS */}
+        <h3 className={main.topdis_title}>Top destinations</h3>
         <TopDestinations place={place} />
 
         {/*! POPULAR ARTICLES */}

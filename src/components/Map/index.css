@@ -6,3 +6,10 @@
 .ymaps-2-1-79-gototech {
   display: none !important;
 }
+
+
+.ymaps-2-1-79-inner-panes {
+  overflow: hidden;
+  width: 50%;
+  height: 50%;
+}

@@ -16,6 +16,14 @@ h2 {
     color: #FFFFFF;
 }
 
+
+.blog_image{
+    width: 650px;
+    height: 363px;
+    background:#D9D9D9;
+    border-radius: 28px;
+}
+
 .cards{
     margin: 0px 80px 0 80px;
     position: relative;
@@ -59,6 +67,7 @@ h2 {
     font-size: 19px;
     color: #252525;
     margin-top: -110px;
+    overflow: hidden;
 }
 
 .arrow_next{

@@ -10,7 +10,6 @@ const Post = () => {
   const [images, setImages] = useState([imgPl]);
   const [title, setTitle] = useState("");
   const [descr, setDescr] = useState("");
-  console.log(navigator);
   function handleImage(e, index) {
     e.preventDefault();
     const reader = new FileReader();
@@ -55,7 +54,6 @@ const Post = () => {
         const singleImageUrl = { imageUrl: item };
         return singleImageUrl;
       });
-      console.log(images);
 
       try {
         const res = await axios.post(

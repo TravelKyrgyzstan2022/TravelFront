@@ -162,7 +162,6 @@ export default function DataBase({ id }) {
 
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.data);
-  console.log(users);
 
   useEffect(() => {
     dispatch(getUser());

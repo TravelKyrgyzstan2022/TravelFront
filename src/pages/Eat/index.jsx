@@ -10,6 +10,7 @@ import EAT from "../../img/eat_page.png"
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getEats } from "../../api/place";
+import Card from "../../components/Cards";
 
 const Eat = () => {
 
@@ -27,38 +28,13 @@ const Eat = () => {
 return (
     <>
     <div>
-    <div className={Eat.header}>
+    <div className={eat.header}>
         <img src={EAT} alt="" />
-        <h2 className={Eat.title}>National Cuisine</h2>
+        <h2 className={eat.title}>National Cuisine</h2>
             <div className={eat.cards}>
-                {eats.map((place) => 
-        <div className={eat.card}>
-            <div className={eat.full_card}>
-                <div className={eat.card_left}>
-                    <img className={eat.img_card} src={place.image_urls} alt="" />
-                </div>
-                <div className={eat.card_right}>
-                    <div className={eat.title_and__rating}>
-                    <h4 className={eat.card_title}>{place.name}</h4>
-                    </div>
-                <a className={eat.locatioon}><img src={Location} alt="" /> <p>{place.region}</p></a>
-                <div className={eat.arrow_btn}>
-            <button className={eat.arrow_next}><ArrowForwardIcon /></button>
-                </div>
-                <div className={eat.card_txt}>
-                    <p>{place.description}
-                    </p>
-                </div>
-                <div className={eat.card_button}>
-                    <Button/>
-            </div>
-                </div>
-            </div>
-        </div>
-        )}
-
-
-
+            {eats.map((place) => (
+            <Card place={place} />
+            ))}
             </div>
             </div>
             </div>

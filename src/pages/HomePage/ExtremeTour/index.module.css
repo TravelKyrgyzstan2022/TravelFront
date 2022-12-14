@@ -2,10 +2,6 @@
     margin-top: 370px;
 }
 
-.slider{
-    display: flex;
-    justify-content: space-between;
-}
 
 .title{
     font-weight: 600;
@@ -14,28 +10,7 @@
     color: #E65C4F;
 }
 
-.slider_buttons{
-    display: flex;
-}
 
-.arrow_back{
-    width: 32px !important;
-    height: 32px !important;
-    color: #BBBBBB;
-}
-
-.arrow_next{
-    width: 32px !important;
-    height: 32px !important;
-    color: #E65C4F;
-}
-
-/* Cards */
-.cards{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 80px;
-}
 
 .card{
     width: 400px;
@@ -84,9 +59,7 @@
     display: flex;
 }
 
-.raiting{
-    margin-top: -27px;
-}
+
 
 .raiting_txt{
     margin-top: 0px;

@@ -1,94 +1,57 @@
-import React from "react";
-import blog from "./index.module.css";
-import AlaToo from "../../img/ala_too.png";
+import React, { useEffect } from "react";
+import bl from "./index.module.css";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import KolTor from "../../img/kol_tor.png"
-import Alpine from "../../img/alpine.png"
 import Blog from "../../img/blog_page.png"
+import { useDispatch, useSelector } from "react-redux";
+import { getBlog } from "../../api/blogs";
 
 const Blogs = () => {
-  return (
-    <>
-    <div>
-    <div className={blog.header}>
-      <img src={Blog} alt="" />
-      <h2 className={blog.title}>Get to Know with Experiences of Our 
-Travellers</h2>
-          <div className={blog.cards}>
-      <div className={blog.card}>
-          <div className={blog.full_card}>
-              <div className={blog.card_left}>
-                  <img src={AlaToo} alt="" />
-              </div>
-              <div className={blog.card_right}>
-                  <div className={blog.title_and__rating}>
-                  <h4 className={blog.card_title}>How I Climbed to Ala-Too Mountains</h4>
-                  </div>
-                  <p className={blog.user}>By George Michael</p>
-              <div className={blog.arrow_btn}>
-          <button className={blog.arrow_next}><ArrowForwardIcon /></button>
-              </div>
-              <div className={blog.card_txt}>
-                  <p>So I came to Kyrgyzstan last December, firstly
-I didn’t think that it good be good idea travelling 
-for such a cheap price. However, after I have chosen my first tour the day I was amazed by 
-inspiring beauty of these mighty mountains.
-                  </p>
-              </div>
-              </div>
-          </div>
-      </div>
+
+    const blog = useSelector((state) => state.blog.data)
+
+    console.log("ncjbdxcjdb ", blog)
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getBlog())
+    }, []);
 
 
-      <div className={blog.card}>
-          <div className={blog.full_card}>
-              <div className={blog.card_left}>
-                  <img src={KolTor} alt="" />
-              </div>
-              <div className={blog.card_right}>
-                  <div className={blog.title_and__rating}>
-                  <h4 className={blog.card_title}>Gorgeous turquoise Kol-Tor lake made of earthquake</h4>
-                  </div>
-                  <p className={blog.user}>By George Michael</p>
-              <div className={blog.arrow_btn}>
-          <button className={blog.arrow_next}><ArrowForwardIcon /></button>
-              </div>
-              <div className={blog.card_txt}>
-                  <p>Kol-Tor lake was formed as a result of an earthquake. My words are not enough to describe
-the beauty of this place. 
-                  </p>
-              </div>
-              </div>
-          </div>
-      </div>
-
-
-
-      <div className={blog.card}>
-          <div className={blog.full_card}>
-              <div className={blog.card_left}>
-                  <img src={Alpine} alt="" />
-              </div>
-              <div className={blog.card_right}>
-                  <div className={blog.title_and__rating}>
-                  <h4 className={blog.card_title}>The Alpine Lake on a 4500 metres</h4>
-                  </div>
-                  <p className={blog.user}>By George Michael</p>
-              <div className={blog.arrow_btn}>
-          <button className={blog.arrow_next}><ArrowForwardIcon /></button>
-              </div>
-              <div className={blog.card_txt}>
-                  <p>Kel-Suu is a rare alpine lake located on the border of two countries - Kyrgyzstan and China. Sometimes you can literally touch the skies here.
-                  </p>
-              </div>
-              </div>
-          </div>
-      </div>
-      </div>
-      </div>
-      </div>
-    </>
-  );
+    return (
+        <div>
+        <div className={bl.header}>
+        <img src={Blog} alt="" />
+        <h2 className={bl.title}>Get to Know with Experiences of Our 
+    Travellers</h2>
+<div>
+        <div className={bl.cards}>
+    {blog.map((blog) => (
+        <div className={bl.card}>
+            <div className={bl.full_card}>
+                <div className={bl.card_left}>
+                    <img className={bl.blog_image} src={blog.image_urls} alt="" />
+                </div>
+                <div className={bl.card_right}>
+                    <div className={bl.title_and__rating}>
+                    <h4 className={bl.card_title}>{blog.title}</h4>
+                    </div>
+                    <p className={bl.user}>By George Michael</p>
+                <div className={bl.arrow_btn}>
+            <button className={bl.arrow_next}><ArrowForwardIcon /></button>
+                </div>
+                <div className={bl.card_txt}>
+                    <p>{blog.body}
+                    </p>
+                </div>
+                </div>
+        </div>
+            </div>
+        ))}
+        </div>
+        </div>
+        </div>
+        </div>
+    );
 };
 
 export default Blogs;

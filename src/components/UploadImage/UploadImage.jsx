@@ -10,37 +10,8 @@ const UploadImage = () => {
   function handleApi() {
     const formData = new FormData();
     formData.append("image", image);
-    console.log(formData);
   }
 
-  // const [image, setImage] = useState();
-  // const [imageURL, setImageURL] = useState();
-  // const fileReader = new FileReader();
-  // fileReader.onloadend = () => {
-  //   setImageURL(fileReader.result);
-  // };
-  // const handleOnChange = (event) => {
-  //   event.preventDefault();
-  //   if (event.target.files && event.target.files.length) {
-  //     const file = event.target.files[0];
-  //     setImage(file);
-  //     fileReader.readAsDataURL(file);
-  //   }
-  // };
-
-  // const handleDrop = (event) => {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  //   if (event.dataTransfer.files && event.dataTransfer.files.length) {
-  //     setImage(event.dataTransfer.files[0]);
-  //     fileReader.readAsDataURL(event.dataTransfer.files[0]);
-  //   }
-  // };
-
-  // const handleDragEmpty = (event) => {
-  //   event.preventDefault();
-  //   event.stopPropagation();
-  // };
 
   return (
     <div>

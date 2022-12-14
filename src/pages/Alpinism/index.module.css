@@ -34,15 +34,12 @@
     display: flex;
 }
 
-.slider{
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    left: 80px;
-    top: 480px;
+.alpinism_card{
+    padding: 80px;
+    margin-top: -340px;
 }
 
-.card_title{
+.card_titlee{
     font-weight: 600;
     font-size: 36px;
     line-height: 42px; 

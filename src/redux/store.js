@@ -10,6 +10,11 @@ import placeStaySlice from "./globalSlice/placeSlice/placeStaySlice";
 import placeSightsSlice from "./globalSlice/placeSlice/placeSightsSlice";
 import placeEatsSlice from "./globalSlice/placeSlice/placeEatsSlice";
 import placeGorgesSlice from "./globalSlice/placeSlice/placeGorgesSlice";
+import placeHikingSlice from "./globalSlice/placeSlice/placeHikingSlice";
+import placeWaterFallSlice from "./globalSlice/placeSlice/placeWaterFallSlice";
+import placeAlpinismSlice from "./globalSlice/placeSlice/placeAlpinismSlice";
+import placeLakeSlice from "./globalSlice/placeSlice/placeLakeSlice";
+import articleSlice from "./globalSlice/articleSlice/articleSlice";
 
 export const store = configureStore({
   reducer: {
@@ -24,6 +29,11 @@ export const store = configureStore({
     sights: placeSightsSlice.reducer,
     eats: placeEatsSlice.reducer,
     gorges: placeGorgesSlice.reducer,
+    hiking: placeHikingSlice.reducer,
+    waterfall: placeWaterFallSlice.reducer,
+    alpinism: placeAlpinismSlice.reducer,
+    lake: placeLakeSlice.reducer, 
+    article: articleSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

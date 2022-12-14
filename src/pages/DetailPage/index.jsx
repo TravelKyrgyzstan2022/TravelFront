@@ -9,15 +9,19 @@ import Box from "@mui/material/Box";
 import { BottomNavigationAction, BottomNavigation } from "@mui/material";
 import Rating from "@mui/material/Rating";
 import AVA from "../../img/ava.svg";
-import Card from "../../components/Cards";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getSights } from "../../api/place";
+import { getPlace, getPlaceById } from "../../api/place";
 import { CommentSection } from "react-comments-section";
 import 'react-comments-section/dist/index.css';
+import Location from "../../img/location.svg";
+import MapYandex from "../../components/Map";
+import { useParams } from "react-router-dom";
+import blur from "../../img/blur.png"
+import TopDestinations from "../HomePage/TopDestinations";
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -59,12 +63,16 @@ function a11yProps(index) {
 }
 
 const Detail = () => {
-  const sights = useSelector((state) => state.sights.data);
+
+  const {id} = useParams()
+
+  const {placeById} = useSelector((state) => state.place);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getSights());
+    dispatch(getPlaceById(id));
   }, []);
+
   const [value, setValue] = React.useState(0);
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -108,14 +116,23 @@ const Detail = () => {
 
 
 
+  const place = useSelector((state) => state.place.data)
+
+
+  useEffect(() => {
+      dispatch(getPlace())
+  },  [])
+
+
   return (
     <>
+
       <div className="container">
-        <img className="header" src={Header} alt="" />
-        <h2 className="title">Sulaiman Too</h2>
+        <img className="header" src={placeById.image_urls} alt="" />
+        <img className="blur" src={blur} alt="" />
+        <h2 className="container_title">{placeById.name}</h2>
         <div className="tags">
           <button className="tag">#mountains</button>
-          <button className="tag2">#ancientsights</button>
         </div>
         <div className="buttons">
           <Button />
@@ -142,11 +159,30 @@ const Detail = () => {
                   fontSize: "1.4rem",
                 }}
               />
-              <BottomNavigationAction label="Reviews" {...a11yProps(2)} />
-              <BottomNavigationAction label="Location" {...a11yProps(3)} />
-              <BottomNavigationAction label="Photos" {...a11yProps(4)} />
+              <BottomNavigationAction label="Reviews"
+              sx={{
+                color: "black",
+                fontSize: "1.4rem",
+              }}
+              {...a11yProps(2)} />
               <BottomNavigationAction
-                label="How to get there ?"
+              sx={{
+                color: "black",
+                fontSize: "1.4rem",
+              }}
+              label="Location" {...a11yProps(3)} />
+              <BottomNavigationAction
+              sx={{
+                color: "black",
+                fontSize: "1.4rem",
+              }}
+              label="Photos" {...a11yProps(4)} />
+              <BottomNavigationAction
+              sx={{
+              color: "black",
+              fontSize: "1.4rem",
+            }} 
+                label="Navigate"
                 {...a11yProps(4)}
               />
             </BottomNavigation>
@@ -154,46 +190,13 @@ const Detail = () => {
 
           <BottomPanel className="panel" value={value} index={0}>
             <div className="text">
-              <p>
-                Sulaiman-Too Mountain legend retells the story of the UNESCO
-                World Heritage List site. Young and handsome was Sulaiman. And
-                he was endowed with the gift of providence. For this, he was
-                known as a prophet, and his name became sacred. In everything,
-                it was as if Suleiman was sedate. But he had one passion that he
-                could not suppress in himself – a passion for good horses and a
-                fast jump. In the stable, there were 500 of the best horses.Once
-                the leap so captivated him that he did not even pray and missed
-                the prayer. Suleiman was afraid of God’s wrath and, in order to
-                earn forgiveness for his sin and appease the Most High, he
-                ordered to cut all the horses.God liked such a sacrifice, and he
-                decided to award Suleiman. He gave him a huge throne, which
-                could be raised only by 500 genies (fantastic creatures,
-                spirits). The genies raised the throne and, on the order of
-                Suleiman, lowered it just in the place where the first man,
-                Adam, with his omach (wooden plow) once drew the border for
-                arable land on the site of the current city of Osh.The genies
-                raised the throne and, on the order of Suleiman, lowered it to
-                the top of the mountain. Sitting on a throne at the top of the
-                mountain, Suleiman admired the green plain that lay at the foot
-                of the mountain and enjoyed the amazingly clean, fragrant air.
-                But this was not enough for Suleiman. He wanted the river to
-                flow at the foot of the mountain, where he sat on the throne,
-                and that it beat against stones, rumble, and foam.Beyond the
-                mountains was a large lake. And he ordered Suleiman to his gins
-                to turn the mountain and let the water run.Gene earned. Lumps of
-                chippings they split and scattered across the plain. Finally, a
-                gorge formed, and the water, noisily striking the scattered
-                stones, flowed along the green plain past the mountain on which
-                Suleiman sitting on his throne.That is why that mountain is
-                called Takhti-Suleiman – the throne of Suleiman, and the foamy
-                river was called Ak-Buura. Visit the Sacred Mountain to hear in
-                person the Sulaiman-Too Mountain legend. Most of our tours go
-                through the favored Osh town join them.
+              <p className="text_description">
+                {placeById.description}
               </p>
-              <button className="read_more">Read more</button>
             </div>
             <div className="you_make__like">
-              <Card />
+          <h4 className="you_make_like__title">You May Also Like</h4>
+            <TopDestinations place={place}/>
             </div>
           </BottomPanel>
 
@@ -275,20 +278,32 @@ const Detail = () => {
               </div>
             </div>
 
+          <div className="top_des">
             <div className="you_make__like">
-              <Card />
+          <h4 className="you_make_like__title">You May Also Like</h4>
+            <TopDestinations place={place}/>
+          </div>
             </div>
           </BottomPanel>
 
           {/* LOCATION */}
-
           <BottomPanel className="panel" value={value} index={2}>
-            <Card />
+            <div className="map">
+              <div className="locatioon">
+                    <img src={Location} alt="" /> <p>{placeById.region}</p>
+                    </div>
+                    <div className="yandex_map">
+                      <MapYandex latitude={placeById.latitude} longitude={placeById.longitude}/>
+                    </div>
+            </div>
+          <h4 className="you_make_like__title">You May Also Like</h4>
+            <TopDestinations place={place}/>
           </BottomPanel>
 
           {/* PHOTOS */}
           <BottomPanel className="panel" value={value} index={3}>
-            <Card />
+        <h4 className="you_make_like__title">You May Also Like</h4>
+          <TopDestinations place={place}/>
           </BottomPanel>
 
           {/* HOW TO GET THERE */}
@@ -420,7 +435,8 @@ const Detail = () => {
               </div>
             </div>
             <div className="you_make__like">
-              <Card />
+          <h4 className="you_make_like__title">You May Also Like</h4>
+            <TopDestinations place={place}/>
             </div>
           </BottomPanel>
         </div>
