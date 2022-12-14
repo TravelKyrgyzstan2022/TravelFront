@@ -16,6 +16,7 @@ import Paper from "@mui/material/Paper";
 import { visuallyHidden } from "@mui/utils";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdmin, getUser, getUserFromAdmin } from "../../../api/admin";
+import { setRole } from "../../../redux/globalSlice/userSlice/userSlice";
 
 function createData(name, gmail, data) {
   return {
@@ -167,10 +168,9 @@ export default function DataBase({ id }) {
     dispatch(getUser());
   }, []);
 
-  // const handleAdminClick = (e) => {
-  //   e.preventDefault();
-  //   dispatch(getAdmin(id));
-  // };
+  const handleChangeRole = (id, role) => {
+    dispatch(setRole({ id, role }));
+  };
 
   const handleRequestSort = (event, property) => {
     event.preventDefault();
@@ -275,18 +275,36 @@ export default function DataBase({ id }) {
                             {user.role === "ROLE_USER" ? (
                               <button
                                 className={db.getAdminBtn}
-                                onClick={(e) => dispatch(getAdmin(user.id))}
+                                onClick={(e) =>
+                                  dispatch(
+                                    getAdmin({
+                                      userId: user.id,
+                                    })
+                                  ).then((res) => {
+                                    if (res.payload.status === 200) {
+                                      handleChangeRole(user.id, "ROLE_ADMIN");
+                                    }
+                                  })
+                                }
                               >
-                                Get Admin
+                                User
                               </button>
                             ) : (
                               <button
                                 className={db.getAdminBtn}
                                 onClick={(e) =>
-                                  dispatch(getUserFromAdmin(user.id))
+                                  dispatch(
+                                    getUserFromAdmin({
+                                      userId: user.id,
+                                    })
+                                  ).then((res) => {
+                                    if (res.payload.status === 200) {
+                                      handleChangeRole(user.id, "ROLE_USER");
+                                    }
+                                  })
                                 }
                               >
-                                Get User
+                                Admin
                               </button>
                             )}
                           </TableCell>

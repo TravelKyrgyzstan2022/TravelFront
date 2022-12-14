@@ -5,7 +5,6 @@
 
 .loginBckgr{
     width: 100%;
-    position: absolute;   
 }
 
 .logo{
@@ -24,6 +23,7 @@
     box-shadow: 0px 10px 32px 7px rgba(0,0,0,0.6);
     -webkit-box-shadow: 0px 10px 32px 7px rgba(0,0,0,0.6);
     -moz-box-shadow: 0px 10px 32px 7px rgba(0,0,0,0.6); 
+    margin-top: -450px;
     margin-bottom: 100px;
 } 
 

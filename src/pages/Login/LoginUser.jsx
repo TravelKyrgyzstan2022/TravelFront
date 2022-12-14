@@ -22,8 +22,7 @@ const LoginUser = () => {
     dispatch(getActiveEmail(email));
     setEmail("");
     setPassword("");
-    navigate("/admin");
-    // location.reload(true);
+    navigate("/");
   };
 
   return (

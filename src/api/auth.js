@@ -29,7 +29,19 @@ export const getActiveEmail = createAsyncThunk(
   "auth/active",
   async (data, { rejectWithValue }) => {
     try {
-      const res = await API.post("api/account/active", data);
+      const res = await API.post("api/account/activate", data);
+      return res;
+    } catch (err) {
+      return rejectWithValue(err.res.data.message);
+    }
+  }
+);
+
+export const getVerifyCode = createAsyncThunk(
+  "verify/code",
+  async (data, { rejectWithValue }) => {
+    try {
+      const res = await API.post("api/account/send-activation-code", data);
       return res;
     } catch (err) {
       return rejectWithValue(err.res.data.message);

@@ -1,3 +1,4 @@
+
 import React, { useEffect } from "react";
 import bl from "./index.module.css";
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
@@ -52,6 +53,8 @@ const Blogs = () => {
         </div>
         </div>
     );
+
+
 };
 
 export default Blogs;

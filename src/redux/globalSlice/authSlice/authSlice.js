@@ -20,6 +20,7 @@ const authSlice = createSlice({
     [SignIn.fulfilled]: (state, action) => {
       state.status = "active";
       state.user = action.payload.user_info;
+      state.role = action.payload.role;
       localStorage.setItem("role", action.payload.role);
       localStorage.setItem("token", action.payload.token);
     },
@@ -37,6 +38,7 @@ const authSlice = createSlice({
     logOut: (state, action) => {
       state.user = null;
       state.token = null;
+      state.role = "ROLE_UNAUTHORIZED";
       localStorage.removeItem("token");
       localStorage.removeItem("role");
     },
