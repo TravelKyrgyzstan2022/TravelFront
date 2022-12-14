@@ -2,16 +2,20 @@ import React, { useEffect } from "react";
 import reg from "./Registr.module.css";
 import LOGO from "../../img/LOGO_night.svg";
 import { basicSchema } from "../../schemas";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useFormik } from "formik";
 import { register } from "../../api/auth";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import loginBckgr from "../../img/loginBcg.png";
+import { useNavigate } from "react-router-dom";
 
 const Registr = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  const regUser = useSelector((state) => state.register.user);
+  console.log(regUser);
   const {
     values,
     errors,
@@ -29,8 +33,10 @@ const Registr = () => {
     },
     onSubmit: (data, { resetForm }) => {
       console.log(data);
-      dispatch(register(data));
+
+      dispatch(register(data)).then(() => navigate("/verification"));
       resetForm({ data: "" });
+      localStorage.removeItem("userEmail");
     },
     validationSchema: basicSchema,
   });

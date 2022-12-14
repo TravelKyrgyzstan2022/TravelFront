@@ -1,16 +1,14 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { API } from "../../../utils/axiosConfig";
 import post from "./Post.module.css";
 import del from "../../../img/delete-icon.png";
+import { API } from "../../../utils/axiosConfig";
 const imgPl = "http://cdn.onlinewebfonts.com/svg/img_148071.png";
 
 const Post = () => {
   const [images, setImages] = useState([imgPl]);
   const [title, setTitle] = useState("");
   const [descr, setDescr] = useState("");
-  console.log(navigator);
   function handleImage(e, index) {
     e.preventDefault();
     const reader = new FileReader();
@@ -47,10 +45,6 @@ const Post = () => {
     };
 
     const getUpload = async () => {
-      const headers = {
-        Authorization:
-          "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbkBhZG1pbi5hIiwiaWF0IjoxNjcwNjkzNDYxLCJleHAiOjE2NzA3Nzk4NjF9.Z-p7oniXvKNZpNBVUc0i1lLH9qNUCRsjL1bwevy_2ml5BCUcOiZcHQENB_RMiAefaJGSl2P8pDdRU9ciP04WKw",
-      };
       const imagesJson = images.map((item) => {
         const singleImageUrl = { imageUrl: item };
         return singleImageUrl;
@@ -58,15 +52,10 @@ const Post = () => {
       console.log(images);
 
       try {
-        const res = await axios.post(
-          "http://192.168.0.193:8080/api/v1/user/blogs",
-          blogDTO,
-          { headers }
-        );
-        const imgUpload = await axios.put(
-          `http://192.168.0.193:8080/api/v1/user/blogs/${res.data}/images`,
-          imagesJson,
-          { headers }
+        const res = await API.post("api/v1/user/blogs", blogDTO);
+        const imgUpload = await API.put(
+          `api/v1/user/blogs/${res.data}/images64`,
+          imagesJson
         );
         return imgUpload;
       } catch (error) {
@@ -81,7 +70,7 @@ const Post = () => {
       <div className={post.container}>
         <form onSubmit={handleSubmit}>
           <div className={post.gCont} id="images-container">
-            <div className={post.text}>Изобажения</div>
+            <div className={post.text}>Изображение</div>
             <div className={post.imagesBlock}>
               {images.map((item, index) => (
                 <div key={index + new Date()} className={post.uploadBtnWrapper}>
@@ -110,14 +99,18 @@ const Post = () => {
               ))}
             </div>
           </div>
+          <div className={post.underCategory}></div>
           <div className={post.gCont}>
             <div className={post.text}>Заголовок</div>
             <textarea
+              col
               className={post.titleInp}
               type="text"
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
+          <div className={post.underCategory}></div>
+
           <div className={post.gCont}>
             <div className={post.text}>Description</div>
             <textarea
@@ -128,43 +121,12 @@ const Post = () => {
               onChange={(e) => setDescr(e.target.value)}
             />
           </div>
+          <div className={post.underCategory}></div>
+
           <div className={post.gCont}>
             <div className={post.text}></div>
           </div>
-          <div className={post.gCont}>
-            <div className={post.text}>Остальное</div>
-
-            <p>Местоположение</p>
-            <div>google.maps</div>
-            <p>Категория</p>
-            <Link to="/stay">
-              <div>Stay</div>
-            </Link>
-            <p>Как туда добраться</p>
-            <ul>
-              <li
-                onClick={(e) =>
-                  window.open("https://www.instagram.com/kettik.kg/?hl=en")
-                }
-              >
-                @kettik.kg
-              </li>
-              <li
-                onClick={(e) =>
-                  window.open("https://www.instagram.com/kg.country/?hl=en")
-                }
-              >
-                @kg.country
-              </li>
-              <li
-                onClick={(e) =>
-                  window.open("https://www.instagram.com/sunrise.trip.kg/")
-                }
-              >
-                @sunrise.trip
-              </li>
-            </ul>
-          </div>
+          <div className={post.gCont}></div>
           <button type="submit" className={post.uploadBtn}>
             Upload
           </button>

@@ -2,28 +2,32 @@ import React from "react";
 import mn from "./index.module.css";
 import Search from "../../../img/search.svg";
 import Mtitle from "../../../img/mtitle.svg";
-import Icon_Card from "../../../img/icon_card.svg";
 import Add_Icon from "../../../img/add_managers.svg";
 import SideBar from "../../../components/SideBar";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdmin, getUser } from "../../../api/admin";
 import { useEffect } from "react";
+import { setRole } from "../../../redux/globalSlice/userSlice/userSlice";
 
 const Managers = () => {
   const dispatch = useDispatch();
   const [id, setId] = useState("");
 
   const handleSubmit = (e) => {
-    e.prevernDefault();
-    dispatch(getAdmin(id));
+    e.preventDefault();
+    dispatch(getAdmin({ userId: id })).then((res) => {
+      if (res.payload.status === 200) {
+        dispatch(setRole({ id: +id, role: "ROLE_ADMIN" }));
+      }
+    });
   };
 
   useEffect(() => {
     getUser();
   }, []);
 
-  const admin = useSelector((state) => state.user.data);
+  const managers = useSelector((state) => state.user.data);
 
   return (
     <div className={mn.main_container}>
@@ -40,17 +44,19 @@ const Managers = () => {
             <h3>Менеджеры</h3>
           </div>
           <div className={mn.about_managers}>
-            {admin.map((manager) => (
-              <div className={mn.card}>
-                <img
-                  className={mn.icon}
-                  src={manager.image_url}
-                  alt="title img"
-                />
-                <div className={mn.name}>{manager.first_name}</div>
-                <p className={mn.link}>{manager.role}</p>
-              </div>
-            ))}
+            {managers.map((manager) =>
+              manager.role !== "ROLE_USER" ? (
+                <div className={mn.card}>
+                  <img
+                    className={mn.icon}
+                    src={manager.image_url}
+                    alt="title img"
+                  />
+                  <div className={mn.name}>{manager.first_name}</div>
+                  <p className={mn.link}>{manager.role}</p>
+                </div>
+              ) : null
+            )}
           </div>
 
           <div className={mn.add_mn}>
@@ -71,6 +77,7 @@ const Managers = () => {
                     className={mn.input}
                     type="text"
                     placeholder="id"
+                    value={id}
                     onChange={(e) => setId(e.target.value)}
                   />
                   <input

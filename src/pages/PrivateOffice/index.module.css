@@ -207,6 +207,13 @@ span .ikRinv::after{
     background: #BBBBBB;
 }
 
+.dateInp{
+    width: 220px;
+    height: 30px;
+}
+
+
+
 .calendar_delete{
     width: 105px;
     height: 50px;
@@ -234,9 +241,6 @@ span .ikRinv::after{
     line-height: 21px;
     color: #FFFFFF;
     }
-
-
-
 
     /* ! content_right */
 

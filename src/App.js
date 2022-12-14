@@ -28,11 +28,11 @@ function App() {
     <>
       {ROLES[role]}
       {!PATHES[location.pathname] && role !== "ROLE_ADMIN" ? <Navbar /> : false}
-      {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
+      {/* {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
         <Navbar />
       ) : (
         false
-      )}
+      )} */}
     </>
   );
 }

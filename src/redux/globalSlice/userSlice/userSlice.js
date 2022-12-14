@@ -5,21 +5,18 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     data: [],
-    role: "ROLE_USER",
     isLoading: false,
     isSuccess: false,
     id: null,
     message: "",
   },
-  reducers: {},
   extraReducers: {
-    [getUser.pending]: (state, { payload }) => {
+    [getUser.pending]: (state) => {
       state.isLoading = true;
     },
     [getUser.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
       state.isSuccess = true;
-      state.role = "ROLE_ADMIN";
       state.data = payload;
     },
     [getUser.rejected]: (state, { payload }) => {
@@ -28,6 +25,15 @@ const userSlice = createSlice({
       state.message = payload;
     },
   },
+  reducers: {
+    setRole: (state, { payload }) => {
+      state.data = state.data.map((item) => ({
+        ...item,
+        role: item.id === payload.id ? payload.role : item.role,
+      }));
+    },
+  },
 });
 
+export const { setRole } = userSlice.actions;
 export default userSlice;

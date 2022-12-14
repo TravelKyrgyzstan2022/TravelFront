@@ -40,6 +40,7 @@ const SideBar = ({ children }) => {
       path: "/",
       name: "Выход",
       icon: <img src={Exit} alt="" />,
+      function: () => dispatch(logOut()),
     },
   ];
 
@@ -56,6 +57,7 @@ const SideBar = ({ children }) => {
             className={sbar.link}
             activeclassName="active"
             style={{ marginBottom: item.margin ? "80%" : null }}
+            onClick={item.function}
           >
             <div className={sbar.icon}>{item.icon}</div>
             <div className={sbar.link_text}>{item.name}</div>

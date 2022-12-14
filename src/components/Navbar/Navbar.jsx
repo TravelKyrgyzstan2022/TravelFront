@@ -5,15 +5,10 @@ import logoNight from "../../img/LOGO_night.svg";
 import searchIcon from "../../img/searchIcon.svg";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  logOut,
-  selectCurrentUser,
-} from "../../redux/globalSlice/authSlice/authSlice";
+import { selectCurrentUser } from "../../redux/globalSlice/authSlice/authSlice";
 import Language from "../language";
 
-
 const Navbar = () => {
-  // const [section, setSection] = useState(false);
   const [navbar, setNavbar] = useState(false);
   const [style, setStyle] = useState(false);
   const [search, setSearch] = useState(false);
@@ -23,10 +18,6 @@ const Navbar = () => {
 
   const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
-
-  const handleLogOut = () => {
-    dispatch(logOut());
-  };
 
   const setBg = () => {
     if (window.scrollY >= 80) {
@@ -97,17 +88,15 @@ const Navbar = () => {
             </nav>
             <nav className={nav.auth}>
               {user ? (
-                <nav className={nav.login} onClick={handleLogOut}>
-                  Log Out
-                </nav>
+                <Link to="/private_office">
+                  <nav className={nav.login}>User</nav>
+                </Link>
               ) : (
                 <Link to="/login">
                   <nav className={nav.login}>Login</nav>
                 </Link>
               )}
-
             </nav>
-            <Language/>
           </nav>
         </div>
       </div>

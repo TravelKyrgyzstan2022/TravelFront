@@ -18,11 +18,11 @@ import { PrivateOffice } from "../pages/PrivateOffice";
 import Registr from "../pages/Registr/Registr";
 import Sightseeing from "../pages/Sightseeing";
 import Stay from "../pages/Stay";
-import UserProfile from "../pages/UserProfile/UserProfile";
 import Waterfall from "../pages/WaterFall";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import Verification from "../pages/Verification";
 import MapYandex from "../pages/Map";
+import UserProfile from "../pages/UserProfile/UserProfile";
 
 const UserRoute = () => (
   <Routes>
@@ -31,7 +31,7 @@ const UserRoute = () => (
     <Route path="/login2" element={<Login2 />} />
     <Route path="/sign" element={<SignIn />} />
     <Route path="/reg" element={<Registr />} />
-    <Route path='/verification' element={<Verification />} />
+    <Route path="/verification" element={<Verification />} />
     <Route path="/events" element={<Events />} />
     <Route path="/stay" element={<Stay />} />
     <Route path="/sightseeing" element={<Sightseeing />} />
@@ -42,10 +42,14 @@ const UserRoute = () => (
     <Route path="/waterfall" element={<Waterfall />} />
     <Route path="/mountains" element={<Mountains />} />
     <Route path="/alpinism" element={<Alpinism />} />
-    <Route path="lakes" element={<Lakes />} />
+    <Route path="/lakes" element={<Lakes />} />
     <Route path="/blogs" element={<Blogs />} />
-    <Route path="/private_office" element={<PrivateOffice defaultValue={today(getLocalTimeZone())}/>} />
-    <Route path='/map' element={<MapYandex />} />
+    <Route path="/profile" element={<UserProfile />} />
+    <Route
+      path="/private_office"
+      element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}
+    />
+    <Route path="/map" element={<MapYandex />} />
     {/* <Route path="/*" element={<NotFound />} /> */}
   </Routes>
 );
