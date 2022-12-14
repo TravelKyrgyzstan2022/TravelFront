@@ -49,7 +49,6 @@ const Post = () => {
         const singleImageUrl = { imageUrl: item };
         return singleImageUrl;
       });
-      console.log(images);
 
       try {
         const res = await API.post("api/v1/user/blogs", blogDTO);

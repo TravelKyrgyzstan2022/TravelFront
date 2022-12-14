@@ -1,101 +1,60 @@
 import React from 'react';
-import Han_Tengri from '../../img/han-tengri.png'
-import AlaArcha from '../../img/ala-archa.png'
 import Location from "../../img/location.svg"
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import Star from "../../img/star.svg"
-import Comsomolec from "../../img/comsomolec.png"
-import card from "./index.module.css"
-import Button from '../Button';
-import Like from "../../img/like.svg"
+import { Rating } from '@mui/material';
+import cc from "./index.module.css";
+import { NavLink } from 'react-router-dom';
+import Plan from "../../img/plan_light.svg";
 
-const Card = () => {
-    const [activeStep, setActiveStep] = React.useState(0);
-    
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
-    
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
+const Card = ({place}) => {
 
     return (
-        <div>
-                                <div className={card.slider}>
-                    <h3 className={card.title}>You May Also Like</h3>
-                    <div className={card.slider_buttons}>
-                        <ArrowBackIcon onClick={handleNext} className={card.arrow_back}/>
-                        <ArrowForwardIcon onClick={handleBack}  className={card.arrow_next}/>
+        <div className='container'>
+            <div>
+                <div id={place.id} className={cc.card}>
+                <div className={cc.full_card}>
+                    <div className={cc.card_left}>
+                    <img className={cc.img_card} src={place.image_urls} alt="" />
                     </div>
+                    <div className={cc.card_right}>
+                    <div className={cc.title_and__rating}>
+                        <h4 className={cc.card_title}>{place.name}</h4>
+                        <Rating
+                        className={cc.rating}
+                        name="customized-10"
+                        max={5}
+                        />
                     </div>
-                    <div  className={card.cards}>
-                    <div className={card.card}>
-                    <div className={card.img_like}>
-                    <img className={card.card_img} src={Han_Tengri} alt="" />
-                    <img className={card.card_like} src={Like} alt="" />
+                    <a className={cc.locatioon}>
+                        <img src={Location} alt="" /> <p>{place.region}</p>
+                    </a>
+                    <div className={cc.card_txt}>
+                        <p>{place.description}</p>
                     </div>
-                    <h4 className={card.card_title}>Han-Tengri</h4>
-                    <div className={card.pin}>
-                        <div className={card.location}>
-                        <a className={card.locatioon}><img src={Location} alt="" /> <p>Naryn Region</p></a>
+                    <div className={cc.tags_and__btn}>
+                        <div className={cc.card_tags}>
                         </div>
-                        <div className={card.raiting}>
-                            <img src={Star} alt="" />
-                            <p className={card.raiting_txt}>5.0</p>
-                        </div>
-                        </div>
-                    <div className={card.card_button}>
-                        <Button/>
+                        <NavLink to={`/details/${place.id}`}
+                        >
+                        <button
+                            onClick={(e) => place.id}
+                            className={cc.arrow_next}
+                        >
+                            <ArrowForwardIcon />
+                        </button>
+                        </NavLink>
                     </div>
-                </div>
-
-                
-
-
-                <div className={card.card}>
-                    <div className={card.img_like}>
-                    <img className={card.card_img} src={Comsomolec} alt="" />
-                    <img className={card.card_like} src={Like} alt="" />
+                    <div className={cc.card_button}>
+                        <button className={cc.btn}>
+                        <img className={cc.btn_img} src={Plan} alt="img" />
+                        Add to my trip plan
+                        </button>
                     </div>
-                    <h4 className={card.card_title}>Peak “Comsomolec”</h4>
-                    <div className={card.pin}>
-                        <div className={card.location}>
-                        <a className={card.locatioon}><img src={Location} alt="" /> <p>Chuy Region</p></a>
-                        </div>
-                        <div className={card.raiting}>
-                            <img src={Star} alt="" />
-                            <p className={card.raiting_txt}>4.5</p>
-                        </div>
-                        </div>
-                    <div className={card.card_button}>
-                        <Button/>
-                    </div>
-                </div>
-
-
-                <div className={card.card}>
-                    <div className={card.img_like}>
-                    <img className={card.card_img} src={AlaArcha} alt="" />
-                    <img className={card.card_like} src={Like} alt="" />
-                    </div>
-                    <h4 className={card.card_title}>Ala-Archa national park</h4>
-                    <div className={card.pin}>
-                        <div className={card.location}>
-                        <a className={card.locatioon}><img src={Location} alt="" /> <p>Chuy Region</p></a>
-                        </div>
-                        <div className={card.raiting}>
-                            <img src={Star} alt="" />
-                            <p className={card.raiting_txt}>4.3</p>
-                        </div>
-                        </div>
-                    <div className={card.card_button}>
-                        <Button/>
                     </div>
                 </div>
                 </div>
-        </div>
+            </div>
+            </div>
     );
 }
 

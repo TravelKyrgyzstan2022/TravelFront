@@ -50,16 +50,18 @@ const StayHotel = () => {
                     <img className="card_img" src={place.image_urls} alt="" />
                     <img className="card_like" src={Like} alt="" />
                 </div>
+                <div className="title_and__rating">
                 <h4 className="card_title">{place.name}</h4>
+                    <div className="raiting">
+                    <img src={Star} alt="" />
+                    <p className="raiting_txt">4.5</p>
+                    </div>
+                    </div>
                 <div className="pin">
                     <div className="location">
                     <a className="locatioon">
                         <img src={Location} alt="" /> <p>{place.region}</p>
                     </a>
-                    </div>
-                    <div className="raiting">
-                    <img src={Star} alt="" />
-                    <p className="raiting_txt">4.5</p>
                     </div>
                 </div>
                 <div className="card_button">

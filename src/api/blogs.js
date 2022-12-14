@@ -6,7 +6,7 @@ export const getBlog = createAsyncThunk(
   async (arg, { rejectWithValue }) => {
     try {
       const res = await API.get("api/v1/blogs", arg);
-      return res;
+      return res.data;
     } catch (err) {
       return rejectWithValue(err.response.data.message);
     }

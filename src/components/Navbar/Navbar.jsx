@@ -78,6 +78,8 @@ const Navbar = () => {
               <input
                 className={`${nav.searchInp} ${search ? nav.active : search}`}
                 type="text"
+                onFocus="this.placeholder=''"
+                onblur="this.placeholder = 'Search destination'"
                 placeholder="Search destination"
               />
               <img
@@ -97,6 +99,7 @@ const Navbar = () => {
                 </Link>
               )}
             </nav>
+
           </nav>
         </div>
       </div>

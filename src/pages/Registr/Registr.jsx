@@ -32,9 +32,11 @@ const Registr = () => {
       password: "",
     },
     onSubmit: (data, { resetForm }) => {
+
       console.log(data);
 
       dispatch(register(data)).then(() => navigate("/verification"));
+
       resetForm({ data: "" });
       localStorage.removeItem("userEmail");
     },

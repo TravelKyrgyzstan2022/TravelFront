@@ -18,12 +18,14 @@
     }
 
 .slick-track{
-    width: 222384px !important;
+    width: 222584px !important;
+    opacity: 1;
 }
 
 .slick-slide{
-    margin: 0 20px; 
+    margin: 0 0px; 
 }
+
 
 .slick-next{
     width: 32px !important;
@@ -40,12 +42,11 @@
 
 .card{
     background: #FFFFFF;
-    height: 447px !important;
-    width: 402px !important;
+    height: 440px !important;
+    width: 375px !important;
+    padding: 19px !important;
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.04), 0px 8px 8px rgba(0, 0, 0, 0.08);
     border-radius: 28px;
-    margin-right: 94px;
-    padding: 10px;
 } 
 
 
@@ -68,7 +69,7 @@
 
 .card_like{
     position: absolute;
-    margin-left: -23px;
+    margin-right: 20px;
     margin-top: 20px;
 }
 

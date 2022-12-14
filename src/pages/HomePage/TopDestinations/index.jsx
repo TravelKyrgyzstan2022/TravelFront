@@ -7,16 +7,8 @@ import Location from "../../../img/location.svg";
 import Star from "../../../img/star.svg";
 import Button from '../../../components/Button'
 import Slider from "react-slick";
-import { useDispatch, useSelector } from 'react-redux';
-import { getPlace } from '../../../api/place';
 
 const TopDestinations = ({place }) => {
-    // const dispatch = useDispatch();
-    // const place = useSelector((state) => state.place.data);
-    // useEffect(() => {
-    // dispatch(getPlace());
-    // }, []);
-
     const  SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
         <img  src={LeftArrow} className="left-arrow" alt="prevArrow" {...props} />
         );
@@ -25,7 +17,6 @@ const TopDestinations = ({place }) => {
             <img className='right-arrow' src={RightArrow} alt="nextArrow" {...props} />
     );
 
-    console.log(place)
 
     const settings = {
         className: "center",
@@ -40,7 +31,6 @@ const TopDestinations = ({place }) => {
 
     return (
             <div className="container">
-            <h3 className="title">Top destinations</h3>
 
             <div>
             <Slider {...settings} className="slider">

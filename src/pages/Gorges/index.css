@@ -7,7 +7,7 @@
     margin-right: 40px;
 }
 
-/* .title{
+.gorges_title{
 	position : absolute;
     top: 100px;
     left: 80px;
@@ -15,7 +15,7 @@
     font-size: 64px;
     line-height: 75px;
     color: #FFFFFF;
-} */
+}
 
 .subtitle{
     position : absolute;
@@ -42,7 +42,7 @@
 }
 
 
-.card_title{
+.card_titlee{
     font-weight: 600;
     font-size: 36px;
     line-height: 42px; 
@@ -105,12 +105,8 @@
     left: 80px;
 }
 
-.slick-track{
-    /* transform: translate3d(0, 0 , 0) !important; */
-}
 
-.slick-slide,
-.slick-cloned{
-    /* width: 100% !important; */
+.topdes{
+    padding: 80px;
+    margin-top: -340px;
 }
-

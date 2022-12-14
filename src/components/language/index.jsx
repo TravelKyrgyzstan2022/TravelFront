@@ -1,26 +1,24 @@
-import React from "react";
-import { useTranslation } from "react-i18next";
-import lang from "./index.module.css";
+import React from 'react'
+import { useTranslation } from 'react-i18next';
 
-const Language = () => {
+const App = () => {
+
   const { t, i18n } = useTranslation();
+
 
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };
 
+
   return (
     <>
-      <div className={lang.form_group}>
-        {/* <select onClick={() => changeLanguage()} id="languageSelection" className={lang.form_control}> */}
-        <option onClick={() => changeLanguage("en")}>En</option>
-        <option onClick={() => changeLanguage("ru")}>Ru</option>
-        {/* </select> */}
-      </div>
+      <button onClick={() => changeLanguage('en')}>EN</button>
+      <button onClick={() => changeLanguage('ru')}>RU</button>
       <div>{t("text")}</div>
-      {/* <div>{t("hello")}</div> */}
+      <div>{t("hello")}</div>
     </>
-  );
-};
+  )
+}
 
-export default Language;
+export default App

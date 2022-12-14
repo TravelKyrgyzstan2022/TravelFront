@@ -21,7 +21,6 @@ API.interceptors.response.use(async (res) => {
 
 const login = async (userData) => {
   const response = await axios.post(API_URL + "signin", userData);
-  console.log(response);
   if (response.data) {
     localStorage.setItem("user", JSON.stringify(response.data));
   }

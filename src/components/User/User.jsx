@@ -13,7 +13,6 @@ const User = () => {
         const response = await axios.get("/sign-in", {
           signal: controller.signal,
         });
-        console.log(response.data);
         isMounted && setUsers(response.data);
       } catch (err) {
         console.log(err);
