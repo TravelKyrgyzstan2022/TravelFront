@@ -1,23 +1,22 @@
 import React from "react";
 import event from "./index.module.css";
 
-import Location from "../../img/location.svg"
-import Plan from "../../img/plan_light.svg"
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import NomadGames from "../../img/nomad-games.png"
-import KurmanjanDatka from "../../img/kurmanjan-datka.png"
-import Calendar from "../../img/calendar.svg" 
-import AdamPerformance from "../../img/adam-performance.png"
-import EVENT from "../../img/events_page.png"
+import Location from "../../img/location.svg";
+import Plan from "../../img/plan_light.svg";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import NomadGames from "../../img/nomad-games.png";
+import KurmanjanDatka from "../../img/kurmanjan-datka.png";
+import Calendar from "../../img/calendar.svg";
+import AdamPerformance from "../../img/adam-performance.png";
+import EVENT from "../../img/events_page.png";
 import { useEffect } from "react";
+import Footer from "../../components/Footer/Footer";
 
 const Events = () => {
-
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    },[])
-return (
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
     <div>
       <div className={event.header}>
         <img src={EVENT} alt="" />
