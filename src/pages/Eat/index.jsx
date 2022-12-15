@@ -20,21 +20,10 @@ const Eat = () => {
 
   useEffect(() => {
     dispatch(getEats());
+    window.scrollTo(0, 0);
   }, []);
 
-
-    const dispatch = useDispatch()
-
-    useEffect(() => {
-        dispatch(getEats())
-        window.scrollTo(0, 0);
-    },[])
-
-
-
-
   return (
-
     <>
       <div>
         <div className={eat.header}>
