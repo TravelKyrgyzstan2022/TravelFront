@@ -81,20 +81,21 @@ const Navbar = () => {
               </nav>
             </Link>
 
-            {/* <nav className={nav.search}>
+            <nav className={nav.search}>
               <input
                 className={`${nav.searchInp} ${search ? nav.active : search}`}
                 type="text"
                 onFocus="this.placeholder=''"
                 onblur="this.placeholder = 'Search destination'"
                 placeholder="Search destination"
+                
               />
               <img
                 className={nav.searchIcon}
                 src={searchIcon}
                 alt="search icon"
               />
-            </nav> */}
+            </nav>
             <nav className={nav.auth}>
               {user ? (
                 <Link to="/private_office">

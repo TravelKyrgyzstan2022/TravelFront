@@ -19,8 +19,10 @@ export const postComment = createAsyncThunk(
     async (data, { rejectWithValue }) => {
     try {
         const res = await API.post(`api/v1/places/${data.id}/comment`, data.body);
+        console.log("12345678",res);
         return res.data;
     } catch (err) {
+        console.log(err);
         return rejectWithValue(err.response.data.message);
     }
     }

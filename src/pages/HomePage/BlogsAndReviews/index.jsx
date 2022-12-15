@@ -5,6 +5,7 @@ import br from './index.module.css';
 import LeftArrow from '../../../img/left-arrow.svg'
 import RightArrow from '../../../img/right-arrow.svg'; 
 import Slider from 'react-slick';
+import "./index.css"
 
 const BlogsAndReviews = () => {
 
