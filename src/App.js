@@ -7,6 +7,8 @@ import UserRoute from "./routes/UserRoute";
 import "./components/Location/18n";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
+import ScrollToTop from "./routes/Scroll";
+
 
 const PATHES = {
   "/admin": 1,
@@ -22,7 +24,6 @@ const ROLES = {
   ROLE_SUPERADMIN: <AdminRoute />,
   ROLE_UNAUTHORIZED: <UserRoute />,
 };
-
 
 function App() {
   const role = useSelector((state) => state.auth.role);
@@ -42,13 +43,16 @@ const { t, i18n } = useTranslation();
 
   return (
     <>
+      <ScrollToTop />
       {ROLES[role]}
-      {!PATHES[location.pathname] && role !== "ROLE_ADMIN" ? <Navbar i18n={i18n} /> : false}
-      {/* {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
+
+      {!PATHES[location.pathname] &&
+      role !== "ROLE_ADMIN" &&
+      role !== "ROLE_SUPERADMIN" ? (
         <Navbar />
       ) : (
         false
-      )} */}
+      )}
     </>
   );
 }

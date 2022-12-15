@@ -20,7 +20,7 @@ const Navbar = () => {
   const { t, i18n } = useTranslation();
 
   const dispatch = useDispatch();
-  const user = useSelector(selectCurrentUser);
+  const user = useSelector((state) => state.auth.user);
 
   const setBg = () => {
     if (window.scrollY >= 80) {
@@ -81,7 +81,7 @@ const Navbar = () => {
               </nav>
             </Link>
 
-            <nav className={nav.search}>
+            {/* <nav className={nav.search}>
               <input
                 className={`${nav.searchInp} ${search ? nav.active : search}`}
                 type="text"
@@ -94,11 +94,13 @@ const Navbar = () => {
                 src={searchIcon}
                 alt="search icon"
               />
-            </nav>
+            </nav> */}
             <nav className={nav.auth}>
               {user ? (
                 <Link to="/private_office">
-                  <nav className={nav.login}>User</nav>
+                  <nav className={nav.login}>
+                    {/* {user.first_name + " " + user.last_name} */} Kanay
+                  </nav>
                 </Link>
               ) : (
                 <Link to="/login">
@@ -106,7 +108,9 @@ const Navbar = () => {
                 </Link>
               )}
             </nav>
+
             <Language i18n={i18n}/>
+
           </nav>
         </div>
       </div>

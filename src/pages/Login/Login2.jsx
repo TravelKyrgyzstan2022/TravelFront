@@ -3,17 +3,19 @@ import log from "./Login2.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { getForgotPass } from "../../api/auth";
 import loginBckgr from "../../img/loginBcg.png";
+import { useDispatch } from "react-redux";
 
 const Login2 = () => {
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleInp = (e) => setEmail(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    getForgotPass(email);
+    dispatch(getForgotPass(email));
     setEmail("");
-    navigate("/login");
+    // navigate("/login");
   };
 
   return (

@@ -14,15 +14,17 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPlace, getPlaceById } from "../../api/place";
-import 'react-comments-section/dist/index.css';
+
 import Location from "../../img/location.svg";
 import MapYandex from "../../components/Map";
 import { useParams } from "react-router-dom";
-import blur from "../../img/blur.png"
+import blur from "../../img/blur.png";
 import TopDestinations from "../HomePage/TopDestinations";
+
 import { getComment, postComment } from "../../api/comment";
 import { Form, Formik, useFormik } from "formik";
 import send from "../../img/com_send.svg"
+import Footer from "../../components/Footer/Footer";
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -64,9 +66,11 @@ function a11yProps(index) {
 }
 
 
+
 const Detail = () => {
   const {id} = useParams()
   const {placeById} = useSelector((state) => state.place);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getPlaceById(id));
@@ -100,6 +104,7 @@ const Detail = () => {
     }
   }, [open]);
 
+
   const place = useSelector((state) => state.place.data)
   const comment = useSelector((state) => state.comment.data)
 
@@ -111,6 +116,13 @@ const Detail = () => {
       dispatch(postComment())
         window.scrollTo(0, 0)
   },  [])
+
+
+  const place = useSelector((state) => state.place.data);
+
+  useEffect(() => {
+    dispatch(getPlace());
+  }, []);
 
 
   const [body, setBody ] = useState("")
@@ -131,7 +143,6 @@ const Detail = () => {
 
   return (
     <>
-
       <div className="container">
         <img className="header" src={placeById.image_urls} alt="" />
         <img className="blur" src={blur} alt="" />
@@ -164,29 +175,35 @@ const Detail = () => {
                   fontSize: "1.4rem",
                 }}
               />
-              <BottomNavigationAction label="Reviews"
-              sx={{
-                color: "black",
-                fontSize: "1.4rem",
-              }}
-              {...a11yProps(2)} />
               <BottomNavigationAction
-              sx={{
-                color: "black",
-                fontSize: "1.4rem",
-              }}
-              label="Location" {...a11yProps(3)} />
+                label="Reviews"
+                sx={{
+                  color: "black",
+                  fontSize: "1.4rem",
+                }}
+                {...a11yProps(2)}
+              />
               <BottomNavigationAction
-              sx={{
-                color: "black",
-                fontSize: "1.4rem",
-              }}
-              label="Photos" {...a11yProps(4)} />
+                sx={{
+                  color: "black",
+                  fontSize: "1.4rem",
+                }}
+                label="Location"
+                {...a11yProps(3)}
+              />
               <BottomNavigationAction
-              sx={{
-              color: "black",
-              fontSize: "1.4rem",
-            }} 
+                sx={{
+                  color: "black",
+                  fontSize: "1.4rem",
+                }}
+                label="Photos"
+                {...a11yProps(4)}
+              />
+              <BottomNavigationAction
+                sx={{
+                  color: "black",
+                  fontSize: "1.4rem",
+                }}
                 label="Navigate"
                 {...a11yProps(4)}
               />
@@ -195,19 +212,18 @@ const Detail = () => {
 
           <BottomPanel className="panel" value={value} index={0}>
             <div className="text">
-              <p className="text_description">
-                {placeById.description}
-              </p>
+              <p className="text_description">{placeById.description}</p>
             </div>
             <div className="you_make__like">
-          <h4 className="you_make_like__title">You May Also Like</h4>
-            <TopDestinations place={place}/>
+              <h4 className="you_make_like__title">You May Also Like</h4>
+              <TopDestinations place={place} />
             </div>
           </BottomPanel>
 
           <BottomPanel value={value} index={1}>
             <div className="reviews_container">
               <div className="comment">
+
                     <form onSubmit={formik.handleSubmit}>
                       <div className="container_input">
                   <input  
@@ -222,6 +238,7 @@ const Detail = () => {
                       </div>
                     </form>
                     
+
               </div>
               <div>
                     {comment.map((comment) => (
@@ -229,8 +246,12 @@ const Detail = () => {
                 <img src={AVA} alt="" />
                 <h4 className="name_user">George Michael</h4>
                 <div className="data_rating">
+
                   <div className="data">{comment.deletion_date}</div>
-                </div>
+
+                  <Rating className="rating" name="customized-10" max={5} />
+                  <div className="data">9/05/22</div>
+              </div>
               <div className="reviews_txt">
                 That was such a nice place. The most beautiful place I’ve ever
                 seen. My advice to everyone not to forget to take warm coat.
@@ -243,11 +264,7 @@ const Detail = () => {
                 <img src={AVA} alt="" />
                 <h4 className="name_user">Harry Styles</h4>
                 <div className="data_rating">
-                  <Rating
-                    className="rating"
-                    name="customized-10"
-                    max={5}
-                  />
+                  <Rating className="rating" name="customized-10" max={5} />
                   <div className="data">9/05/22</div>
                 </div>
               </div>
@@ -260,13 +277,14 @@ const Detail = () => {
                 In this world, it’s just us. You know it’s not the same as it
                 was. In this world, it’s just us.
               </div>
+
               </div>
 
-          <div className="top_des">
-            <div className="you_make__like">
-          <h4 className="you_make_like__title">You May Also Like</h4>
-            <TopDestinations place={place}/>
-          </div>
+            <div className="top_des">
+              <div className="you_make__like">
+                <h4 className="you_make_like__title">You May Also Like</h4>
+                <TopDestinations place={place} />
+              </div>
             </div>
           </BottomPanel>
 
@@ -274,20 +292,23 @@ const Detail = () => {
           <BottomPanel className="panel" value={value} index={2}>
             <div className="map">
               <div className="locatioon">
-                    <img src={Location} alt="" /> <p>{placeById.region}</p>
-                    </div>
-                    <div className="yandex_map">
-                      <MapYandex latitude={placeById.latitude} longitude={placeById.longitude}/>
-                    </div>
+                <img src={Location} alt="" /> <p>{placeById.region}</p>
+              </div>
+              <div className="yandex_map">
+                <MapYandex
+                  latitude={placeById.latitude}
+                  longitude={placeById.longitude}
+                />
+              </div>
             </div>
-          <h4 className="you_make_like__title">You May Also Like</h4>
-            <TopDestinations place={place}/>
+            <h4 className="you_make_like__title">You May Also Like</h4>
+            <TopDestinations place={place} />
           </BottomPanel>
 
           {/* PHOTOS */}
           <BottomPanel className="panel" value={value} index={3}>
-        <h4 className="you_make_like__title">You May Also Like</h4>
-          <TopDestinations place={place}/>
+            <h4 className="you_make_like__title">You May Also Like</h4>
+            <TopDestinations place={place} />
           </BottomPanel>
 
           {/* HOW TO GET THERE */}
@@ -419,12 +440,13 @@ const Detail = () => {
               </div>
             </div>
             <div className="you_make__like">
-          <h4 className="you_make_like__title">You May Also Like</h4>
-            <TopDestinations place={place}/>
+              <h4 className="you_make_like__title">You May Also Like</h4>
+              <TopDestinations place={place} />
             </div>
           </BottomPanel>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

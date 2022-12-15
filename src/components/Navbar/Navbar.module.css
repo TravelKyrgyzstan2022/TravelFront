@@ -15,7 +15,9 @@
 .navbar.active{
     background-color: aliceblue;
     height: 100px;
+    transition: 1s;
 }
+
 
 .container{
     width: 100%;

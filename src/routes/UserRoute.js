@@ -21,10 +21,8 @@ import Stay from "../pages/Stay";
 import Waterfall from "../pages/WaterFall";
 import { today, getLocalTimeZone } from "@internationalized/date";
 import Verification from "../pages/Verification";
-
 import DetailArticlePage from "../pages/DetailArticlePage";
 import UserProfile from "../pages/UserProfile/UserProfile";
-
 
 const UserRoute = () => (
   <Routes>
@@ -46,9 +44,13 @@ const UserRoute = () => (
     <Route path="/alpinism" element={<Alpinism />} />
     <Route path="/lakes" element={<Lakes />} />
     <Route path="/blogs" element={<Blogs />} />
-    <Route path="/private_office" element={<PrivateOffice defaultValue={today(getLocalTimeZone())}/>} />
-    <Route path="/detailarticle/:id" element={<DetailArticlePage/>}/>
-    <Route path="/profile" element={<UserProfile />} />
+    <Route
+      path="/private_office"
+      element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}
+    />
+
+    <Route path="/detailarticle/:id" element={<DetailArticlePage />} />
+    <Route path="/planner/:id" element={<UserProfile />} />
     <Route
       path="/private_office"
       element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}

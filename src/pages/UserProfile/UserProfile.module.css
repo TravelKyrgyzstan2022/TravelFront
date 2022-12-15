@@ -1,10 +1,49 @@
+.container{
+  position: relative;
+  width: 100%;
+ 
+}
+
+.bg{
+  position: relative;
+}
+
+.form{
+  position: absolute;
+  top: 180px;
+  left: 500px;
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  margin: 0 auto;
+}
+
 .text{
-    font-size: 50px;
+    font-size: 18px;
     font-weight: 400;
     color: #252525;
+    width: 600px;
+    height: 400px;
+    margin-bottom: 20px;
+    padding: 10px 10px;
+    border: none;
 }
 
 .dateInp{
-    margin-top: 300px;
-    margin-left: 70px;
+  width: 200px;
+  height: 40px;
+  border: 10px;
+  margin-bottom: 20px;
+}
+
+
+  
+.btn{
+  width: 622px;
+  height: 40px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  border: none;
+  background-color: #252525;
+  color: #FFFF;
 }
