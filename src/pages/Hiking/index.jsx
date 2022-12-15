@@ -21,9 +21,11 @@ const Hiking = () => {
     dispatch(getHiking());
   }, []);
 
+
   return (
     <div>
       <div className={hike.header}>
+
         <img src={HIKING} alt="" />
         <h4 className={hike.hiking_title}>#hiking</h4>
         <div className={hike.category}>

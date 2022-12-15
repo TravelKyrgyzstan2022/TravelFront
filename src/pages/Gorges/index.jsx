@@ -28,9 +28,13 @@ const Gorges = () => {
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(getGorges());
-  }, []);
+
+    useEffect(() => {
+        dispatch(getGorges())
+        window.scrollTo(0, 0)
+    },  [])
+
+
 
   return (
     <div className="header">

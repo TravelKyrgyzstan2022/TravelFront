@@ -15,11 +15,11 @@ import PopularArticles from "./PopularArticles";
 import StayHotel from "./StayHotel";
 import ExtremeTour from "./ExtremeTour";
 import Footer from "../../components/Footer/Footer";
-
 import { getBlog } from "../../api/blogs";
 import { useDispatch, useSelector } from "react-redux";
-import { getCommit, getPlace } from "../../api/place";
 import BlogsAndReviews from "./BlogsAndReviews";
+import { useTranslation } from "react-i18next";
+import { getPlace } from "../../api/place";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -29,9 +29,13 @@ const HomePage = () => {
 
   useEffect(() => {
     dispatch(getPlace());
-    dispatch(getCommit());
     dispatch(getBlog());
+    window.scrollTo(0, 0)
   }, []);
+
+
+  const { t, i18n } = useTranslation();
+
 
   const handleCheckRole = () => {
     localStorage.getItem("role") === "ROLE_USER"
@@ -39,18 +43,23 @@ const HomePage = () => {
       : navigate("/login");
   };
 
+
   return (
     <>
       <div className={main.section}>
         <div className={main.container}>
           <img className={main.mainbg} src={mainbg} alt="main background img" />
           <div className={main.intro}>
-            <h2 className={main.maintxt}>Welcome to Kyrgyzstan!</h2>
+            <h2 className={main.maintxt}>{t("welcome")}</h2>
             <div className={main.date}>
+
+              <div>{t("start")}</div>
+
               <div onClick={handleCheckRole}>Start your journey with us</div>
+
             </div>
             <div className={main.cotegory}>
-              <h5>Top categories</h5>
+              <h5 className={main.category_title}>Top categories</h5>
               <div className={main.list}>
                 <div>
                   <NavLink to="/gorges">

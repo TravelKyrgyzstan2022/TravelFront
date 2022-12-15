@@ -1,24 +1,59 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 
-const App = () => {
+const App = ({i18n}) => {
+  const [currentLang, setCurrentLang] = useState();
+  // const { t, i18n } = useTranslation();
 
-  const { t, i18n } = useTranslation();
 
 
-  const changeLanguage = (language) => {
-    i18n.changeLanguage(language);
+  useEffect(() => {
+    setCurrentLang(i18n.language);
+  }, [i18n]);
+
+  const changeLanguage = (e) => {
+    i18n.changeLanguage(e.target.value);
+    setCurrentLang(e.target.value);
   };
+
+  // const changeLanguage = (language) => {
+  //   i18n.changeLanguage(language);
+
+  // };
 
 
   return (
-    <>
-      <button onClick={() => changeLanguage('en')}>EN</button>
-      <button onClick={() => changeLanguage('ru')}>RU</button>
-      <div>{t("text")}</div>
-      <div>{t("hello")}</div>
-    </>
+    <div className="switch-languages">
+      <select value={currentLang} onChange={(e) => changeLanguage(e)}>
+      <option value="en">Eng</option>
+        <option value="ru">Ru</option>
+      </select>
+    </div>
   )
 }
 
 export default App
+
+// import React, { useState, useEffect } from 'react';
+
+// export default function SwitchLang({ i18n }) {
+//   const [currentLang, setCurrentLang] = useState();
+
+//   useEffect(() => {
+//     setCurrentLang(i18n.language);
+//   }, [i18n]);
+
+//   const changeLanguage = (e) => {
+//     i18n.changeLanguage(e.target.value);
+//     setCurrentLang(e.target.value);
+//   };
+
+//   return (
+//     <div className="switch-languages">
+//       <select value={currentLang} onChange={(e) => changeLanguage(e)}>
+//         <option value="en">Eng</option>
+//         <option value="fr">Fr</option>
+//       </select>
+//     </div>
+//   );
+// }

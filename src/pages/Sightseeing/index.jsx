@@ -13,6 +13,7 @@ const Sightseeing = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getSights());
+      window.scrollTo(0, 0);
   }, []);
 
   return (

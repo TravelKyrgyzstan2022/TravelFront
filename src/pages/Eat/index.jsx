@@ -22,7 +22,19 @@ const Eat = () => {
     dispatch(getEats());
   }, []);
 
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        dispatch(getEats())
+        window.scrollTo(0, 0);
+    },[])
+
+
+
+
   return (
+
     <>
       <div>
         <div className={eat.header}>

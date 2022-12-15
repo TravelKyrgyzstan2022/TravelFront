@@ -3,7 +3,13 @@
     font-size: 36px;
     line-height: 42px;
     color: #FFFFFF;
-    margin-bottom: 32pxx;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+
+.container_blogs{
+    margin-top: -120px;
 }
 
 
