@@ -8,8 +8,13 @@ import KurmanjanDatka from "../../img/kurmanjan-datka.png"
 import Calendar from "../../img/calendar.svg" 
 import AdamPerformance from "../../img/adam-performance.png"
 import EVENT from "../../img/events_page.png"
+import { useEffect } from "react";
 
 const Events = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
 return (
     <div>
         <div className={event.header}>

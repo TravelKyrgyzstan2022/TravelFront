@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import logo from "../../img/bnlogo.svg";
 import logoNight from "../../img/LOGO_night.svg";
 import searchIcon from "../../img/searchIcon.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../redux/globalSlice/authSlice/authSlice";
 import Language from "../language";
+import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
   const [navbar, setNavbar] = useState(false);
@@ -15,6 +16,8 @@ const Navbar = () => {
   const [logoChange, setLogoChange] = useState(
     <img src={logo} alt="project logo" />
   );
+
+  const { t, i18n } = useTranslation();
 
   const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
@@ -34,6 +37,10 @@ const Navbar = () => {
   };
 
   window.addEventListener("scroll", setBg);
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  },[])
 
   return (
     <>
@@ -45,12 +52,12 @@ const Navbar = () => {
           <nav className={nav.list}>
             <Link to="/">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Home
+                {t("home")}
               </nav>
             </Link>
             <Link to="/sightseeing">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Sightseeing
+                {t("sightseeing")}
               </nav>
             </Link>
             <Link to="/stay">
@@ -99,7 +106,7 @@ const Navbar = () => {
                 </Link>
               )}
             </nav>
-
+            <Language i18n={i18n}/>
           </nav>
         </div>
       </div>

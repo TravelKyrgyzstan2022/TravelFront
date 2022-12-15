@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
-import Header from "../../img/header_sulaiman.png";
 import Button from "../../components/Button";
 import Like from "../../img/like.svg";
 import PropTypes from "prop-types";
@@ -15,13 +14,15 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPlace, getPlaceById } from "../../api/place";
-import { CommentSection } from "react-comments-section";
 import 'react-comments-section/dist/index.css';
 import Location from "../../img/location.svg";
 import MapYandex from "../../components/Map";
 import { useParams } from "react-router-dom";
 import blur from "../../img/blur.png"
 import TopDestinations from "../HomePage/TopDestinations";
+import { getComment, postComment } from "../../api/comment";
+import { Form, Formik, useFormik } from "formik";
+import send from "../../img/com_send.svg"
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -62,42 +63,27 @@ function a11yProps(index) {
   };
 }
 
+
 const Detail = () => {
-
   const {id} = useParams()
-
   const {placeById} = useSelector((state) => state.place);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getPlaceById(id));
   }, []);
 
   const [value, setValue] = React.useState(0);
-  const [activeStep, setActiveStep] = React.useState(0);
-
-  const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-  };
-
-  const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
 
   const [open, setOpen] = React.useState(false);
   const [options, setOptions] = React.useState([]);
-  const [options2, setOptions2] = React.useState([]);
   const loading = open && options.length === 0;
   React.useEffect(() => {
     let active = true;
-
     if (!loading) {
       return undefined;
     }
-
     (async () => {
       await sleep(1e3); // For demo purposes.
-
       if (active) {
         setOptions([...topTitle]);
       }
@@ -114,14 +100,33 @@ const Detail = () => {
     }
   }, [open]);
 
-
-
   const place = useSelector((state) => state.place.data)
+  const comment = useSelector((state) => state.comment.data)
 
+  console.log("123", comment)
 
   useEffect(() => {
-      dispatch(getPlace())
+      // dispatch(getPlace()),
+      dispatch(getComment(id))
+      dispatch(postComment())
+        window.scrollTo(0, 0)
   },  [])
+
+
+  const [body, setBody ] = useState("")
+
+
+  const formik = useFormik({
+    initialValues: {
+      body: ""
+    },
+    onSubmit: (values) =>{
+      console.log(values)
+    }
+  })
+
+  console.log("kjkjddk", formik)
+
 
 
   return (
@@ -203,38 +208,36 @@ const Detail = () => {
           <BottomPanel value={value} index={1}>
             <div className="reviews_container">
               <div className="comment">
-
-              <CommentSection
-      currentUser={{
-        // currentUserId: "01a",
-        currentUserImg:
-          "https://ui-avatars.com/api/name=Riya&background=random",
-        currentUserProfile: "https://www.linkedin.com/in/riya-negi-8879631a9/",
-        currentUserFullName: "Riya Negi"
-      }}
-      // logIn={{
-      //   loginLink: "http://localhost:3001/",
-      //   signupLink: "http://localhost:3001/"
-      // }}
-      // commentData={data}
-    />
+                    <form onSubmit={formik.handleSubmit}>
+                      <div className="container_input">
+                  <input  
+                  name="body"
+                  className="input_comment"
+                  type="text"  
+                  placeholder="Add comment..."
+                  value={formik.values.body}
+                  onChange={formik.handleChange}
+                  />
+                  <button type="submit" className="com_send"><img src={send} alt="" /></button>
+                      </div>
+                    </form>
+                    
               </div>
-              <div className="reviews_header">
+              <div>
+                    {comment.map((comment) => (
+                      <div className="reviews_header">
                 <img src={AVA} alt="" />
                 <h4 className="name_user">George Michael</h4>
                 <div className="data_rating">
-                  <Rating
-                    className="rating"
-                    name="customized-10"
-                    max={5}
-                  />
-                  <div className="data">9/05/22</div>
+                  <div className="data">{comment.deletion_date}</div>
                 </div>
-              </div>
               <div className="reviews_txt">
                 That was such a nice place. The most beautiful place I’ve ever
                 seen. My advice to everyone not to forget to take warm coat.
               </div>
+                </div>
+                ))}
+                </div>
 
               <div className="reviews_header">
                 <img src={AVA} alt="" />
@@ -257,26 +260,7 @@ const Detail = () => {
                 In this world, it’s just us. You know it’s not the same as it
                 was. In this world, it’s just us.
               </div>
-
-              <div className="reviews_header">
-                <img src={AVA} alt="" />
-                <h4 className="name_user">George Kusunoki Miller</h4>
-                <div className="data_rating">
-                  <Rating
-                    className="rating"
-                    name="customized-10"
-                    max={5}
-                  />
-                  <div className="data">9/05/22</div>
-                </div>
               </div>
-              <div className="reviews_txt">
-                Yeah, all my friends no fun. My friends, they’re gone. They all
-                left one by one. And now that summer’s done. They don’t need no
-                more fun. Yeah, I drive there on my own. I’m rich, but my a/c
-                broke. Don’t check no mail no phone.
-              </div>
-            </div>
 
           <div className="top_des">
             <div className="you_make__like">

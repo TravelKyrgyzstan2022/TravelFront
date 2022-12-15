@@ -13,6 +13,7 @@ const Stay = () => {
   console.log(stayPlace)
   useEffect(() => {
     dispatch(getStay());
+    window.scrollTo(0, 0);
   },[]);
 
 

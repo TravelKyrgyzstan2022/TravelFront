@@ -19,6 +19,7 @@ const Hiking = () => {
 
     useEffect(() => {
         dispatch(getHiking())
+        window.scrollTo(0, 0)
     },  [])
 
     return (

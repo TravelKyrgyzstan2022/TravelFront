@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { SignIn } from "../api/auth";
 import Alpinism from "../pages/Alpinism";
@@ -23,8 +23,6 @@ import { today, getLocalTimeZone } from "@internationalized/date";
 import Verification from "../pages/Verification";
 
 import DetailArticlePage from "../pages/DetailArticlePage";
-
-import MapYandex from "../pages/Map";
 import UserProfile from "../pages/UserProfile/UserProfile";
 
 
@@ -55,7 +53,6 @@ const UserRoute = () => (
       path="/private_office"
       element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}
     />
-    <Route path="/map" element={<MapYandex />} />
 
     {/* <Route path="/*" element={<NotFound />} /> */}
   </Routes>

@@ -21,6 +21,7 @@ const Eat = () => {
 
     useEffect(() => {
         dispatch(getEats())
+        window.scrollTo(0, 0);
     },[])
 
 

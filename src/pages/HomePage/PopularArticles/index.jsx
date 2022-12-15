@@ -12,6 +12,7 @@ const PopularArticles = () => {
 
 useEffect(() => {
     dispatch(getArticle())
+    window.scrollTo(0, 0)
 },  [])
 
     return (

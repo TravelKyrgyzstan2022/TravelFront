@@ -161,7 +161,30 @@
     width: 0px !important;
 }
 
+.container_input{
+    padding: 40px;
+}
 
+
+.input_comment{
+    width: 100%;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #BBBBBB;
+    color: #BBBBBB;
+    font-weight: 400;
+    font-size: 18px;
+    height: 55px;
+}
+
+.com_send{
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: -50px;
+    border: none;
+    margin-left: 96%;
+}
 
 /* ! HOW TO GET THERE */
 

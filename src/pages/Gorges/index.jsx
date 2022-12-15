@@ -29,6 +29,7 @@ const Gorges = () => {
 
     useEffect(() => {
         dispatch(getGorges())
+        window.scrollTo(0, 0)
     },  [])
 
     return (
