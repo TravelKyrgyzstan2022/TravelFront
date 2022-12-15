@@ -13,7 +13,6 @@ const DetailArticlePage = () => {
 
   const { articleById } = useSelector((state) => state.article);
 
-
     useEffect(() => {
         dispatch(getArticleById(id))
         window.scrollTo(0, 0)

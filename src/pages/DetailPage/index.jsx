@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { BottomNavigationAction, BottomNavigation } from "@mui/material";
-import Rating from "@mui/material/Rating";
 import AVA from "../../img/ava.svg";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
@@ -14,15 +13,13 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { getPlace, getPlaceById } from "../../api/place";
-
 import Location from "../../img/location.svg";
 import MapYandex from "../../components/Map";
 import { useParams } from "react-router-dom";
 import blur from "../../img/blur.png";
 import TopDestinations from "../HomePage/TopDestinations";
-
 import { getComment, postComment } from "../../api/comment";
-import { Form, Formik, useFormik } from "formik";
+import { useFormik } from "formik";
 import send from "../../img/com_send.svg";
 import Footer from "../../components/Footer/Footer";
 
@@ -105,8 +102,6 @@ const Detail = () => {
   const place = useSelector((state) => state.place.data);
   const comment = useSelector((state) => state.comment.data);
 
-  console.log("123", comment);
-
   useEffect(() => {
     // dispatch(getPlace()),
     dispatch(getComment(id));
@@ -118,14 +113,12 @@ const Detail = () => {
     dispatch(getPlace());
   }, []);
 
-  const [body, setBody] = useState("");
-
   const formik = useFormik({
     initialValues: {
       body: "",
     },
     onSubmit: (values) => {
-      console.log(values);
+      dispatch(postComment({values, id}))
     },
   });
 
@@ -233,40 +226,17 @@ const Detail = () => {
                 {comment.map((comment) => (
                   <div className="reviews_header">
                     <img src={AVA} alt="" />
-                    <h4 className="name_user">George Michael</h4>
+                    <h4 className="name_user">{comment.first_name}</h4>
                     <div className="data_rating">
                       <div className="data">{comment.deletion_date}</div>
-
-                      <Rating className="rating" name="customized-10" max={5} />
-                      <div className="data">9/05/22</div>
                     </div>
                     <div className="reviews_txt">
-                      That was such a nice place. The most beautiful place I’ve
-                      ever seen. My advice to everyone not to forget to take
-                      warm coat.
+                      {comment.body}
                     </div>
                   </div>
                 ))}
               </div>
-
-              <div className="reviews_header">
-                <img src={AVA} alt="" />
-                <h4 className="name_user">Harry Styles</h4>
-                <div className="data_rating">
-                  <Rating className="rating" name="customized-10" max={5} />
-                  <div className="data">9/05/22</div>
-                </div>
               </div>
-              <div className="reviews_txt">
-                Holdin’ me back. Gravity’s holdin’ me back. I wnat you to hold
-                out the palm of your hand. Why don’t we leave it all that ?
-                Nothin’ to say. When everything gets in the way.
-                <br />
-                Seems you cannot be replaced. And I’m the one who will stay, oh.
-                In this world, it’s just us. You know it’s not the same as it
-                was. In this world, it’s just us.
-              </div>
-            </div>
 
             <div className="top_des">
               <div className="you_make__like">
