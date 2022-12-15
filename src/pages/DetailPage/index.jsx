@@ -23,7 +23,7 @@ import TopDestinations from "../HomePage/TopDestinations";
 
 import { getComment, postComment } from "../../api/comment";
 import { Form, Formik, useFormik } from "formik";
-import send from "../../img/com_send.svg"
+import send from "../../img/com_send.svg";
 import Footer from "../../components/Footer/Footer";
 
 function sleep(delay = 0) {
@@ -65,11 +65,9 @@ function a11yProps(index) {
   };
 }
 
-
-
 const Detail = () => {
-  const {id} = useParams()
-  const {placeById} = useSelector((state) => state.place);
+  const { id } = useParams();
+  const { placeById } = useSelector((state) => state.place);
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -104,42 +102,34 @@ const Detail = () => {
     }
   }, [open]);
 
+  const place = useSelector((state) => state.place.data);
+  const comment = useSelector((state) => state.comment.data);
 
-  const place = useSelector((state) => state.place.data)
-  const comment = useSelector((state) => state.comment.data)
-
-  console.log("123", comment)
+  console.log("123", comment);
 
   useEffect(() => {
-      // dispatch(getPlace()),
-      dispatch(getComment(id))
-      dispatch(postComment())
-        window.scrollTo(0, 0)
-  },  [])
-
-
-  const place = useSelector((state) => state.place.data);
+    // dispatch(getPlace()),
+    dispatch(getComment(id));
+    dispatch(postComment());
+    window.scrollTo(0, 0);
+  }, []);
 
   useEffect(() => {
     dispatch(getPlace());
   }, []);
 
-
-  const [body, setBody ] = useState("")
-
+  const [body, setBody] = useState("");
 
   const formik = useFormik({
     initialValues: {
-      body: ""
+      body: "",
     },
-    onSubmit: (values) =>{
-      console.log(values)
-    }
-  })
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  });
 
-  console.log("kjkjddk", formik)
-
-
+  console.log("kjkjddk", formik);
 
   return (
     <>
@@ -223,42 +213,41 @@ const Detail = () => {
           <BottomPanel value={value} index={1}>
             <div className="reviews_container">
               <div className="comment">
-
-                    <form onSubmit={formik.handleSubmit}>
-                      <div className="container_input">
-                  <input  
-                  name="body"
-                  className="input_comment"
-                  type="text"  
-                  placeholder="Add comment..."
-                  value={formik.values.body}
-                  onChange={formik.handleChange}
-                  />
-                  <button type="submit" className="com_send"><img src={send} alt="" /></button>
-                      </div>
-                    </form>
-                    
-
+                <form onSubmit={formik.handleSubmit}>
+                  <div className="container_input">
+                    <input
+                      name="body"
+                      className="input_comment"
+                      type="text"
+                      placeholder="Add comment..."
+                      value={formik.values.body}
+                      onChange={formik.handleChange}
+                    />
+                    <button type="submit" className="com_send">
+                      <img src={send} alt="" />
+                    </button>
+                  </div>
+                </form>
               </div>
               <div>
-                    {comment.map((comment) => (
-                      <div className="reviews_header">
-                <img src={AVA} alt="" />
-                <h4 className="name_user">George Michael</h4>
-                <div className="data_rating">
+                {comment.map((comment) => (
+                  <div className="reviews_header">
+                    <img src={AVA} alt="" />
+                    <h4 className="name_user">George Michael</h4>
+                    <div className="data_rating">
+                      <div className="data">{comment.deletion_date}</div>
 
-                  <div className="data">{comment.deletion_date}</div>
-
-                  <Rating className="rating" name="customized-10" max={5} />
-                  <div className="data">9/05/22</div>
-              </div>
-              <div className="reviews_txt">
-                That was such a nice place. The most beautiful place I’ve ever
-                seen. My advice to everyone not to forget to take warm coat.
-              </div>
-                </div>
+                      <Rating className="rating" name="customized-10" max={5} />
+                      <div className="data">9/05/22</div>
+                    </div>
+                    <div className="reviews_txt">
+                      That was such a nice place. The most beautiful place I’ve
+                      ever seen. My advice to everyone not to forget to take
+                      warm coat.
+                    </div>
+                  </div>
                 ))}
-                </div>
+              </div>
 
               <div className="reviews_header">
                 <img src={AVA} alt="" />
@@ -277,8 +266,7 @@ const Detail = () => {
                 In this world, it’s just us. You know it’s not the same as it
                 was. In this world, it’s just us.
               </div>
-
-              </div>
+            </div>
 
             <div className="top_des">
               <div className="you_make__like">
