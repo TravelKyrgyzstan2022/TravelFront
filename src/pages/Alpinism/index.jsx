@@ -10,15 +10,16 @@ import alp from "./index.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getAlpinism } from "../../api/place";
 import TopDestinations from "../HomePage/TopDestinations";
+import Footer from "../../components/Footer/Footer";
 
 const Alpinism = () => {
-  const alpinism = useSelector((state) => state.alpinism.data)
+  const alpinism = useSelector((state) => state.alpinism.data);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   useEffect(() => {
-      dispatch(getAlpinism())
-  },  [])
+    dispatch(getAlpinism());
+  }, []);
 
   return (
     <div>
@@ -58,9 +59,10 @@ const Alpinism = () => {
 
         <div className={alp.alpinism_card}>
           <h3 className={alp.card_titlee}>Choice of our travellers</h3>
-          <TopDestinations place={alpinism}/>
-          </div>
+          <TopDestinations place={alpinism} />
+        </div>
       </div>
+      <Footer />
     </div>
   );
 };

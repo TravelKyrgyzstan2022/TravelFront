@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import AdminRoute from "./routes/AdminRoute";
 import UserRoute from "./routes/UserRoute";
 import "./components/Location/18n";
+import ScrollToTop from "./routes/Scroll";
 
 const PATHES = {
   "/admin": 1,
@@ -21,19 +22,20 @@ const ROLES = {
   ROLE_UNAUTHORIZED: <UserRoute />,
 };
 
-
 function App() {
   const role = useSelector((state) => state.auth.role);
   let location = useLocation();
   return (
     <>
+      <ScrollToTop />
       {ROLES[role]}
-      {!PATHES[location.pathname] && role !== "ROLE_ADMIN" ? <Navbar /> : false}
-      {/* {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
+      {!PATHES[location.pathname] &&
+      role !== "ROLE_ADMIN" &&
+      role !== "ROLE_SUPERADMIN" ? (
         <Navbar />
       ) : (
         false
-      )} */}
+      )}
     </>
   );
 }

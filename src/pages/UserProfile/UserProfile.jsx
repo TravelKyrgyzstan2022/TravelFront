@@ -1,13 +1,18 @@
 import React from "react";
-import user from "./UserProfile.module.css";
+import plan from "./UserProfile.module.css";
+import backgrnd from "../../img/plannerBg..png";
 import { useState } from "react";
 import { useEffect } from "react";
 import { API } from "../../utils/axiosConfig";
+import { useNavigate, useParams } from "react-router-dom";
 
 const UserProfile = () => {
   const [selectDate, setSelectDate] = useState("");
   const [note, setNote] = useState("");
+  const [active, setActive] = useState("");
+  const navigate = useNavigate();
 
+  const { id } = useParams();
   const handleSubmit = (e) => {
     e.preventDefault();
     const getPlanner = async () => {
@@ -15,7 +20,7 @@ const UserProfile = () => {
         const res = await API.post("api/v1/user/plans", {
           date: selectDate,
           note: note,
-          place_id: 1,
+          place_id: id,
         });
         return res;
       } catch (err) {
@@ -23,26 +28,33 @@ const UserProfile = () => {
       }
     };
 
-    getPlanner();
+    getPlanner().then(() => navigate("/"));
   };
   return (
     <>
-      <h2 className={user.text}>User Profile</h2>
-
-      <form onSubmit={handleSubmit}>
-        <input
-          className={user.dateInp}
-          type="date"
-          onChange={(e) => setSelectDate(e.target.value)}
-        />
-        <input
-          type="text"
-          name=""
-          id=""
-          onChange={(e) => setNote(e.target.value)}
-        />
-        <button type="submit">Add</button>
-      </form>
+      <div className={plan.container}>
+        <img height src={backgrnd} alt="header img" className={plan.bg} />
+        <form onSubmit={handleSubmit} className={plan.form}>
+          <input
+            className={plan.dateInp}
+            type="date"
+            onChange={(e) => setSelectDate(e.target.value)}
+            id="dateInp"
+            placeholder="Выберите дату"
+          />
+          <textarea
+            type="text"
+            name=""
+            id=""
+            onChange={(e) => setNote(e.target.value)}
+            className={plan.text}
+            placeholder="Заметки"
+          />
+          <button className={plan.btn} type="submit">
+            Add
+          </button>
+        </form>
+      </div>
     </>
   );
 };

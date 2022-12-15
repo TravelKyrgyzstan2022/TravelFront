@@ -70,7 +70,8 @@
 /* ! CARDS1 */
 
 .cards1{
-    position: absolute;
+    /* position: absolute; */
     left: 80px;
-    top: 594px;
+    top: 294px;
+    margin-bottom: 50px;
 }

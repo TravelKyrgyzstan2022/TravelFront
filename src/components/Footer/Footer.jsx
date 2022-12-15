@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../../img/bnlogo.svg";
 import footer from "./Footer.module.css";
 import appstore from "../../img/appstore.svg";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,28 +25,52 @@ const Footer = () => {
             <div className={footer.txt}>About us</div>
             <div className={footer.item1}>
               <div>Contact us</div>
-              <div>Sign In</div>
-              <div>Blogs</div>
+              <Link to="/login">
+                <div className={footer.it}>Sign In</div>
+              </Link>
+              <Link to="/blogs">
+                <div className={footer.it}>Blogs</div>
+              </Link>
             </div>
           </div>
           <div className={footer.list2}>
             <div className={footer.txt}>Explore</div>
             <div className={footer.item2}>
-              <div>Sightseeing</div>
-              <div>Stay</div>
-              <div>Events</div>
-              <div>Eat</div>
+              <Link to="/sightseeing">
+                <div className={footer.it}>Sightseeing</div>
+              </Link>
+              <Link to="/stay">
+                <div className={footer.it}>Stay</div>
+              </Link>
+              <Link to="/events">
+                <div className={footer.it}>Events</div>
+              </Link>
+              <Link to="/eat">
+                <div className={footer.it}>Eat</div>
+              </Link>
             </div>
           </div>
           <div className={footer.list2}>
             <div className={footer.txt}>Top categories</div>
             <div className={footer.item3}>
-              <div>Gorges</div>
-              <div>Hiking</div>
-              <div>Ancient sitght</div>
-              <div>Waterfalls</div>
-              <div>Mountains</div>
-              <div>Lakes</div>
+              <Link to="/gorges">
+                <div className={footer.it}>Gorges</div>
+              </Link>
+              <Link to="/hiking">
+                <div className={footer.it}>Hiking</div>
+              </Link>
+              <Link to="/alpinism">
+                <div className={footer.it}>Alpinism</div>
+              </Link>
+              <Link to="/waterfall">
+                <div className={footer.it}>Waterfalls</div>
+              </Link>
+              <Link to="/mountains">
+                <div className={footer.it}>Mountains</div>
+              </Link>
+              <Link to="/lakes">
+                <div className={footer.it}>Lakes</div>
+              </Link>
             </div>
           </div>
         </div>

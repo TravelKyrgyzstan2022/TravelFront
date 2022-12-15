@@ -23,6 +23,9 @@ import Add_plus from "../../img/pencil.svg";
 import Background from "../../img/profile_background.png";
 import { useState } from "react";
 import { useEffect } from "react";
+import { logOut } from "../../redux/globalSlice/authSlice/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const StyledWeekView = styled.div`
   display: inline-grid;
@@ -36,6 +39,8 @@ const Title = styled.h3`
 
 export function PrivateOffice(props) {
   const [selectDate, setSelectDate] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   let { locale } = useLocale();
   let state = useCalendarState({
     ...props,
@@ -51,10 +56,16 @@ export function PrivateOffice(props) {
   );
   useEffect(() => {
     setSelectDate(
-      "" + state.value.day + "-" + state.value.month + "-" + state.value.year
+      "" + state.value.year + "-" + state.value.month + "-" + state.value.day
     );
   }, []);
 
+  const user = useSelector((state) => state.auth.user);
+
+  const handleExit = () => {
+    dispatch(logOut());
+    navigate("/");
+  };
   let { gridProps } = useCalendarGrid(props, state);
 
   let startDate = state.visibleRange.start;
@@ -73,8 +84,8 @@ export function PrivateOffice(props) {
             <div className={calen.user_header}>
               <img className={calen.ava} src={Ava} alt="ava" />
               <div className={calen.user_title}>
-                <h4 className={calen.title}>George Michael</h4>
-                <div className={calen.link}>georgemichael@gmail.com</div>
+                <h4 className={calen.title}>Kan</h4>
+                <div className={calen.link}>dipanom</div>
               </div>
             </div>
             <div className={calen.btn_ask__manager}>
@@ -195,6 +206,9 @@ export function PrivateOffice(props) {
               <button className={calen.btn_add__destination}>
                 <img className={calen.btn_add__img} src={PLUS} alt="img" />
                 Add destination
+              </button>
+              <button className={calen.btn_add__img} onClick={handleExit}>
+                Выйти
               </button>
             </div>
           </div>

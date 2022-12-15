@@ -65,6 +65,7 @@
     height: 250px;
     flex-direction: column;
     justify-content: space-evenly;
+    color: #FFFFFF;
 }
 
 .item2{
@@ -72,6 +73,8 @@
     height: 300px;
     flex-direction: column;
     justify-content: space-evenly;
+    color: #FFFFFF;
+
 }
 
 .item3{
@@ -79,5 +82,12 @@
     height: 400px;
     flex-direction: column;
     justify-content: space-evenly;
+    color: #FFFFFF;
+
+}
+
+.it{
+    color: #FFFFFF;
+
 }
 

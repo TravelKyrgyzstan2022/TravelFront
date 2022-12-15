@@ -65,13 +65,9 @@
     border: none;
     font-size: 18px;
     color: #FFFF;
-    background-color: #BBBBBB;
-}
-
-.btn:hover{
-    color: #BBBBBB;
     background-color: #252525;
 }
+
 
 .error {
     color: #fc8181;

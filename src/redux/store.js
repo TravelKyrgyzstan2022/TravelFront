@@ -22,7 +22,6 @@ import regSlice from "./globalSlice/authSlice/regSlice";
 import sendVerifySlice from "./globalSlice/authSlice/sendVerifySlice";
 import currentUserSlice from "./globalSlice/userSlice/currentUserSlice";
 
-
 export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
@@ -40,14 +39,12 @@ export const store = configureStore({
     hiking: placeHikingSlice.reducer,
     waterfall: placeWaterFallSlice.reducer,
     alpinism: placeAlpinismSlice.reducer,
-    lake: placeLakeSlice.reducer, 
-    article: articleSlice.reducer
-
+    lake: placeLakeSlice.reducer,
+    article: articleSlice.reducer,
     support: supportSlice.reducer,
     register: regSlice.reducer,
     verify: sendVerifySlice.reducer,
     currentUser: currentUserSlice.reducer,
-
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

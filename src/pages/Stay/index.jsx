@@ -4,17 +4,15 @@ import STAY from "../../img/stay_page.png";
 import { useDispatch, useSelector } from "react-redux";
 import { getStay } from "../../api/place";
 import Card from "../../components/Cards";
+import Footer from "../../components/Footer/Footer";
 
 const Stay = () => {
-
-
   const dispatch = useDispatch();
   const stayPlace = useSelector((state) => state.stayPlace.data);
-  console.log(stayPlace)
+  console.log(stayPlace);
   useEffect(() => {
     dispatch(getStay());
-  },[]);
-
+  }, []);
 
   return (
     <>
@@ -26,11 +24,12 @@ const Stay = () => {
           </h2>
           <div className={stay.cards}>
             {stayPlace.map((place) => (
-            <Card place={place} />
+              <Card place={place} />
             ))}
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
