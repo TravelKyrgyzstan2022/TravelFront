@@ -38,23 +38,16 @@ export const store = configureStore({
     hiking: placeHikingSlice.reducer,
     waterfall: placeWaterFallSlice.reducer,
     alpinism: placeAlpinismSlice.reducer,
-
     lake: placeLakeSlice.reducer,
     article: articleSlice.reducer,
     support: supportSlice.reducer,
     register: regSlice.reducer,
     verify: sendVerifySlice.reducer,
     currentUser: currentUserSlice.reducer,
-
-    comment: commentSlice.reducer
-
-
-
+    comment: commentSlice.reducer,
     blogsById: blogsByIdSlice.reducer,
     userBlog: userBlogSlice.reducer,
-    comment: commentSlice.reducer,
     userPlan: userPlanSlice.reducer,
-
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
