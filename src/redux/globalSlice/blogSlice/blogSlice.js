@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBlog } from "../../../api/blogs";
+import { getBlog, getBlogById } from "../../../api/blogs";
 
 const blogSlice = createSlice({
   name: "blog",
   initialState: {
     data: [],
+    blogById: {},
     status: "active",
     message: null,
   },
@@ -21,6 +22,17 @@ const blogSlice = createSlice({
     [getBlog.pending]: (state, action) => {
       state.status = "active";
       state.message = action.payload;
+    },
+    [getBlogById.pending]: (state) => {
+      state.status = "loading";
+    },
+    [getBlogById.fulfilled]: (state, action) => {
+        state.loading = "active";
+        state.blogById = action.payload;
+    },
+    [getBlogById.rejected]: (state, action) => {
+        state.loading = "active";
+        state.error = action.payload;
     },
   },
 });

@@ -9,6 +9,7 @@ import { getStay } from '../../../api/place';
 import LeftArrow from '../../../img/left-arrow.svg';
 import RightArrow from '../../../img/right-arrow.svg';
 import Slideer  from "react-slick";
+import { NavLink } from 'react-router-dom';
 
 const StayHotel = () => {
 
@@ -45,6 +46,7 @@ const StayHotel = () => {
 <div>
             <Slideer {...settings}>
             {stayPlace.map((place) => (
+            <NavLink to={`/details/${place.id}`}>
                 <div className="card">
                 <div className="img_like">
                     <img className="card_img" src={place.image_urls} alt="" />
@@ -68,6 +70,7 @@ const StayHotel = () => {
                         <Button/>
                 </div>
                 </div>
+            </NavLink>
             ))}
             </Slideer>
             </div>

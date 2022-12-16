@@ -13,17 +13,19 @@ export const getBlog = createAsyncThunk(
   }
 );
 
+
 export const getBlogById = createAsyncThunk(
-  "blog/userId",
-  async (arg, { rejectWithValue }, { authorId }) => {
-    try {
-      const res = await API.get(`api/v1/blogs/author/${authorId}`, arg);
-      return res;
-    } catch (err) {
-      return rejectWithValue(err.res.data.message);
-    }
+  "getBlogById/data",
+  async (id,{ rejectWithValue }) => {
+  try {
+      const res = await API.get(`api/v1/blogs/${id}`);
+      return res.data;
+  } catch (err) {
+      return rejectWithValue(err.response.data.message);
+  }
   }
 );
+
 
 export const getUserBlog = createAsyncThunk(
   "blog/user",

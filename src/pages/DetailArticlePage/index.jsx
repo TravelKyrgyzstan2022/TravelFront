@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../../api/articles";
 import details from "./index.module.css";
 import blur from "../../img/blur.png";
-import Footer from "../../components/Footer/Footer";
+// import Footer from "../../components/Footer/Footer";
 
 const DetailArticlePage = () => {
   const { id } = useParams();
@@ -17,10 +17,6 @@ const DetailArticlePage = () => {
         dispatch(getArticleById(id))
         window.scrollTo(0, 0)
     }, []);
-
-  useEffect(() => {
-    dispatch(getArticleById(id));
-  }, []);
 
 
   return (
@@ -39,7 +35,7 @@ const DetailArticlePage = () => {
           </div>
         </div>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

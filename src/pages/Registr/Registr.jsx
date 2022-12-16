@@ -58,7 +58,6 @@ const Registr = () => {
           alt="login background img"
         />
         <div className={reg.container}>
-          {/* <img className={reg.logo} src={LOGO} alt="img" /> */}
           <form onSubmit={handleSubmit} autoComplete="off" className={reg.box}>
             <p className={reg.txt}>Sign Up</p>
             <input

@@ -50,11 +50,6 @@ const Navbar = () => {
             <nav className={nav.logo}>{logoChange}</nav>
           </Link>
           <nav className={nav.list}>
-            <Link to="/">
-              <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                {t("home")}
-              </nav>
-            </Link>
             <Link to="/sightseeing">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
                 {t("sightseeing")}
@@ -62,26 +57,25 @@ const Navbar = () => {
             </Link>
             <Link to="/stay">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Stay
+                {t("stay")}
               </nav>
             </Link>
             <Link to="/events">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Events
+                {t("events")}
               </nav>
             </Link>
             <Link to="/eat">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Eat
+                {t("eat")}
               </nav>
             </Link>
             <Link to="/blogs">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                Blogs
+                {t("blogs")}
               </nav>
             </Link>
-
-            <nav className={nav.search}>
+            {/* <nav className={nav.search}>
               <input
                 className={`${nav.searchInp} ${search ? nav.active : search}`}
                 type="text"
@@ -95,7 +89,7 @@ const Navbar = () => {
                 src={searchIcon}
                 alt="search icon"
               />
-            </nav>
+            </nav> */}
             <nav className={nav.auth}>
               {user ? (
                 <Link to="/private_office">
@@ -109,8 +103,10 @@ const Navbar = () => {
                 </Link>
               )}
             </nav>
+            
+            <Language i18n={i18n}/>
 
-            <Language i18n={i18n} />
+
           </nav>
         </div>
       </div>

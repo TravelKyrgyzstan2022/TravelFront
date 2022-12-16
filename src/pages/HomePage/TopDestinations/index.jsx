@@ -7,7 +7,7 @@ import Location from "../../../img/location.svg";
 import Star from "../../../img/star.svg";
 import Button from "../../../components/Button";
 import Slider from "react-slick";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const TopDestinations = ({ place }) => {
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -34,6 +34,7 @@ const TopDestinations = ({ place }) => {
       <div>
         <Slider {...settings} className="slider">
           {place.map((places) => (
+            <NavLink to={`/details/${places.id}`}>
             <div className="card">
               <div className="img_like">
                 <img className="card_img" src={places.image_urls} alt="" />
@@ -59,6 +60,7 @@ const TopDestinations = ({ place }) => {
                 </Link>
               </div>
             </div>
+            </NavLink>
           ))}
         </Slider>
       </div>

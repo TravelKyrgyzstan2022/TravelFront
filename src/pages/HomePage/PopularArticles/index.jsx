@@ -14,6 +14,8 @@ const PopularArticles = () => {
     window.scrollTo(0, 0);
   }, []);
 
+
+  
   return (
     <div>
       <div className={art.articles}>

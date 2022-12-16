@@ -6,6 +6,8 @@ import LeftArrow from '../../../img/left-arrow.svg'
 import RightArrow from '../../../img/right-arrow.svg'; 
 import Slider from 'react-slick';
 import "./index.css"
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 const BlogsAndReviews = () => {
 
@@ -17,6 +19,8 @@ const BlogsAndReviews = () => {
     useEffect(() => {
         dispatch(getBlog())
     }, []);
+
+    const { t, i18n } = useTranslation();
 
 
     const  SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -41,16 +45,18 @@ const BlogsAndReviews = () => {
 
     return (
         <div className={br.container_blogs}>
-            <h3 className={br.container_title}>Blogs and reviews by our travellers</h3>
+            <h3 className={br.container_title}>{t("blogsourtravellers")}</h3>
 
             <div>
             <Slider {...settings} className="slider">
             {blog.map((blog) => (
+            <NavLink to={`/details_blog/${blog.id}`}>
                 <div className={br.card}>
                 <div className={br.card_image}><img className={br.card_image} src={blog.image_urls} alt="img" /></div>
                 <div className={br.card_title}>{blog.title}</div>
                 <div className={br.card_user}>{blog.first_name}</div>
                 </div>
+                </NavLink>
             ))}
                         </Slider>
             </div>
