@@ -23,7 +23,10 @@ import { today, getLocalTimeZone } from "@internationalized/date";
 import Verification from "../pages/Verification";
 import DetailArticlePage from "../pages/DetailArticlePage";
 import UserProfile from "../pages/UserProfile/UserProfile";
+
 import DetailBlogPage from "../pages/DetailBlogPage";
+
+import UserBlog from "../pages/PrivateOffice/UserBlog";
 
 const UserRoute = () => (
   <Routes>
@@ -44,6 +47,7 @@ const UserRoute = () => (
     <Route path="/mountains" element={<Mountains />} />
     <Route path="/alpinism" element={<Alpinism />} />
     <Route path="/lakes" element={<Lakes />} />
+    <Route path="/user/blog" element={<UserBlog />} />
     <Route path="/blogs" element={<Blogs />} />
     <Route
       path="/private_office"

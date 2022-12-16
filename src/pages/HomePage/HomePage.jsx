@@ -91,13 +91,13 @@ const HomePage = () => {
         {/* BLOG AND REVIEWS */}
         <BlogsAndReviews />
 
-        {/*! TOP DESTINATIONS */}
-        <h3 className={main.topdis_title}>Top destinations</h3>
-        <TopDestinations place={place} />
-
         {/*! POPULAR ARTICLES */}
 
         <PopularArticles />
+
+        {/*! TOP DESTINATIONS */}
+        <h3 className={main.topdis_title}>Top destinations</h3>
+        <TopDestinations place={place} />
 
         {/* !  STAY */}
         <StayHotel />

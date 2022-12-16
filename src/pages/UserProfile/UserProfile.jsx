@@ -2,14 +2,12 @@ import React from "react";
 import plan from "./UserProfile.module.css";
 import backgrnd from "../../img/plannerBg..png";
 import { useState } from "react";
-import { useEffect } from "react";
 import { API } from "../../utils/axiosConfig";
 import { useNavigate, useParams } from "react-router-dom";
 
 const UserProfile = () => {
   const [selectDate, setSelectDate] = useState("");
   const [note, setNote] = useState("");
-  const [active, setActive] = useState("");
   const navigate = useNavigate();
 
   const { id } = useParams();
@@ -28,7 +26,7 @@ const UserProfile = () => {
       }
     };
 
-    getPlanner().then(() => navigate("/"));
+    getPlanner();
   };
   return (
     <>
@@ -40,7 +38,7 @@ const UserProfile = () => {
             type="date"
             onChange={(e) => setSelectDate(e.target.value)}
             id="dateInp"
-            placeholder="Выберите дату"
+            placeholder="Select date"
           />
           <textarea
             type="text"
@@ -48,7 +46,7 @@ const UserProfile = () => {
             id=""
             onChange={(e) => setNote(e.target.value)}
             className={plan.text}
-            placeholder="Заметки"
+            placeholder="Note"
           />
           <button className={plan.btn} type="submit">
             Add

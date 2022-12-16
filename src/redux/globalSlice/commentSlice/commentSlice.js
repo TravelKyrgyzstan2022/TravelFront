@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getComment } from "../../../api/comment";
 
 const commentSlice = createSlice({
-    name: "comment",
-    initialState: {
+  name: "comment",
+  initialState: {
     data: [],
     user: {},
     // info: null,
@@ -25,8 +25,8 @@ extraReducers: {
         [getComment.rejected]: (state, action) => {
         state.status = "active";
         state.message = action.payload;
-    },
-},
+  },
+
 });
 
 export default commentSlice;

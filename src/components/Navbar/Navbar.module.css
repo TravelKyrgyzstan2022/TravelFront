@@ -38,6 +38,7 @@
     display: flex;
     width: 90%;
     justify-content: space-around;
+
     align-items: center;
     color: #FFFFFF;
 }
@@ -49,6 +50,7 @@
 
 .item{
     display: flex;
+    /* padding: 0 30px; */
     font-size: 18px;
     color:#FFFFFF;
 }
