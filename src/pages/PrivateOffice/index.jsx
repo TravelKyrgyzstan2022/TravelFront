@@ -70,9 +70,9 @@ export function PrivateOffice(props) {
     dispatch(getUserBlog());
   }, []);
 
-  const handleDelete = (e, placeId) => {
+  const handleDelete = (e, planId) => {
     e.preventDefault();
-    dispatch(deleteUserPlan({ placeId: id }));
+    dispatch(deleteUserPlan({ id }));
   };
 
   return (
