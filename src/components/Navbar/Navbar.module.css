@@ -37,7 +37,10 @@
 
 .list{
     display: flex;
+    width: 80%;
     flex-direction: row;
+
+    justify-content: space-between;
     align-items: center;
     color: #FFFFFF;
 }
@@ -49,7 +52,7 @@
 
 .item{
     display: flex;
-    padding: 0 30px;
+    /* padding: 0 30px; */
     font-size: 18px;
     color:#FFFFFF;
 }

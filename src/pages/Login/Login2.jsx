@@ -11,9 +11,11 @@ const Login2 = () => {
   const dispatch = useDispatch();
   const handleInp = (e) => setEmail(e.target.value);
 
+  console.log(typeof email);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(getForgotPass(email));
+    dispatch(getForgotPass({ email: email }));
     setEmail("");
     // navigate("/login");
   };

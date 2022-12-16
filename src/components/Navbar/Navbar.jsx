@@ -19,7 +19,7 @@ const Navbar = () => {
 
   const { t, i18n } = useTranslation();
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const user = useSelector((state) => state.auth.user);
 
   const setBg = () => {
@@ -37,10 +37,10 @@ const Navbar = () => {
   };
 
   window.addEventListener("scroll", setBg);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  },[])
+  }, []);
 
   return (
     <>
@@ -100,7 +100,7 @@ const Navbar = () => {
               {user ? (
                 <Link to="/private_office">
                   <nav className={nav.login}>
-                    {/* {user.first_name + " " + user.last_name} */} Kanay
+                    {user ? user.first_name + " " + user.last_name : "Login"}
                   </nav>
                 </Link>
               ) : (
@@ -110,8 +110,7 @@ const Navbar = () => {
               )}
             </nav>
 
-            <Language i18n={i18n}/>
-
+            <Language i18n={i18n} />
           </nav>
         </div>
       </div>

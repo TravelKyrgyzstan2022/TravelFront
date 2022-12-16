@@ -12,14 +12,18 @@ import { useEffect } from "react";
 import { getEats } from "../../api/place";
 import Card from "../../components/Cards";
 import Footer from "../../components/Footer/Footer";
+import { getComment } from "../../api/comment";
 
 const Eat = () => {
   const eats = useSelector((state) => state.eats.data);
+  const comment = useSelector((state) => state.comment.data);
+  console.log(comment);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(getEats());
+
     window.scrollTo(0, 0);
   }, []);
 

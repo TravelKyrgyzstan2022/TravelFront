@@ -30,12 +30,12 @@ const SideBar = ({ children }) => {
       name: "Контент",
       icon: <img src={Content} alt="" />,
     },
-    {
-      path: "/reviewsandblogs",
-      name: "Отзывы и блоги",
-      icon: <img src={CheckList} alt="" />,
-      margin: true,
-    },
+    // {
+    //   path: "/reviewsandblogs",
+    //   name: "Отзывы и блоги",
+    //   icon: <img src={CheckList} alt="" />,
+    //   margin: true,
+    // },
     {
       path: "/",
       name: "Выход",

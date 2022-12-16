@@ -96,39 +96,7 @@ const Managers = () => {
                   </div>
                 </div>
               </form>
-              <div className={mn.box}>
-                <div className={mn.border_box}></div>
-                <div className={mn.left}>
-                  <div className={mn.t}>
-                    <p className={mn.text1}>
-                      Добавлять/редактировать/удалять контент в разделы
-                      клиентского сайта и мобильного приложения
-                    </p>
-                  </div>
-                  <div className={mn.t}>
-                    <p className={mn.text}>
-                      Принимать запросы на поддержку менеджера{" "}
-                    </p>
-                  </div>
-                  <div className={mn.t}>
-                    <p className={mn.text}>
-                      Доступ к списку пользователей (база данных)
-                    </p>
-                  </div>
-                  <div className={mn.t}>
-                    <p className={mn.text}>
-                      Связываться с пользователями через телеграм чат - трекать
-                      локацию
-                    </p>
-                  </div>
-                  <div className={mn.t}>
-                    <p className={mn.text}>Удалять отзывы</p>
-                  </div>
-                  <div className={mn.t}>
-                    <p className={mn.text}>Одобрять блог </p>
-                  </div>
-                </div>
-              </div>
+              <div className={mn.box}></div>
             </div>
           </div>
         </div>

@@ -32,7 +32,6 @@ const Registr = () => {
       password: "",
     },
     onSubmit: (data, { resetForm }) => {
-
       console.log(data);
 
       dispatch(register(data)).then(() => navigate("/verification"));
@@ -117,6 +116,9 @@ const Registr = () => {
                 className={reg.btn}
               >
                 Sign Up
+              </button>
+              <button>
+                <img src="" alt="" />
               </button>
               <ToastContainer />
             </div>
