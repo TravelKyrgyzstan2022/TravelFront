@@ -3,8 +3,11 @@ import logo from "../../img/bnlogo.svg";
 import footer from "./Footer.module.css";
 import appstore from "../../img/appstore.svg";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+
+  const { t, i18n } = useTranslation();
   return (
     <>
       <div className={footer.section}>
@@ -37,16 +40,16 @@ const Footer = () => {
             <div className={footer.txt}>Explore</div>
             <div className={footer.item2}>
               <Link to="/sightseeing">
-                <div className={footer.it}>Sightseeing</div>
+                <div className={footer.it}>{t("sightseeing")}</div>
               </Link>
               <Link to="/stay">
-                <div className={footer.it}>Stay</div>
+                <div className={footer.it}>{t("stay")}</div>
               </Link>
               <Link to="/events">
-                <div className={footer.it}>Events</div>
+                <div className={footer.it}>{t("events")}</div>
               </Link>
               <Link to="/eat">
-                <div className={footer.it}>Eat</div>
+                <div className={footer.it}>{t("eat")}</div>
               </Link>
             </div>
           </div>

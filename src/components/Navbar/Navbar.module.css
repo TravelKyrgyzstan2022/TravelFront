@@ -26,7 +26,6 @@
     padding-top: 10px;
     height: 60px;
     display: flex;
-    justify-content: space-around;
     font-family: 'Red Hat Display', sans-serif;
     cursor: pointer;
 }
@@ -37,7 +36,8 @@
 
 .list{
     display: flex;
-    flex-direction: row;
+    width: 90%;
+    justify-content: space-around;
     align-items: center;
     color: #FFFFFF;
 }
@@ -49,9 +49,18 @@
 
 .item{
     display: flex;
-    padding: 0 30px;
     font-size: 18px;
     color:#FFFFFF;
+}
+
+select{
+    width: 60px;
+    height: 53px;
+    border: none;
+    color: #ffff;
+    font-weight: 500;
+    font-size: 18px;
+    background-color: rgba(0,0,0,0);
 }
 
 .searchInp{

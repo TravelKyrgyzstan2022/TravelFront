@@ -23,7 +23,7 @@ useEffect(() => {
                 </div>
                 <div className={art.acrticles_cards}>
                 {article.map((article) => (
-                    <NavLink to={`/detailarticle/${article.id}`}
+                    <NavLink to={`/details_article/${article.id}`}
                         >
                         <div className={art.art_card}
                         >

@@ -5,6 +5,8 @@ const commentSlice = createSlice({
     name: "comment",
     initialState: {
     data: [],
+    user: {},
+    // info: null,
     status: "active",
     message: null,
 },
@@ -16,6 +18,8 @@ extraReducers: {
         [getComment.fulfilled]: (state, action) => {
         state.status = "active";
         state.data = action.payload;
+        state.user = action.payload.user;
+        // state.info = action.payload.user.deletion_info;
         state.message = null;
         },
         [getComment.rejected]: (state, action) => {

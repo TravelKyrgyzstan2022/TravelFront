@@ -64,12 +64,14 @@ h2 {
     width: 410px;
     height: 105px;
     font-weight: 400;
-    font-size: 19px;
     color: #252525;
     margin-top: -110px;
     overflow: hidden;
 }
 
+.card_txxt{
+    overflow: hidden;
+}
 .arrow_next{
     width: 72px;
     height: 72px;

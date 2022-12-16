@@ -23,6 +23,7 @@ import { today, getLocalTimeZone } from "@internationalized/date";
 import Verification from "../pages/Verification";
 import DetailArticlePage from "../pages/DetailArticlePage";
 import UserProfile from "../pages/UserProfile/UserProfile";
+import DetailBlogPage from "../pages/DetailBlogPage";
 
 const UserRoute = () => (
   <Routes>
@@ -49,12 +50,13 @@ const UserRoute = () => (
       element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}
     />
 
-    <Route path="/detailarticle/:id" element={<DetailArticlePage />} />
+    <Route path="/details_article/:id" element={<DetailArticlePage />} />
     <Route path="/planner/:id" element={<UserProfile />} />
     <Route
       path="/private_office"
       element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}
     />
+    <Route path="/details_blog/:id" element={<DetailBlogPage/>} />
 
     {/* <Route path="/*" element={<NotFound />} /> */}
   </Routes>

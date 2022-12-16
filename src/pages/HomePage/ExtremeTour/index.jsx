@@ -8,7 +8,6 @@ const ExtremeTour  = () => {
     const alpinism = useSelector((state) => state.alpinism.data)
 
     const dispatch = useDispatch()
-  
     useEffect(() => {
         dispatch(getAlpinism())
     },  [])

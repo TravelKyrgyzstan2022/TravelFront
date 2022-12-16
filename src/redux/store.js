@@ -36,13 +36,11 @@ export const store = configureStore({
     waterfall: placeWaterFallSlice.reducer,
     alpinism: placeAlpinismSlice.reducer,
     lake: placeLakeSlice.reducer, 
-
     article: articleSlice.reducer,
     support: supportSlice.reducer,
     register: regSlice.reducer,
     verify: sendVerifySlice.reducer,
     currentUser: currentUserSlice.reducer,
-
     comment: commentSlice.reducer
 
 

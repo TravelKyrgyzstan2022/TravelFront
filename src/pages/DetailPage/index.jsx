@@ -15,13 +15,17 @@ import { useEffect } from "react";
 import { getPlace, getPlaceById } from "../../api/place";
 import Location from "../../img/location.svg";
 import MapYandex from "../../components/Map";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import blur from "../../img/blur.png";
 import TopDestinations from "../HomePage/TopDestinations";
 import { getComment, postComment } from "../../api/comment";
 import { useFormik } from "formik";
 import send from "../../img/com_send.svg";
 import Footer from "../../components/Footer/Footer";
+import { styled } from '@mui/material/styles';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Rating from '@mui/material/Rating';
 
 function sleep(delay = 0) {
   return new Promise((resolve) => {
@@ -82,7 +86,7 @@ const Detail = () => {
       return undefined;
     }
     (async () => {
-      await sleep(1e3); // For demo purposes.
+      await sleep(1e3);
       if (active) {
         setOptions([...topTitle]);
       }
@@ -101,10 +105,9 @@ const Detail = () => {
 
   const place = useSelector((state) => state.place.data);
   const comment = useSelector((state) => state.comment.data);
+  console.log("999", comment);
 
   useEffect(() => {
-    // dispatch(getPlace()),
-    dispatch(getComment(id));
     dispatch(postComment());
     window.scrollTo(0, 0);
   }, []);
@@ -113,16 +116,27 @@ const Detail = () => {
     dispatch(getPlace());
   }, []);
 
+  useEffect(()=> {
+    dispatch(getComment(id));
+  },[])
+
   const formik = useFormik({
     initialValues: {
       body: "",
     },
     onSubmit: (values) => {
-      dispatch(postComment({values, id}))
+      dispatch(postComment({body: values, id}))
     },
   });
 
-  console.log("kjkjddk", formik);
+  const StyledRating = styled(Rating)({
+    '& .MuiRating-iconFilled': {
+      color: '#ff6d75',
+    },
+    '& .MuiRating-iconHover': {
+      color: '#ff3d47',
+    },
+  });
 
   return (
     <>
@@ -199,7 +213,9 @@ const Detail = () => {
             </div>
             <div className="you_make__like">
               <h4 className="you_make_like__title">You May Also Like</h4>
-              <TopDestinations place={place} />
+              <NavLink to={`/details/${place.id}`}>
+            <TopDestinations place={place} />
+            </NavLink>
             </div>
           </BottomPanel>
 
@@ -217,23 +233,39 @@ const Detail = () => {
                       onChange={formik.handleChange}
                     />
                     <button type="submit" className="com_send">
-                      <img src={send} alt="" />
+                      <img className="img_send" src={send} alt="" />
                     </button>
                   </div>
                 </form>
               </div>
               <div>
+
                 {comment.map((comment) => (
+                <div className="box_comments">
                   <div className="reviews_header">
-                    <img src={AVA} alt="" />
-                    <h4 className="name_user">{comment.first_name}</h4>
-                    <div className="data_rating">
-                      <div className="data">{comment.deletion_date}</div>
+                    <img className="header_ava" src={comment.user.image_url} alt="" />
+                    <h4 className="name_user">{comment.user.first_name}</h4>
+                    <h4 className="name_user">{comment.user.last_name}</h4>
+                      <div className="data">{comment.creation_date}</div>
                     </div>
+                      <div className="reviews_txt">
                     <div className="reviews_txt">
                       {comment.body}
-                    </div>
+                      </div>
+                      <div className="reviews_like">
+                      <StyledRating
+                        name="customized-color"
+                        getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
+                        precision={1}
+                        max={1}
+                        icon={<FavoriteIcon fontSize="inherit" />}
+                        emptyIcon={<FavoriteBorderIcon fontSize="inherit" 
+                        // onChange={comment.like.count}
+                        />}
+                        />
+                        </div>
                   </div>
+                    </div>
                 ))}
               </div>
               </div>
@@ -241,7 +273,9 @@ const Detail = () => {
             <div className="top_des">
               <div className="you_make__like">
                 <h4 className="you_make_like__title">You May Also Like</h4>
-                <TopDestinations place={place} />
+                <NavLink to={`/details/${place.id}`}>
+            <TopDestinations place={place} />
+            </NavLink>
               </div>
             </div>
           </BottomPanel>
@@ -260,13 +294,22 @@ const Detail = () => {
               </div>
             </div>
             <h4 className="you_make_like__title">You May Also Like</h4>
+            <NavLink to={`/details/${place.id}`}>
             <TopDestinations place={place} />
+            </NavLink>
           </BottomPanel>
 
           {/* PHOTOS */}
           <BottomPanel className="panel" value={value} index={3}>
+            <div className="box_images">
+            {placeById?.image_urls?.map((image) => (
+            <img className="few_images" src={image} alt="" />
+            ))}
+            </div>
             <h4 className="you_make_like__title">You May Also Like</h4>
+            <NavLink to={`/details/${place.id}`}>
             <TopDestinations place={place} />
+            </NavLink>
           </BottomPanel>
 
           {/* HOW TO GET THERE */}
@@ -294,9 +337,9 @@ const Detail = () => {
                 <Autocomplete
                   id="asynchronous-demo"
                   className="question"
-                  open={open}
+                  open={open === 1}
                   onOpen={() => {
-                    setOpen(true);
+                    setOpen(1);
                   }}
                   onClose={() => {
                     setOpen(false);
@@ -306,11 +349,10 @@ const Detail = () => {
                   }
                   getOptionLabel={(option) => option.title}
                   options={options}
-                  loading={loading}
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Do I need a visa ?"
+                      label="Do I need special equipment to visit this place?"
                       InputProps={{
                         ...params.InputProps,
                         endAdornment: (
@@ -329,9 +371,9 @@ const Detail = () => {
                 <Autocomplete
                   id="asynchronous-demo"
                   className="question"
-                  open={open}
+                  open={open === 2}
                   onOpen={() => {
-                    setOpen(true);
+                    setOpen(2);
                   }}
                   onClose={() => {
                     setOpen(false);
@@ -341,11 +383,10 @@ const Detail = () => {
                   }
                   getOptionLabel={(option) => option.title}
                   options={options}
-                  loading={loading}
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="Luggage and bags"
+                      label="Is there any shops or food kiosks to buy food?"
                       InputProps={{
                         ...params.InputProps,
                         endAdornment: (
@@ -364,9 +405,9 @@ const Detail = () => {
                 <Autocomplete
                   id="asynchronous-demo"
                   className="question"
-                  open={open}
+                  open={open === 3}
                   onOpen={() => {
-                    setOpen(true);
+                    setOpen(3);
                   }}
                   onClose={() => {
                     setOpen(false);
@@ -399,7 +440,10 @@ const Detail = () => {
             </div>
             <div className="you_make__like">
               <h4 className="you_make_like__title">You May Also Like</h4>
-              <TopDestinations place={place} />
+              
+              <NavLink to={`/details/${place.id}`}>
+            <TopDestinations place={place} />
+            </NavLink>
             </div>
           </BottomPanel>
         </div>
@@ -409,6 +453,6 @@ const Detail = () => {
   );
 };
 
-const topTitle = [{ title: "Yes" }, { title: "No" }];
+const topTitle = [{ title: "No, you do not need any special equipment." }, { title: "But you can take with you hiking sticks for walking." }];
 
 export default Detail;

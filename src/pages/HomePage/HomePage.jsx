@@ -49,9 +49,7 @@ const HomePage = () => {
           <div className={main.intro}>
             <h2 className={main.maintxt}>{t("welcome")}</h2>
             <div className={main.date}>
-              {/* <div>{t("start")}</div> */}
-
-              <div onClick={handleCheckRole}>Start your journey with us</div>
+              <div onClick={handleCheckRole}>{t("start")}</div>
             </div>
             <div className={main.cotegory}>
               <h5 className={main.category_title}>Top categories</h5>
@@ -74,7 +72,7 @@ const HomePage = () => {
                 <div>
                   <img src={mountains} alt="mountains img" />
                 </div>
-                <NavLink to="/lake">
+                <NavLink to="/lakes">
                   <div>
                     <img src={lakes} alt="lakes img" />
                   </div>

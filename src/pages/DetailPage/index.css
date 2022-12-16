@@ -127,11 +127,23 @@
 
 .reviews_header{
     display: flex;
-    padding: 40px 40px 0px 40px;
+    justify-content: space-evenly;
+    width: 28%;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.reviews_like{
+    padding: 5px 24px;
+}
+
+.header_ava{
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
 }
 
 .name_user{
-    margin: 16px;
     font-weight: 600;
     font-size: 24px;
     line-height: 28px;
@@ -149,9 +161,9 @@
 }
 
 .reviews_txt{
-    padding: 4px 64px 0px 40px;
+    padding: 0px 28px;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
     line-height: 22px;
     color: #000000;
 }
@@ -181,9 +193,34 @@
 .com_send{
     display: flex;
     flex-direction: row-reverse;
-    margin-top: -50px;
+    margin-top: -65px;
     border: none;
-    margin-left: 96%;
+    margin-left: 95%;
+}
+
+
+.img_send{
+    width: 48px;
+    height: 48px;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+
+
+/* !PHOTOS */
+
+.box_images{
+    width: 1240px;
+    height: 555px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 8px 16px rgba(0, 0, 0, 0.08);
+    border-radius: 36px;
+}
+
+.few_images{
+    width: 295px;
+    height: 200px;
+    padding: 30px;
 }
 
 /* ! HOW TO GET THERE */
