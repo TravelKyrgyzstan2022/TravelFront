@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import post from "./Post.module.css";
-import del from "../../../img/delete-icon.png";
-import { API } from "../../../utils/axiosConfig";
+import post from "./UserBlog.module.css";
+import del from "../../img/delete-icon.png";
+import { API } from "../../utils/axiosConfig";
+import { Link } from "react-router-dom";
 const imgPl = "http://cdn.onlinewebfonts.com/svg/img_148071.png";
 
-const Post = () => {
+const UserBlog = () => {
   const [images, setImages] = useState([imgPl]);
   const [title, setTitle] = useState("");
   const [descr, setDescr] = useState("");
@@ -125,13 +126,15 @@ const Post = () => {
             <div className={post.text}></div>
           </div>
           <div className={post.gCont}></div>
-          <button type="submit" className={post.uploadBtn}>
-            Upload
-          </button>
+          <Link to="/private_office">
+            <button type="submit" className={post.uploadBtn}>
+              Upload
+            </button>
+          </Link>
         </form>
       </div>
     </>
   );
 };
 
-export default Post;
+export default UserBlog;
