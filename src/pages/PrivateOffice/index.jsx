@@ -1,18 +1,12 @@
 import { useRef } from "react";
 import styled from "styled-components";
 import { useCalendarState } from "@react-stately/calendar";
-import { useCalendar, useCalendarGrid } from "@react-aria/calendar";
 import { useLocale, useDateFormatter } from "@react-aria/i18n";
 import { createCalendar } from "@internationalized/date";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import ChevronRightIcon from "@mui/icons-material/ChevronRight";
-import { CalendarCell } from "../../components/CalendarCell";
-import { CalendarButton } from "../../components/CalendarButton";
 import calen from "./index.module.css";
 import Ava from "../../img/ava.svg";
 import FACE_ASK from "../../img/ask_face.svg";
 import PLUS_ADD from "../../img/plus-circle.svg";
-import IMAGE from "../../img/blog_img.png";
 import Add_plus from "../../img/pencil.svg";
 import Background from "../../img/profile_background.png";
 import { useState } from "react";
@@ -22,6 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom";
 import { getBlog, getBlogById, getUserBlog } from "../../api/blogs";
 import { deleteUserPlan, getUserPlans } from "../../api/planer";
+import Delete from "../../img/delete.svg";
 
 const StyledWeekView = styled.div`
   display: inline-grid;
@@ -113,19 +108,21 @@ export function PrivateOffice(props) {
                       src={planner.place.image_urls}
                       alt="place img"
                     />
-                  </div>
-                  <div className={calen.mini_card__right}>
                     <p className={calen.mini_card__title}>
                       {planner.place.name}
                     </p>
                     <button className={calen.level}>{planner.date}</button>
+                  </div>
+                  <div className={calen.mini_card__right}>
                     <div className={calen.tags}>
                       <div className={calen.tag}>Note: {planner.note}</div>
                       <div className={calen.tag}>
                         Address: {planner.place.address}
                       </div>
-                      <button onClick={handleDelete}>Delete</button>
+                      </div>
                     </div>
+                      <div className={calen.mini_card__third}>
+                      <button className={calen.mini_card__btndel} onClick={handleDelete}><img src={Delete} alt="" /></button>
                   </div>
                 </div>
               </div>

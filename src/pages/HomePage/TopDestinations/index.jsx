@@ -8,6 +8,8 @@ import Star from "../../../img/star.svg";
 import Button from "../../../components/Button";
 import Slider from "react-slick";
 import { Link, NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getPlacesTop } from "../../../api/place";
 
 const TopDestinations = ({ place }) => {
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
@@ -29,11 +31,20 @@ const TopDestinations = ({ place }) => {
     initialSlide: 0,
   };
 
+  const dispatch = useDispatch();
+  const top = useSelector((state) => state.place.data);
+
+  console.log("999", top)
+
+  useEffect(() => {
+    dispatch(getPlacesTop());
+  }, []);
+
   return (
     <div className="container">
       <div>
         <Slider {...settings} className="slider">
-          {place.map((places) => (
+          {top.map((places) => (
             <NavLink to={`/details/${places.id}`}>
             <div className="card">
               <div className="img_like">

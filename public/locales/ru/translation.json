@@ -1,11 +1,24 @@
 {
     "home": "Главная",
-    "sightseeing": "Достопримечательность",
+    "sightseeing": "Достопримечательности",
     "welcome": "Добро пожаловать в Кыргызстан!",
     "stay": "Остановиться",
-    "events": "Событие",
+    "events": "События",
     "eat": "Еда",
     "blogs": "Блоги",
     "start": "Начните свое путешествие",
-    "blogsourtravellers": "Блоги наших путешественников"
+    "blogsourtravellers": "Блоги наших путешественников",
+    "topcategories": "Топ категории",
+    "#alpinism": "#alpinism",
+    "benomad": "Benomad is now available on iOS. Click the link below to download",
+    "about": "About us",
+    "explore": "Explore",
+    "contact us": "Contact us",
+    "signIn": "Sign In",
+    "waterfalls": "Водопады",
+    "mountains": "Горы",
+    "lakes": "Озера",
+    "alpinism" : "Альпинизм",
+    "hiking": "Поход",
+    "gorges": "Ущелья"
 }

@@ -40,16 +40,19 @@ const UserProfile = () => {
             id="dateInp"
             placeholder="Select date"
           />
+          <div className={plan.text}>
+            <div className={plan.text_title}>Write the title of note</div>
           <textarea
+          className={plan.text_area}
             type="text"
             name=""
             id=""
             onChange={(e) => setNote(e.target.value)}
-            className={plan.text}
-            placeholder="Note"
+            placeholder="Start typing"
           />
+          </div>
           <button className={plan.btn} type="submit">
-            Add
+          Accept
           </button>
         </form>
       </div>

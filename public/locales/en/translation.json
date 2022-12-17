@@ -6,7 +6,7 @@
     "events": "Events",
     "eat": "Eat",
     "blogs": "Blogs",
-    "topcategories": "Top Categories",
+    "topcategories": "Top categories",
     "blogsourtravellers": "Blogs by our travellers",
     "start": "Start your journey",
     "#alpinism": "#alpinism",
@@ -19,5 +19,7 @@
     "mountains": "Mountains",
     "lakes": "Lakes",
     "alpinism" : "Alpinism",
-    "plantrip": "Plan your trip with us"
+    "plantrip": "Plan your trip with us",
+    "hiking": "Hiking",
+    "gorges": "Gorges"
 }

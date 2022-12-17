@@ -60,14 +60,14 @@ const Navbar = () => {
                 {t("stay")}
               </nav>
             </Link>
-            <Link to="/events">
-              <nav className={`${nav.item} ${style ? nav.active : style}`}>
-                {t("events")}
-              </nav>
-            </Link>
             <Link to="/eat">
               <nav className={`${nav.item} ${style ? nav.active : style}`}>
                 {t("eat")}
+              </nav>
+            </Link>
+            <Link to="/events">
+              <nav className={`${nav.item} ${style ? nav.active : style}`}>
+                {t("events")}
               </nav>
             </Link>
             <Link to="/blogs">
