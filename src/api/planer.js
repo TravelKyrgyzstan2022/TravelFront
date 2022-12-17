@@ -14,9 +14,11 @@ export const getUserPlans = createAsyncThunk(
 );
 
 export const deleteUserPlan = createAsyncThunk(
-  "plans/user",
-  async (id, { rejectWithValue }) => {
+  "plans/deleteUser",
+
+  async ({ id }, { rejectWithValue }) => {
     try {
+      console.log(id);
       const res = await API.delete(`api/v1/user/plans/${id}`);
       return res.data;
     } catch (err) {
