@@ -14,11 +14,11 @@ const blogsByIdSlice = createSlice({
       state.status = "loading";
     },
     [getBlogById.fulfilled]: (state, action) => {
-      state.status = "loading";
+      state.status = "active";
       state.data = action.payload;
     },
     [getBlogById.rejected]: (state, action) => {
-      state.status = "loading";
+      state.status = "active";
       state.message = action.payload;
     },
   },

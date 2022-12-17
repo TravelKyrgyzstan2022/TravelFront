@@ -13,19 +13,17 @@ export const getBlog = createAsyncThunk(
   }
 );
 
-
 export const getBlogById = createAsyncThunk(
   "getBlogById/data",
-  async (id,{ rejectWithValue }) => {
-  try {
+  async (id, { rejectWithValue }) => {
+    try {
       const res = await API.get(`api/v1/blogs/${id}`);
       return res.data;
-  } catch (err) {
+    } catch (err) {
       return rejectWithValue(err.response.data.message);
-  }
+    }
   }
 );
-
 
 export const getUserBlog = createAsyncThunk(
   "blog/user",
