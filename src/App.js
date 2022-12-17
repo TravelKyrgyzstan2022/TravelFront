@@ -8,7 +8,7 @@ import "./components/Location/18n";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
 import { use } from "i18next";
-import BeatLoader from"react-spinners/BeatLoader";
+// import BeatLoader from"react-spinners/BeatLoader";
 
 const PATHES = {
   "/admin": 1,
@@ -25,33 +25,33 @@ const ROLES = {
   ROLE_UNAUTHORIZED: <UserRoute />,
 };
 
-
 function App() {
   const role = useSelector((state) => state.auth.role);
   let location = useLocation();
 
-const { t, i18n } = useTranslation();
-const [isLoading, setIsLoading] = useState(false);
+  const { t, i18n } = useTranslation();
+  const [isLoading, setIsLoading] = useState(false);
 
-
-useEffect(() => {
-  setIsLoading(true)
-  setTimeout(()=>{
-    setIsLoading(false)
-  }, 5000)
-}
-)
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 5000);
+  });
 
   return (
     <>
       {ROLES[role]}
-      {!PATHES[location.pathname] && role !== "ROLE_ADMIN" ? <Navbar i18n={i18n} /> : false}
+      {!PATHES[location.pathname] && role !== "ROLE_ADMIN" ? (
+        <Navbar i18n={i18n} />
+      ) : (
+        false
+      )}
       {/* {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
         <Navbar />
         ) : (
           false
         )} */}
-  
     </>
   );
 }
