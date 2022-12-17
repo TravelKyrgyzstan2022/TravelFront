@@ -22,6 +22,7 @@ import commentSlice from "./globalSlice/commentSlice/commentSlice";
 import blogsByIdSlice from "./globalSlice/blogSlice/blogsByIdSlice";
 import userPlanSlice from "./globalSlice/planerSlice/userPlanSlice";
 import userBlogSlice from "./globalSlice/blogSlice/userBlogSlice";
+import { getPlacesTop } from "../api/place";
 
 export const store = configureStore({
   reducer: {
@@ -48,6 +49,7 @@ export const store = configureStore({
     blogsById: blogsByIdSlice.reducer,
     userBlog: userBlogSlice.reducer,
     userPlan: userPlanSlice.reducer,
+    top: getPlacesTop.reducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

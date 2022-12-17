@@ -109,11 +109,9 @@ select{
 }
 
 .login{
-    width: 103px;
-    height: 55px;
+    padding: 16px 24px;
     border: none solid ;
     border-radius: 28px;
-    margin: 0 20px;
     background-color: #E65C4F;
     color: #fff;
     display: flex;

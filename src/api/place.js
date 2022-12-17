@@ -13,6 +13,19 @@ export const getPlace = createAsyncThunk(
   }
 );
 
+
+export const getPlacesTop = createAsyncThunk(
+  "getPlacesTop/data",
+  async (arg, { rejectWithValue }) => {
+    try {
+      const res = await API.get("api/v1/places/top", arg);
+      return res.data;
+    } catch (err) {
+      return rejectWithValue(err.response.data.message);
+    }
+  }
+);
+
 export const getPlaceById = createAsyncThunk(
   "getPlaceById/data",
   async (id,{ rejectWithValue }) => {

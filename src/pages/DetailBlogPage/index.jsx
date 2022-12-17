@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import details from "./index.module.css";
 import blur from "../../img/blur.png";
-import Footer from "../../components/Footer/Footer";
+// import Footer from "../../components/Footer/Footer";
 import { getBlogById } from "../../api/blogs";
 
 const DetailBlogPage = () => {
@@ -33,7 +33,7 @@ const DetailBlogPage = () => {
             </div>
             </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
         </div>
     );
     };

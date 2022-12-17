@@ -69,8 +69,22 @@
     margin-top: 40px;
 }
 
+.icons_txt{
+    color: #FFFFFF;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.icons_categor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 25%;
+}
+
 .category_title{
     margin: 0;
+    margin-bottom: 20px;
 }
 
 .list{

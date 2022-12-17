@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
 import main from "./HomePage.module.css";
-import gorges from "../../img/gorges.svg";
-import hiking from "../../img/hiking.svg";
-import sights from "../../img/alpinism.svg";
-import waterfall from "../../img/waterfall.svg";
-import mountains from "../../img/mountains.svg";
-import lakes from "../../img/lakes.svg";
+import gorges from "../../img/GORGES_icons.svg";
+import hiking from "../../img/hiking_icons.svg";
+import sights from "../../img/ALPINISM_icons.svg";
+import waterfall from "../../img/waterfall_icons.svg";
+import mountains from "../../img/waves_icons.svg";
+import lakes from "../../img/lakeee.svg";
 import mainbg from "../../img/mainbg.svg";
 import Banner from "../../img/banner.png";
 import { useTheme } from "styled-components";
@@ -52,34 +52,42 @@ const HomePage = () => {
               <div onClick={handleCheckRole}>{t("start")}</div>
             </div>
             <div className={main.cotegory}>
-              <h5 className={main.category_title}>Top categories</h5>
+              <h5 className={main.category_title}>{t("topcategories")}</h5>
               <div className={main.list}>
-                <div>
+                <div >
                   <NavLink to="/gorges">
-                    <img src={gorges} alt="gorges img" />
+                    <img className={main.icons_categor} src={gorges} alt="gorges img" />
+                    <h4 className={main.icons_txt}>{t("gorges")}</h4>
                   </NavLink>
                 </div>
                 <div>
                   <NavLink to="/hiking">
-                    <img src={hiking} alt="hiking img" />
+                    <img className={main.icons_categor} src={hiking} alt="hiking img" />
+                    <h4 className={main.icons_txt}>{t("hiking")}</h4>
                   </NavLink>
                 </div>
                 <div>
                   <NavLink to="/waterfall">
-                    <img src={waterfall} alt="waterfalls img" />
+                    <img className={main.icons_categor}  src={waterfall} alt="waterfalls img" />
+                    <h4 className={main.icons_txt}>{t("waterfalls")}</h4>
                   </NavLink>
                 </div>
                 <div>
-                  <img src={mountains} alt="mountains img" />
-                </div>
-                <NavLink to="/lakes">
-                  <div>
-                    <img src={lakes} alt="lakes img" />
-                  </div>
+                <NavLink to="/alpinism">
+                    <img className={main.icons_categor} src={lakes} alt="lakes img" />
+                  <h4 className={main.icons_txt}>{t("mountains")}</h4>
                 </NavLink>
+                </div>
+                  <div>
+                <NavLink to="/lakes">
+                  <img className={main.icons_categor} src={mountains} alt="mountains img" />
+                    <h4 className={main.icons_txt}>{t("lakes")}</h4>
+                </NavLink>
+                  </div>
                 <div>
                   <NavLink to="/alpinism">
-                    <img src={sights} alt="sight img" />
+                    <img className={main.icons_categor} src={sights} alt="sight img" />
+                    <h4 className={main.icons_txt}>{t("alpinism")}</h4>
                   </NavLink>
                 </div>
               </div>
