@@ -244,6 +244,9 @@ span .ikRinv::after{
     
 }
 
+.mini_card__btndel:hover{
+background-color: #E65C4F;
+}
 
 
 .calendar_delete{
