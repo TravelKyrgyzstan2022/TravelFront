@@ -30,23 +30,11 @@ const Title = styled.h3`
 
 export function PrivateOffice(props) {
   const [selectDate, setSelectDate] = useState("");
-  const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   let { locale } = useLocale();
-  let state = useCalendarState({
-    ...props,
-    visibleDuration: { weeks: 1 },
-    locale,
-    createCalendar,
-  });
-  let ref = useRef();
 
-  useEffect(() => {
-    setSelectDate(
-      "" + state.value.day + "-" + state.value.month + "-" + state.value.year
-    );
-  }, []);
+  let ref = useRef();
 
   const user = useSelector((state) => state.auth.user);
   const blogs = useSelector((state) => state.userBlog.data);
@@ -65,9 +53,9 @@ export function PrivateOffice(props) {
     dispatch(getUserBlog());
   }, []);
 
-  const handleDelete = (e, planId) => {
-    e.preventDefault();
-    dispatch(deleteUserPlan({ id }));
+  const handleDelete = (planId) => {
+    console.log(planner);
+    dispatch(deleteUserPlan({ id: planId }));
   };
 
   return (
@@ -99,13 +87,13 @@ export function PrivateOffice(props) {
             </div>
           </div>
           <div className={calen.blogs1}>
-            {planner.map((planner) => (
+            {planner.map((item) => (
               <div className={calen.padding}>
-                <div className={calen.mini_card}>
+                <div key={item.id} className={calen.mini_card}>
                   <div className={calen.mini_card__img}>
                     <img
                       className={calen.image_card}
-                      src={planner.place.image_urls}
+                      src={item.place.image_urls}
                       alt="place img"
                     />
                     <p className={calen.mini_card__title}>
@@ -114,15 +102,19 @@ export function PrivateOffice(props) {
                     <button className={calen.level}>{planner.date}</button>
                   </div>
                   <div className={calen.mini_card__right}>
+                  </div>
+                  <div className={calen.mini_card__right}>
+                    <p className={calen.mini_card__title}>{item.place.name}</p>
+                    <button className={calen.level}>{item.date}</button>
                     <div className={calen.tags}>
-                      <div className={calen.tag}>Note: {planner.note}</div>
+                      <div className={calen.tag}>Note: {item.note}</div>
                       <div className={calen.tag}>
-                        Address: {planner.place.address}
+                        Address: {item.place.address}
                       </div>
-                      </div>
+
                     </div>
                       <div className={calen.mini_card__third}>
-                      <button className={calen.mini_card__btndel} onClick={handleDelete}><img src={Delete} alt="" /></button>
+                      <button className={calen.mini_card__btndel} onClick={() => handleDelete(item.id)}><img src={Delete} alt="" /></button>
                   </div>
                 </div>
               </div>

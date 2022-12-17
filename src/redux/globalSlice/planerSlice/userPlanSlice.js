@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getUserPlans } from "../../../api/planer";
+import { deleteUserPlan, getUserPlans } from "../../../api/planer";
 
 const userPlanSlice = createSlice({
   name: "userPlan",
@@ -20,6 +20,11 @@ const userPlanSlice = createSlice({
     [getUserPlans.rejected]: (state, action) => {
       state.status = "active";
       state.message = action.payload;
+    },
+    [deleteUserPlan.fulfilled]: (state, action) => {
+      state.status = "active";
+      state.message = action.payload;
+      state.data = state.data.filter((i) => i.id !== action.payload.id);
     },
   },
 });

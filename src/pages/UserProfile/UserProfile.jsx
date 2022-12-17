@@ -26,7 +26,7 @@ const UserProfile = () => {
       }
     };
 
-    getPlanner();
+    getPlanner().then(() => navigate("/private_office"));
   };
   return (
     <>

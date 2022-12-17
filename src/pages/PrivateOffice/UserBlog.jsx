@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import post from "./UserBlog.module.css";
 import del from "../../img/delete-icon.png";
 import { API } from "../../utils/axiosConfig";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const imgPl = "http://cdn.onlinewebfonts.com/svg/img_148071.png";
 
 const UserBlog = () => {
   const [images, setImages] = useState([imgPl]);
   const [title, setTitle] = useState("");
   const [descr, setDescr] = useState("");
+  const navigate = useNavigate();
   function handleImage(e, index) {
     e.preventDefault();
     const reader = new FileReader();
@@ -61,7 +62,7 @@ const UserBlog = () => {
         console.log(error);
       }
     };
-    getUpload();
+    getUpload().then(() => navigate("/private_office"));
   };
 
   return (
@@ -126,11 +127,11 @@ const UserBlog = () => {
             <div className={post.text}></div>
           </div>
           <div className={post.gCont}></div>
-          <Link to="/private_office">
-            <button type="submit" className={post.uploadBtn}>
-              Upload
-            </button>
-          </Link>
+          {/* <Link to="/private_office"> */}
+          <button type="submit" className={post.uploadBtn}>
+            Upload
+          </button>
+          {/* </Link> */}
         </form>
       </div>
     </>
