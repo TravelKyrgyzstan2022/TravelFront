@@ -3,7 +3,7 @@ axios.defaults.baseURL = "https://benomad-backend.herokuapp.com/";
 const API_URL = "/api/auth/";
 
 export const API = axios.create({
-  baseURL: "https://benomad-backend.herokuapp.com/",
+  baseURL: "https://travelkgback-end-production.up.railway.app/",
   headers: {
     ContentType: "application/json",
   },

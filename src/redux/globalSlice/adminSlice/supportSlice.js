@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getSupport } from "../../../api/support";
+import adminSlice from "./adminSlice";
 
 const supportSlice = createSlice({
   name: "getSupport",

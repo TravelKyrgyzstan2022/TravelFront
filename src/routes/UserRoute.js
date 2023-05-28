@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { SignIn } from "../api/auth";
 import Alpinism from "../pages/Alpinism";
@@ -60,9 +59,7 @@ const UserRoute = () => (
       path="/private_office"
       element={<PrivateOffice defaultValue={today(getLocalTimeZone())} />}
     />
-    <Route path="/details_blog/:id" element={<DetailBlogPage/>} />
-
-    {/* <Route path="/*" element={<NotFound />} /> */}
+    <Route path="/details_blog/:id" element={<DetailBlogPage />} />
   </Routes>
 );
 
