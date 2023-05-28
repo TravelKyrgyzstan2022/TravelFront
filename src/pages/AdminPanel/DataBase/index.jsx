@@ -163,6 +163,7 @@ export default function DataBase({ id }) {
 
   const dispatch = useDispatch();
   const users = useSelector((state) => state.user.data);
+  console.log(users);
 
   useEffect(() => {
     dispatch(getUser());
@@ -269,7 +270,7 @@ export default function DataBase({ id }) {
                           <TableCell align="right">{user.last_name}</TableCell>
                           <TableCell align="right">{user.email}</TableCell>
                           <TableCell align="right">
-                            {user.last_visit_date}
+                            {user.last_visit_datetime}
                           </TableCell>
                           <TableCell align="right">
                             {user.role === "ROLE_USER" ? (

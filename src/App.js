@@ -7,8 +7,6 @@ import UserRoute from "./routes/UserRoute";
 import "./components/Location/18n";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
-import { use } from "i18next";
-// import BeatLoader from"react-spinners/BeatLoader";
 
 const PATHES = {
   "/admin": 1,
@@ -47,11 +45,6 @@ function App() {
       ) : (
         false
       )}
-      {/* {!PATHES[location.pathname] && role !== "ROLE_SUPERADMIN" ? (
-        <Navbar />
-        ) : (
-          false
-        )} */}
     </>
   );
 }
